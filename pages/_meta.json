@@ -1,22 +1,12 @@
 {
   "index": "Welcome",
-  "community": "Community",
   "learn": "Learn",
-  "datasci": "Workers",
-  "devs": "Consumers",
-  "nops": "Validators",
-  "reputers": "Reputers",
-  "ref": "Reference",
-  "glossary": "Glossary",
+  "vaults": "Types of Vaults",
   "---": {
     "type": "separator"
   },
-  "paper": {
-    "title": "Litepaper",
-    "href": "https://litepaper.assets.allora.network/allora-litepaper.pdf"
-  },
   "main": {
     "title": "Main Site",
-    "href": "https://allora.network"
+    "href": "https://robonet.finance"
   }
 }

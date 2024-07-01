@@ -1,10 +1,7 @@
 {
-  "overview": {
-    "title": "Overview"
-  },
-  "what": "What is Allora?",
-  "architecture": "Technical Architecture",
-  "cli": "CLI Spec",
-  "consumers": "Consumers",
-  "code": "Open-Source Code"
+  "what": "What is Robonet?",
+  "walkthrough": "Walkthrough",
+  "---": {
+    "type": "separator"
+  }
 }
