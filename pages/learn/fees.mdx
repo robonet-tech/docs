@@ -1,0 +1,12 @@
+# Fees
+
+## Liquidity Provider (LP) Fees
+The vault creator sets LP fees at the time of vault creation. Vault managers can also later update the LP fee percentage. The maximum permissible LP fee is 10%. This fee is paid directly to liquidity providers when they act as the counterparty in buying or selling an NFT during a trade. 
+
+The fee is paid within the vault and added to an LP's liquidity position. Liquidity Providers can withdraw this fee by calling `pullLiquidity` when they withdraw their liquidity position.
+
+## Admin Fees
+Vault creators set admin fees at the time of vault creation. Vault managers can later update the admin fee percentage. The maximum permissible admin fee is 10%. This fee is paid to an `adminRecipient` address set by the admin on every trade with that specific vault.
+
+## Protocol Fees
+The Robonet protocol is currently free to use.

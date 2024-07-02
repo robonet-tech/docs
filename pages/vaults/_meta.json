@@ -2,6 +2,8 @@
   "political-prediction": "Political Prediction",
   "memecoin": "Memecoin",
   "fungible": "Fungible Tokens",
+  "perpetual": "Perpetual Market-Making Agent",
+  "adapter": "Marketplace Adapter Framework",
   "---": {
     "type": "separator"
   }

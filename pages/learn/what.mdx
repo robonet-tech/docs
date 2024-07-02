@@ -1,22 +1,41 @@
 # What is Robonet?
 
-RoboNet is a DeFi-optimized, decentralized yield protocol that gives users passive access to automated, machine-powered yield strategies. Users deposit capital into on-chain “vaults”, 
-each managed by specific machine-powered strategies running on the [Allora Network](https://docs.allora.network).
+Robonet is a decentralized protocol that gives users passive access to automated yield strategies. Users deposit capital into on-chain **“agent vaults”**,
+each managed by a number of unique yield-generating strategies that collectively act as network participants on the [Allora Network](https://docs.allora.network).
 
-RoboNet will be released in several phases. The current release of the protocol has vaults specific to market-making strategies in prediction markets and ERC-20 tokens. RoboNet's end state will enable complex, multi-asset strategies.
+Allora's inference synthesis mechanism allows multiple AI models to contribute to the output of a single strategy, giving Robonet a tool for 
+producing yield-generating strategies from decentralized AI agents. Robonet leverages Allora's context awareness and continuous improvement to optimize 
+its strategies and outperform any single model contributing to the network.
 
-## How Robonet Works
+## How Agent Vaults Work
 
-With Robonet, liquidity providers can deposit ERC-20 tokens into liquidity vaults and receive a Liquidity Pool (LP) position. LP Positions represent ownership of the deposited 
-liquidity and can be traded or farmed to earn additional ERC-20 tokens. RoboNet paves the way for liquidity to become a fundamental building block for DeFi primitives and protocols.
+Agent Vaults are built on top of the [ERC4626](https://docs.openzeppelin.com/contracts/4.x/erc4626) standard for tokenized yield-bearing vaults that represent shares of a single underlying ERC-20 token. 
+As such, agent vaults offer basic functionality for depositing and withdrawing tokens, and reading balances.
 
-When users want to trade a token, they can select from various vaults in RoboNet and trade it the same way as any other token pair. The price of the token is determined by the logic specified in 
-the vault's curve. RoboNet's curve definition is incredibly versatile, enabling vaults that have linear slippage to vaults with curves defined by ML-powered appraisals. By providing 
-liquidity to traders, liquidity providers earn fees and contribute to enhancing the overall efficiency of the market.
+### Agent vaults follow a two-actor model
 
-## Why Robonet?
+#### Liquidity Providers (LPs)
 
-RoboNet makes several key improvements to the AMM and liquidity landscape, making it more composable, expressive, and efficient.
+Users who supply liquidity to agent vaults and receive passive yield generated based on a given agent's performance over time. 
+While LPs can deposit and withdraw at their discretion, they are also responsible for assessing the risks associated with each 
+specific vault.
+
+#### Agents
+
+Autonomous entities that actively manage the LPs' capital, strategically allocating it across various on-chain yield sources. 
+Each agent's logic is fully at its creator's discretion, often coming in the form of advanced algorithms or bot calls. 
+The agent will automatically reinvest accrued rewards and deploy any deposited or idle funds to the yield source. 
+It will also handle any accounting and reporting of important metrics, including:
+
+- APY of the agent
+- total idle (assets not yet deployed to the agent)
+- total debt (assets currently deployed to the agent)
+- performance fee
+- profit locking (profits are released gradually over time to prevent price manipulation of the vault shares)
+
+{/* ## Why Robonet?
+
+Robonet makes several key improvements to the AMM and liquidity landscape, making it more composable, expressive, and efficient.
 
 ### ML-Powered Strategies
 Expressive curve definitions make it possible to create vaults priced using advanced ML-powered strategies, creating capital-backed, on-chain price oracles for assets.
@@ -28,4 +47,4 @@ Liquidity is aggregated across multiple LPs in a single vault to foster deeper m
 Vault creators can specify particular assets for trading, enabling the formation of vaults tailored to unique 'buckets' or tranches of assets.
 
 ### Tokenized LP Positions
-Deposited liquidity is tokenized and represented as ERC-20 tokens, turning liquidity itself into a DeFi primitive for use in other DeFi primitives and protocols.
+Deposited liquidity is tokenized and represented as ERC-20 tokens, turning liquidity itself into a DeFi primitive for use in other protocols. */}
