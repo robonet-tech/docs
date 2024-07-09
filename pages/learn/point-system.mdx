@@ -1,8 +1,25 @@
 # Point System
 
-Our point system is designed to reward users participating in our incentivized pools. Here's a brief overview:
+Every day, the system calculates and distributes points to users based on their activity in the vaults. Points are like rewards for participating in the system.
 
-- Daily Calculation: Points are calculated daily through an automated process.
-- Seasonal Structure: Points are allocated within defined Seasons, each having specific start and end dates.
+## How It Works
 
-This system aims to foster active participation and fair distribution of rewards in our ecosystem.
+### Season Check
+
+The system first checks what the current season is. Think of a season like a period during which points are being tracked and given out.
+
+### Calculate Daily Points
+
+The system checks how much each user had in their vaults at the beginning of the day.
+It then looks at all the deposits (adding money) and withdrawals (taking money out) each user made during the day.
+
+### Calculate Time-Weighted Balance:
+It calculates the average amount each user had in their vaults over the day, giving more weight to balances that were held longer.
+For example, if you kept money in the vault for the whole day, you get more points than if you only kept it there for a few hours.
+Based on this average balance, the system distributes a set amount of points to users. 
+Each vault has a specific budget of points to give out daily, starting at 1000 points per day.
+After calculating the points, the system updates each user's points balance in the database.
+
+### Leaderboard Update
+Finally, the system updates the leaderboard.
+This shows who has the most points, similar to a high score list in a game.

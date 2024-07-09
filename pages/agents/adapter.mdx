@@ -2,7 +2,8 @@
 
 ## What is a marketplace adapter?
 Adapters standardize trading logic and order types across different types of on-chain exchanges. They enable standardized order 
-placement and data fetching calls from the perspective of the market-making strategy contract. Each adapter is customized for a 
-particular exchange's idiosyncrasies to allow this level of standardization. Every adapter smart contract must inherit from 
+placement and data fetching calls from the perspective of the market-making strategy contract.
+
+Each adapter is customized for a particular exchange's idiosyncrasies to allow this level of standardization. Every adapter smart contract must inherit from 
 `IBaseMarketplaceAdapter.sol` and must inherit a set of predefined functions, each with its intended purpose of use from the
  perspective of the strategy.
