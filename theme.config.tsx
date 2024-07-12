@@ -16,7 +16,7 @@ const config: DocsThemeConfig = {
     const {theme} = useTheme();
     return (
       <>
-        <img width="140" height="52" src={theme === "light" ? "/logo/robonet-logo-white.svg" : "/logo/robonet-logo-dark.svg"}/>
+        <img width="140" height="52" src={theme === "light" ? "/logo/robonet-logo-dark.svg" : "/logo/robonet-logo-light.svg"}/>
       </>
     )
   },
