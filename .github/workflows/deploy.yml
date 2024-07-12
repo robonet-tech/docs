@@ -20,5 +20,5 @@ jobs:
         curl -X POST https://api.netlify.com/api/v1/purge \
         -H "Authorization: Bearer $BEARER_TOKEN" \
         -H "Content-Type: application/json" \
-        -d '{"site_id": "e055af19-2946-4564-ac6e-a2dd59fd99d1"}'
+        -d '{"site_id": "4b87970e-40d8-49de-abc9-ca84e934da23"}'
 
