@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig, useTheme } from "nextra-theme-docs";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const config: DocsThemeConfig = {
   useNextSeoProps() {
@@ -14,16 +14,28 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/robonet-finance/docs',
   logo: () => {
     const {theme} = useTheme();
-    return (
-      <>
-        <img width="140" height="52" src={theme === "light" ? "/logo/robonet-logo-dark.svg" : "/logo/robonet-logo-light.svg"}/>
-      </>
-    )
+    // make sure to load the logo only when the component is mounted on client side
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+      console.log("mounted:", true);
+    }, []);
+
+    if (!mounted || !theme) return null;
+    
+    if (theme === "dark" || theme === "system") {
+      return (
+          <img width="140" height="52" src="/logo/robonet-logo-dark.svg"/>
+      )
+    }
+
+    return <img width="140" height="52" src="/logo/robonet-logo-light.svg"/>  
   },
   logoLink: "/",
   head: function useHead() {
     const { title } = useConfig()
-    const socialCard = '/robonet-logo'
+    const socialCard = '/logo/logo-shape-white.png'
 
     return (
       <>
@@ -33,19 +45,19 @@ const config: DocsThemeConfig = {
         <meta httpEquiv="Content-Language" content="en" />
         <meta
           name="description"
-          content="A self-improving decentralized AI network."
+          content="RoboNet unlocks the next era of DeFi with smarter, autonomous AI agents."
         />
         <meta
           name="og:description"
-          content="A self-improving decentralized AI network."
+          content="RoboNet unlocks the next era of DeFi with smarter, autonomous AI agents."
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={socialCard} />
-        <meta name="twitter:site:domain" content="allora.network" />
-        <meta name="twitter:url" content="https://allora.network" />
+        <meta name="twitter:site:domain" content="robonet.finance" />
+        <meta name="twitter:url" content="https://robonet.finance" />
         <meta
           name="og:title"
-          content={title ? title + ' – Allora' : 'Allora'}
+          content={title ? title + ' – RoboNet' : 'RoboNet'}
         />
         <meta name="og:image" content={socialCard} />
         <meta name="apple-mobile-web-app-title" content="Robonet" />
@@ -57,10 +69,10 @@ const config: DocsThemeConfig = {
   primaryHue: { dark: 74.71, light: 190 },
   primarySaturation: { dark: 75.56, light: 55.78 },
   project: {
-    link: 'https://github.com/allora-network'
+    link: 'https://github.com/robonet-tech'
   },
   chat: {
-    link: 'https://discord.com/invite/allora'
+    link: 'https://discord.com/invite/robonet'
   },
   footer: {
     component: (<></>)
