@@ -1,2 +1,101 @@
 # Agent Deployment
 
+### **System Flow Overview**
+
+High-level diagram: Idea → Strategy → Backtest → Optimize → Deployment → Execution → Settlement.
+
+![robonet-flow.png](robonet-flow.png)
+
+*Rationale: Users need to understand the full lifecycle before diving into details.*
+
+### **Strategy Expression**
+
+How user intent becomes structured strategy logic is the critical transformation at the heart of the platform. Here’s what exactly happens: 
+
+### **Step 0:** **Your idea in natural language:**
+
+*"I want to trade BTC using a momentum breakout strategy. Enter long when price breaks above the 20-period high AND the RSI is above 50. Exit when RSI drops below 40 OR price falls 3% from entry. Only trade when the 4-hour trend is bullish (price above 200-period EMA). Risk 2% per trade."*
+
+### **Step 1: Natural language → Trading components**
+
+| **Components** | **Extracted logic** |
+| --- | --- |
+| Asset | BTC-USDT |
+| Entry Trigger | Price > 20-period high |
+| Entry Filter 1 | RSI > 50 |
+| Entry Filter 2 | Price > 200 EMA (trend confirmation) |
+| Exit Condition 1 | RSI < 40 (momentum fading) |
+| Exit Condition 2 | Price drops 3% from entry (stop loss) |
+| Risk Management | 2% position sizing |
+| Direction | Long only |
+
+### **Step 2: Trading components → Strategy code (Python)**
+
+**A. Indicator calculations**
+
+```python
+# Momentum indicators
+rsi_14 = ta.RSI(close, timeperiod=14)
+ema_200 = ta.EMA(close, timeperiod=200)
+
+# Breakout level
+highest_20 = close.rolling(window=20).max()
+
+# Track entry price for stop loss
+entry_price = None
+```
+
+****B. Entry logic**
+
+```python
+# Trend filter: Must be above 200 EMA
+bullish_trend = close > ema_200
+
+# Breakout: Price breaks above 20-period high
+breakout = close > highest_20.shift(1)
+
+# Momentum confirmation: RSI above 50
+momentum_confirmed = rsi_14 > 50
+
+# Combined entry signal
+entry_signal = breakout and momentum_confirmed and bullish_trend
+
+if entry_signal and position == 0:
+    entry_price = close
+    position_size = calculate_position_size(risk_pct=0.02)
+    buy(size=position_size)
+```
+
+**C. Exit logic**
+
+```python
+if position > 0:  # If we're in a long position
+    
+    # Exit 1: Momentum fading (RSI drops below 40)
+    momentum_exit = rsi_14 < 40
+    
+    # Exit 2: Stop loss (3% from entry)
+    stop_loss_hit = close < (entry_price * 0.97)
+    
+    # Exit if either condition triggers
+    if momentum_exit or stop_loss_hit:
+        sell()
+        position = 0
+        entry_price = None
+```
+
+****D. Risk management**
+
+```python
+def calculate_position_size(risk_pct=0.02):
+    """
+    Risk 2% of account per trade
+    Position size adjusted for 3% stop loss distance
+    """
+    account_value = get_account_value()
+    risk_amount = account_value * risk_pct
+    stop_distance = 0.03  # 3% stop loss
+    
+    position_size = risk_amount / stop_distance
+    return position_size
+```

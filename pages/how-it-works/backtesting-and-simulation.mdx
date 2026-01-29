@@ -1,2 +1,91 @@
 # Backtesting and Simulation
 
+This process runs your trading strategy on historical market data to evaluate how it would have performed under real past conditions. The strategy is executed bar-by-bar on OHLCV price data, simulating trades as if they occurred in real time. Performance metrics such as profit, drawdown, win rate, and Sharpe ratio are calculated, while every trade entry, exit, and resulting P&L is fully recorded for detailed analysis.
+
+### The Backtesting Process
+
+**A. Input Data**
+
+- **Historical prices:** OHLCV (Open, High, Low, Close, Volume) candlestick data
+- **Time period:** e.g., BTC-USDT from 2024-01-01 to 2025-12-31
+- **Timeframe:** e.g., 4-hour candles
+- **Initial capital:** e.g., $10,000
+
+**B. Bar-by-Bar Simulation**
+The engine processes each candle sequentially, simulating real-time conditions – only using data available at that moment, never looking ahead:
+
+```java
+For each candle:
+├─ Calculate indicators (RSI, EMA, MACD, etc.)
+├─ Evaluate entry conditions → Generate buy/sell signals
+├─ Evaluate exit conditions → Close positions
+├─ Execute orders (apply fees, slippage)
+├─ Update position state (flat, long, short)
+├─ Record P&L and equity
+└─ Move to next candle
+```
+
+**C. Order Execution Model**
+
+- **Entry/Exit prices:** Typically use next candle's open price after signal
+- **Fees:** Maker/taker fees deducted from each trade (e.g., 0.1%)
+- **Slippage:** Simulated price impact (e.g., 0.05% worse execution)
+- **Position sizing:** Risk-based or fixed capital allocation
+
+**D. Output Metrics**
+
+| **Metric** | **Formula/Meaning** |
+| --- | --- |
+| **Total Return** | (Final Equity - Initial Capital) / Initial Capital |
+| **Max Drawdown** | Largest peak-to-trough equity decline |
+| **Sharpe Ratio** | (Mean Return - Risk-Free Rate) / Standard Deviation of Returns |
+| **Win Rate** | Winning Trades / Total Trades |
+| **Profit Factor** | Gross Profits / Gross Losses |
+| **Avg Win/Loss** | Mean profit per winning/losing trade |
+| **Total Trades** | Number of completed trades |
+
+**E. Benchmark Comparison**
+
+Measures whether the strategy meaningfully outperforms Buy & Hold, both in returns and risk-adjusted performance. For example:
+
+**Strategy:** BTC Momentum Breakout
+
+**Period:** 2023-01-01 to 2024-12-31
+
+**Symbol:** BTC-USDT, 4h timeframe
+
+| **Metric** | **Strategy** | **Buy & Hold** |
+| --- | --- | --- |
+| Total Return | +68% | +112% |
+| Max Drawdown | -13% | -28% |
+| Sharpe Ratio | 1.82 | 1.21 |
+
+### **Monte Carlo Simulation**
+
+This process runs thousands of randomized variations of the same backtest to evaluate the full range of possible outcomes and distinguish skill from randomness. While a single backtest represents only one possible performance path, these simulations account for differences in trade order, the impact of random market noise, and the effects of favorable or unfavorable timing on compounding and results.
+
+### **Method 1: Trade sequence randomization**
+
+1. Run backtest → Get list of all trades (with P&L for each)
+2. Randomly shuffle the order of trades
+3. Recalculate equity curve with shuffled sequence
+4. Repeat 1,000-10,000 times
+5. Analyze distribution of outcomes
+
+A simple example of simulation results:
+
+```java
+Original backtest: +68.5% return
+Monte Carlo (1000 runs):
+├─ Best case (95th percentile): +112%
+├─ Median case (50th percentile): +64%
+├─ Worst case (5th percentile): +22%
+└─ Probability of profit: 87%
+```
+
+### **Method 2: Return Distribution Sampling**
+
+1. Calculate distribution of daily/trade returns
+2. Randomly sample from this distribution
+3. Generate synthetic equity curves
+4. Repeat thousands of times

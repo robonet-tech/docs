@@ -1,2 +1,64 @@
 # Strategy Lab Tools
 
+### Strategy Lab Tools
+
+- Available Tools and Pricing
+    
+    
+    | **Tool** | **Purpose** | **Cost**  |
+    | --- | --- | --- |
+    | **`get_all_strategies`** | List all available trading strategies with optional backtest results. | Free |
+    | **`get_all_symbols`** | Query available trading pairs and exchanges. | Free |
+    | **`get_all_technical_indicators`** | Browse 200+ available technical indicators by category (momentum, trend, volatility, volume, overlap, oscillators, cycle, all) | Free |
+    | **`get_allora_topics`** | Query available Allora ML prediction topics (symbols, timeframes). | Free |
+    | **`get_latest_backtest_results`** | Retrieve recent backtest records with performance metrics. | Free |
+    | **`get_strategy_code`** | View Python source code for a strategy. | $0.10 |
+    | **`get_strategy_versions`** | Compare all versions of a strategy family with performance metrics. | $0.01 |
+    | **`create_strategy`** | Generate strategy from text | ~$2-4 |
+    | **`refine_strategy`** | Modify existing strategy with incremental changes. | ~$1-3 |
+    | **`optimize_strategy`** | Analyze backtest results and improve strategy parameters using LLM reasoning. | ~$3-4 |
+    | **`enhance_with_allora`** | Add Allora ML predictions to strategy and compare performance. | ~$2-3 |
+    | **`generate_ideas`** | Generate innovative strategy concepts based on current market data. | ~$1 |
+    | **`run_backtest`** | Test strategy performance on historical data. | Free |
+    |  |  |  |
+- **Common Workflows**
+    
+    Create & Backtest Strategy
+    
+    ```java
+    // 1. Create
+    create_strategy({ strategy_name: "My_Strategy", description: "..." })
+    
+    // 2. Test (free)
+    run_backtest({ strategy_name: "My_Strategy_v1", symbol: "BTC-USDT", ... })
+    
+    // 3. Refine
+    refine_strategy({ strategy_name: "My_Strategy_v1", changes_description: "..." })
+    
+    ```
+    
+    Add Allora’s ML Predictions
+    
+    ```java
+    // 1. Check available predictions
+    get_allora_topics({ symbol: "ETH-USD" })
+    
+    // 2. Enhance strategy
+    enhance_with_allora({ strategy_name: "ETH_Strategy", ... })
+    
+    // 3. Compare performance
+    run_backtest({ strategy_name: "ETH_Strategy_allora", ... })
+    ```
+    
+    Optimize Existing Strategy
+    
+    ```java
+    // 1. Backtest current version
+    run_backtest({ strategy_name: "Strategy_v1", ... })
+    
+    // 2. Optimize
+    optimize_strategy({ strategy_name: "Strategy_v1", ... })
+    
+    // 3. Compare results
+    get_strategy_versions({ strategy_name: "Strategy_v1" })
+    ```
