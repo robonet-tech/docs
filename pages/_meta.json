@@ -1,7 +1,8 @@
 {
   "index": "Welcome",
-  "learn": "Learn",
-  "agents": "Types of Agents",
+  "product-overview": "Product Overview",
+  "how-it-works": "How It Works",
+  "glossary": "Glossary",
   "---": {
     "type": "separator"
   },
