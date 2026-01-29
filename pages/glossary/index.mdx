@@ -1,2 +1,21 @@
 # Glossary
 
+
+- **Agent** – A software code that executes a trading strategy onchain according to immutable rules. In Robonet, agents are created from validated strategies and deployed to execute trades autonomously with minimal human intervention.
+- **Allora Network** – A decentralized ML network providing price predictions for crypto assets. Robonet strategies can integrate Allora forecasts using **`enhance_with_allora`** to add predictive signals alongside technical indicators.
+- **Backtest** – Historical simulation of a strategy's performance on past market data. Robonet's **`run_backtest`** tool executes strategies on OHLCV data from 2020-present, returning metrics like return, drawdown, and Sharpe ratio.
+- **Capital** – The funds allocated to execute a strategy. In Robonet's vault model, capital is held in ERC-4626 vaults where users retain withdrawal rights where strategy-guarded agents execute trades.
+- **Delegation** – Granting a strategy permission to trade with your capital without transferring ownership. In Robonet vaults, users delegate trading authority to immutable agents while maintaining withdrawal control.
+- **Execution Venue** – The protocol where real trades are executed (DEX, CEX, or protocol). Robonet strategies (when deployed onchain) execute in exchanges like Hyperliquid, Polymarket, or any other DeFi protocol (subjective to available integrations).
+- **Guardrail** – Safety constraints limiting strategy behavior to prevent catastrophic losses. Robonet strategies include guardrails like stop losses, position size limits, and maximum drawdown thresholds defined in risk management rules.
+- **Immutability –** The property that deployed strategy code cannot be changed after deployment. Robonet generates strategies as verifiable code that, when deployed on-chain, becomes permanently unchangeable.
+- **Inference** – ML model predictions used as trading signals. In Robonet, inferences from Allora Network provide price forecasts that strategies can incorporate alongside technical indicators to improve entry/exit timing.
+- **Intent** – A trading idea expressed in natural language. Robonet's **`create_strategy`** tool converts intent into executable strategy code.
+- **MCP (Model Context Protocol)** – The protocol enabling Robonet to invoke external tools and core functions. MCP allows natural language commands to trigger strategy creation, backtesting, optimization, and other platform operations.
+- **Position** – An open trade holding an asset. Robonet strategies track position state (flat, long, short) and metadata (entry price, quantity, timestamp) to evaluate exit conditions.
+- **Privy TEE** - Trusted Execution Environment technology for secure key management and authentication. Robonet uses Privy for wallet creation and transaction signing without exposing private keys.
+- **Slippage** – The difference between expected and actual execution price due to market movement or liquidity. Robonet backtests simulate slippage (configurable, default ~0.05%) to model realistic trading costs.
+- **Strategy** – A formal specification of trading logic defining entry conditions, exit conditions, indicators, and risk rules. In Robonet, strategies are Python classes implementing the Jesse framework that can be backtested and deployed onchain.
+- **Strategy Lab** – Robonet's LLM-powered interface for creating, testing, and refining trading strategies through natural language. Users describe intent, and Strategy Lab generates executable code, runs backtests, and optimizes parameters.
+- **Vault** – A smart contract holding user capital and executing strategy trades. Robonet's planned vault architecture uses ERC-4626 standard where users deposit assets, receive shares, and retain withdrawal rights while agents automate decisions guided by user-owned strategy.
+- **ERC-4626 –** Ethereum standard for tokenized vaults providing unified deposit/withdrawal interfaces. Robonet vaults (when deployed) implement ERC-4626 to issue share tokens representing proportional ownership of vault assets.

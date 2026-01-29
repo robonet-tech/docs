@@ -1,8 +1,5 @@
 {
-  "system-flow-overview": "System Flow Overview",
-  "strategy-expression": "Strategy Expression",
   "backtesting-and-simulation": "Backtesting and Simulation",
   "agent-deployment": "Agent Deployment",
-  "settlement-and-accounting": "Settlement and Accounting",
   "strategy-lab-tools": "Strategy Lab Tools"
 }
