@@ -58,11 +58,3 @@ Integrate Robonet directly into your AI coding assistant workflow. Access 17 spe
 
 [Set Up MCP Server →](/guide/mcp-server)
 
-## Platform Overview
-
-Robonet is a three-tier platform designed for algorithmic trading on Hyperliquid Perpetual:
-- **Frontend**: Next.js web interface for chat-based strategy building
-- **Backend**: FastAPI service handling authentication, credits, and deployments
-- **Workbench**: Jesse framework + MCP server with 200+ technical indicators
-
-Learn more in the [Platform Architecture](/reference/architecture) documentation.

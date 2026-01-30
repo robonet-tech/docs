@@ -9,64 +9,92 @@ Robonet uses a **credit-based billing system** where you pay for what you use. T
 **Key Features:**
 - **Pay-as-you-go**: No subscriptions or recurring charges
 - **Transparent pricing**: Each tool has a fixed or predictable cost
-- **Gasless payments**: x402 protocol enables USDC purchases without paying gas fees
 - **Welcome bonus**: $25 free credits for all new users
-- **Full control**: Withdraw unused credits anytime
 
 ## Pricing Structure
+
+### Understanding Pricing Types
+
+Robonet uses two pricing models:
+
+- **<u>Fixed Pricing:</u>** Tools with a set cost per execution. You pay the same amount every time.
+- **<u>Real Pricing (AI Tools):</u>** AI-powered tools charge based on actual LLM usage with a maximum cap. The actual cost depends on the complexity of your request and can range from $0.01 to the listed maximum. Most executions cost significantly less than the maximum.
+
+---
 
 ### Tool Pricing Categories
 
 Robonet tools are organized into pricing tiers based on computational and AI resource requirements:
 
-#### Free Tools ($0.00)
-- **Market data**: Get trading pair information, available symbols
-- **Strategy browsing**: List your strategies, view strategy details
-- **Backtest results**: View past backtest results
-- **Account info**: Check balances, view transaction history
+#### Free/Low-Cost Data Access ($0.0001-0.10)
+- **Get all strategies** - $0.001: List your strategies
+- **Get strategy code** - $0.10: View strategy source code
+- **Get strategy versions** - $0.01: View version history
+- **Get latest backtest results** - $0.001: View past backtest results
+- **Get all symbols** - $0.001: Get trading pair information
+- **Get all technical indicators** - $0.001: List available indicators
+- **Get Allora topics** - $0.0001: List available ML prediction topics
+- **Get all prediction events** - $0.001: List prediction market events
+- **Get prediction market data** - $0.001: Get market timeseries data
+- **Get top leaderboard strategies** - $0.001: View top-performing strategies
+- **Import strategy** - $0.001: Import existing strategy code
 
-#### Standard Tools ($0.05-0.10)
-- **Run backtest** - $0.10: Test your strategy on historical data
-- **Analyze strategy** - $0.05: Get detailed strategy analysis
+#### Standard Compute Tools ($0.001-0.01)
+- **Run backtest** - $0.001: Test your strategy on historical data (fast, no AI)
+- **Run prediction market backtest** - $0.001: Test prediction market strategies
+- **Run Monte Carlo backtest** - $0.01: Advanced statistical backtesting
 
-#### AI-Powered Tools ($0.25-0.50)
-- **Create strategy** - $0.50: Generate trading strategy from natural language description
-- **Optimize strategy** - $0.50: AI-powered parameter optimization
-- **Generate ideas** - $0.25: Get strategy suggestions based on market conditions
-- **Enhance with Allora** - $0.25: Integrate ML price predictions
+#### AI-Powered Tools (Real pricing, max $1.00-$4.50)
+These tools charge based on actual LLM costs with the following maximums:
+- **Generate ideas** - max $1.00: Get strategy suggestions based on market conditions
+- **Enhance with Allora** - max $2.50: Integrate ML price predictions
+- **Refine strategy** - max $3.00: AI-powered strategy refinement
+- **Optimize strategy** - max $4.00: AI-powered parameter optimization
+- **Create strategy** - max $4.50: Generate complete trading strategy from description
+- **Create prediction market strategy** - max $4.50: Generate prediction market strategies
 
-#### Deployment Tools ($0.50-1.00)
-- **Deploy strategy** - $1.00: Deploy your strategy to live trading infrastructure
-- **Start live trading** - $0.50: Activate a deployed strategy
-- **Stop live trading** - $0.00: Free to stop trading anytime
+::: tip Real Pricing Explained
+AI tools show a maximum price, but typically cost much less. For example, "create strategy" has a max of $4.50 but simple strategies might only cost $0.50-$1.50. You're only charged for the actual LLM tokens used, not the maximum.
+:::
+
+#### Deployment Tools ($0.05)
+- **Create deployment** - $0.05: Create new deployment (EOA or Vault)
+- **List deployments** - $0.05: View your deployments
+- **Start live trading** - $0.05: Activate a deployed strategy
+- **Stop live trading** - $0.05: Stop a running strategy
 
 ::: tip Cost Control
-Start with cheaper tools like "generate ideas" ($0.25) to explore concepts before using "create strategy" ($0.50). Use the free "get strategy" tool to review your strategies before backtesting ($0.10).
+Start with free data access tools (get all symbols, get all strategies) to explore. Use "generate ideas" (typically $0.20-0.50) to explore concepts before using "create strategy" (typically $0.50-2.00 but max $4.50). Test with "run backtest" ($0.001) before deploying.
 :::
 
 ### Typical Workflow Costs
 
-Here are estimated costs for common workflows:
+Here are estimated costs for common workflows (using typical AI costs, not maximums):
 
-**Exploring Strategy Ideas** (~$0.50):
-- Generate ideas: $0.25
-- Create strategy: $0.50
-- **Total**: $0.75
+**Exploring Strategy Ideas** (~$0.40-1.20):
+- Generate ideas: ~$0.20-0.50 (max $1.00)
+- Create strategy: ~$0.80-2.00 (max $4.50)
+- **Typical Total**: ~$1.00-2.50
 
-**Testing a Strategy** (~$1.10):
-- Create strategy: $0.50
-- Run backtest: $0.10
-- Optimize strategy: $0.50
-- **Total**: $1.10
+**Testing a Strategy** (~$1.00-3.50):
+- Create strategy: ~$0.80-2.00 (max $4.50)
+- Run backtest: $0.001
+- Optimize strategy: ~$0.60-1.50 (max $4.00)
+- **Typical Total**: ~$1.40-3.50
 
-**Enhanced Strategy with Allora** (~$1.60):
-- Create strategy: $0.50
-- Enhance with Allora: $0.25
-- Run backtest: $0.10
-- Optimize strategy: $0.50
-- Run final backtest: $0.10
-- Deploy strategy: $1.00
-- **Total**: $2.45
+**Enhanced Strategy with Allora** (~$2.50-6.00):
+- Create strategy: ~$0.80-2.00 (max $4.50)
+- Enhance with Allora: ~$0.50-1.20 (max $2.50)
+- Run backtest: $0.001
+- Optimize strategy: ~$0.60-1.50 (max $4.00)
+- Run final backtest: $0.001
+- Create deployment: $0.05
+- **Typical Total**: ~$2.00-5.00
+
+**Quick Strategy Iteration** (~$0.002):
+- Get all symbols: $0.001
+- Run backtest: $0.001
+- **Total**: $0.002
 
 ## Payment Methods
 
@@ -256,7 +284,9 @@ Yes. If a tool execution fails, credits are automatically refunded to your accou
 
 ### How are AI tool costs calculated?
 
-Most tools have **fixed pricing** ($0.05-1.00 per execution). For tools with variable costs (based on LLM usage), the system reserves the maximum possible cost upfront and only charges the actual cost after execution.
+AI-powered tools use **real pricing** based on actual LLM token usage. The system reserves the maximum possible cost upfront (e.g., $4.50 for "create strategy"), but only charges the actual cost after execution. Simple requests might cost $0.50-1.00, while complex multi-step strategies might cost $2.00-4.00. You're never charged more than the stated maximum.
+
+Non-AI tools have **fixed pricing** ($0.0001-0.10 per execution) and always cost the same amount.
 
 ### Is there a discount for high-volume usage?
 
@@ -308,11 +338,13 @@ Yes. Robonet uses industry-standard wallet authentication (Privy) and never hand
 ### How can I optimize my costs?
 
 **Cost-saving tips:**
-- Use free tools (get strategy, market data) before paid tools
-- Start with "generate ideas" ($0.25) before "create strategy" ($0.50)
-- Review backtest results carefully before running optimization ($0.50)
-- Test strategies on shorter time periods first
-- Use the welcome bonus ($25) to experiment
+- Use low-cost data access tools ($0.001) to explore before AI tools
+- Start with "generate ideas" (~$0.20-0.50) before "create strategy" (~$0.80-2.00)
+- Keep AI prompts clear and concise to minimize LLM token usage
+- Use "run backtest" ($0.001) multiple times before optimization
+- Review backtest results carefully before running optimization (~$0.60-1.50)
+- Test strategies on shorter time periods first (same cost, faster results)
+- Use the welcome bonus ($25) to experiment with different workflows
 
 ---
 
@@ -327,8 +359,11 @@ If you have questions about billing or need assistance:
 
 ::: tip Getting Started
 New users receive a $25 welcome bonus. This is enough to:
-- Generate 100 strategy ideas
-- Create 50 strategies
-- Run 250 backtests
-- Optimize 50 strategies
+- Generate 25-125 strategy ideas (depending on complexity)
+- Create 5-30 strategies (depending on complexity)
+- Run 25,000 backtests
+- Optimize 6-40 strategies (depending on complexity)
+- Run 250,000 data access queries
+
+Remember: AI tools show maximum prices but typically cost 20-50% of the maximum. Your $25 will go further than you think!
 :::

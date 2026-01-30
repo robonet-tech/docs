@@ -4,31 +4,13 @@ Robonet backtests run on the Jesse Framework with production-grade historical da
 
 ## Running Backtests
 
-### Chat Interface
-
 Request backtests conversationally:
 ```
-"Backtest MomentumStrategy on ETH-USDC from 2024-01-01 to 2024-06-30 using 4h timeframe"
+"Backtest Momentum Strategy on ETH-USDC from 2024-01-01 to 2024-06-30 using 4h timeframe"
 "Run a backtest on BTC-USDC for the last 6 months"
 ```
 
 Results display as equity curve charts and performance metrics. See [Chat Interface Guide](/guide/chat-interface) for details.
-
-### MCP Server
-
-Use the `run_backtest` tool programmatically:
-
-```json
-{
-  "strategy_name": "MomentumStrategy",
-  "symbol": "BTC-USDC",
-  "timeframe": "4h",
-  "start_date": "2024-01-01",
-  "end_date": "2024-06-30"
-}
-```
-
-Returns structured JSON with metrics and equity curve data. See [MCP Tools Reference](/reference/mcp-tools#run-backtest) for complete API documentation.
 
 ## Parameters
 
@@ -53,23 +35,6 @@ Returns structured JSON with metrics and equity curve data. See [MCP Tools Refer
 | **warmup_candles** | Indicator warmup period | 300 | 50 - 1000 |
 
 Default fee (0.04%) matches Hyperliquid's maker/taker rates. Default slippage (0.1%) is conservative for typical market conditions.
-
-**MCP example with custom config:**
-```json
-{
-  "strategy_name": "MomentumStrategy",
-  "symbol": "BTC-USDC",
-  "timeframe": "4h",
-  "start_date": "2024-01-01",
-  "end_date": "2024-06-30",
-  "config": {
-    "starting_balance": 50000,
-    "leverage": 2,
-    "fee": 0.0005,
-    "slippage": 0.002
-  }
-}
-```
 
 ## Result Metrics
 
