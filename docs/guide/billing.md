@@ -98,32 +98,34 @@ Here are estimated costs for common workflows (using typical AI costs, not maxim
 
 ## Payment Methods
 
-Robonet supports two ways to purchase credits:
+Robonet supports two ways to purchase credits through the following interface:
 
-### 1. Gasless Payment (Recommended)
+![Buying credits](./buying-credits.png)
 
-The **x402 protocol** enables you to purchase credits with USDC without paying gas fees. A third-party facilitator pays the gas on your behalf.
+### 1. Credit Card Payment (Recommended)
+
+Purchase credits directly with your credit or debit card using [Privy](https://privy.io)'s secure payment infrastructure. No cryptocurrency wallet required.
 
 **How it works:**
 1. Click "Buy Credits" in the web interface
-2. Enter the amount in USDC (minimum $1.00)
-3. Approve the transaction in your wallet (no gas required)
-4. Credits appear instantly in your account
+2. Enter the amount in USD (minimum $1.00)
+3. Enter your card details in the secure Privy payment form
+4. Complete the payment
+5. Credits appear instantly in your account
 
-**Screenshot placeholder:** Buy Credits modal showing amount input and x402 payment flow
+**Supported Cards:**
+- Visa, Mastercard, American Express
+- Debit and credit cards
+- No cryptocurrency knowledge required
+- Instant credit delivery
 
-**Supported x402 Facilitators:**
-- Dexter (11M+ transactions, $737K+ volume)
-- PayAI (13.4M+ transactions, $323K+ volume)
-- Coinbase CDP (requires API keys)
-
-::: tip No Gas Fees
-x402 payments don't require you to hold ETH or pay gas fees. The facilitator handles all on-chain settlement and gas costs.
+::: tip Easy Onboarding
+Credit card payments are the fastest way to get started. No need to acquire USDC or manage crypto wallets - just pay with your card and start building strategies immediately.
 :::
 
-### 2. Direct On-Chain Deposit
+### 2. Direct On-Chain USDC Deposit
 
-You can deposit USDC directly from any wallet to your Robonet deposit address.
+You can deposit USDC directly from any crypto wallet to your Robonet deposit address.
 
 **How it works:**
 1. Navigate to "Deposit" in your account settings
@@ -133,25 +135,13 @@ You can deposit USDC directly from any wallet to your Robonet deposit address.
 
 **Network Details:**
 - **Chain**: Base mainnet (Chain ID: 8453)
-- **Token**: USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+- **Token**: USDC (`0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`)
 - **Minimum**: $1.00 USDC
 - **Confirmations required**: 12 blocks
-
-**Screenshot placeholder:** Deposit address display with QR code and copy button
 
 ::: warning Network Selection
 Make sure you're sending USDC on the **Base network**, not Ethereum mainnet or other chains. Sending to the wrong network will result in lost funds.
 :::
-
-## Billing Cycles
-
-**There are no billing cycles.** Robonet operates on a pure usage-based model:
-
-- Credits are purchased once and remain valid indefinitely
-- Tools deduct credits immediately when executed
-- No monthly/annual subscriptions
-- No automatic renewals
-- No expiration dates
 
 ## Account Balance & Limits
 
@@ -160,8 +150,8 @@ Make sure you're sending USDC on the **Base network**, not Ethereum mainnet or o
 You can view your current balance at any time:
 
 **In the web interface:**
-- Balance displayed in the top right corner
-- Click for detailed breakdown of deposits, spending, and withdrawals
+- Open the right sidebar by clicking the top-right button containing your wallet address
+- Balance is displayed beneath your username
 
 **Via API:**
 ```bash
@@ -196,77 +186,10 @@ To ensure fair usage, Robonet enforces these limits:
 
 **Credit Limits:**
 - Minimum purchase: $1.00 USDC
-- Minimum withdrawal: $1.00 USDC
 - No maximum limits
 
 **Account Blocking:**
 If your balance goes negative (rare edge case), your account is automatically blocked until the balance is resolved.
-
-## Managing Credits
-
-### Viewing Transaction History
-
-**In the web interface:**
-1. Go to Account Settings → Billing
-2. View paginated list of all transactions
-3. Filter by type: deposits, spending, withdrawals, refunds
-
-**Via API:**
-```bash
-GET /api/v1/credits/transactions?page=1&limit=50
-```
-
-**Transaction Types:**
-- **Deposit**: Credits added via x402 or on-chain transfer
-- **Spend**: Credits deducted for tool usage
-- **Withdraw**: Credits sent back to your wallet
-- **Refund**: Credits returned if tool execution fails
-- **Failed deduction**: Insufficient balance during tool execution
-
-Each transaction shows:
-- Amount in USDC (6 decimal precision)
-- Balance before/after
-- Transaction status (pending, confirmed, failed, reversed)
-- On-chain transaction hash (for deposits/withdrawals)
-- Tool name (for spending transactions)
-- Timestamp
-
-### Withdrawing Credits
-
-You can withdraw your deposited credits back to your wallet at any time (if withdrawals are enabled by the platform).
-
-**How it works:**
-1. Go to Account Settings → Billing → Withdraw
-2. Enter the amount to withdraw (minimum $1.00)
-3. Confirm the withdrawal
-4. USDC is sent to your connected wallet on Base network
-
-**Withdrawal Rules:**
-- Only deposited credits can be withdrawn (welcome bonus excluded)
-- Withdrawable amount = total deposited - total withdrawn
-- No withdrawal fees (configurable by platform)
-- Withdrawals processed via hot wallet
-
-::: warning Withdrawal Availability
-Withdrawals may not be enabled in all environments. Check your account settings to see if this feature is available.
-:::
-
-### Credit Reservations
-
-When you execute a tool, credits are **reserved** before execution begins. This prevents race conditions where your balance changes mid-execution.
-
-**How it works:**
-1. Tool requests execution
-2. System reserves the required credits (locks them)
-3. Tool executes
-4. Credits are deducted based on actual cost
-5. Any excess reserved credits are released back to your balance
-
-**Reservation Details:**
-- Reservations expire after 10 minutes if not confirmed
-- Reserved credits are subtracted from your available balance
-- Expired reservations are automatically released
-- You can see active reservations in your account details
 
 ## Frequently Asked Questions
 
@@ -280,7 +203,7 @@ Tools will fail to execute if you don't have sufficient credits. You'll receive 
 
 ### Can I get a refund?
 
-Yes. If a tool execution fails, credits are automatically refunded to your account. You can also withdraw your deposited credits at any time (if withdrawals are enabled).
+If a tool execution fails, credits are automatically refunded to your account. You can also withdraw your deposited credits at any time (if withdrawals are enabled).
 
 ### How are AI tool costs calculated?
 
@@ -294,22 +217,22 @@ Currently, pricing is the same for all users. Enterprise or high-volume users ca
 
 ### What payment methods are supported?
 
-Robonet accepts USDC stablecoin via:
-1. **x402 gasless payment** (recommended) - no gas fees required
-2. **Direct on-chain deposit** to your deposit address on Base network
+Robonet accepts payments via:
+1. **Credit/debit card** via [Privy](https://privy.io) (recommended) - instant, no crypto required
+2. **Direct USDC deposit** to your deposit address on Base network
 
-### Do I need ETH to use the platform?
+### Do I need cryptocurrency to use Robonet?
 
-No. The recommended x402 payment method doesn't require ETH or gas fees. The facilitator covers all gas costs.
+No. You can purchase credits with a regular credit or debit card via [Privy](https://privy.io). No cryptocurrency wallet or knowledge is required. However, if you prefer, you can also deposit USDC directly on the Base network.
 
 ### What blockchain network do you use?
 
-Robonet's payment system operates on **Base** (Ethereum L2 network, Chain ID: 8453) using USDC as the payment token.
+Robonet's payment system operates on **Base** (Ethereum L2 network, Chain ID: 8453) using USDC as the payment token.  Agents and vaults may exist on other chains, which will be stated in the UI.
 
 ### How long do deposits take?
 
-- **x402 payments**: Instant (usually <30 seconds)
-- **On-chain deposits**: 2-3 minutes (after 12 block confirmations)
+- **Credit card payments**: Instant (usually <30 seconds)
+- **On-chain USDC deposits**: 2-3 minutes (after 12 block confirmations)
 
 ### What happens to my credits if I stop using Robonet?
 
@@ -317,7 +240,7 @@ Your credits remain valid indefinitely. You can withdraw them back to your walle
 
 ### Are there any hidden fees?
 
-No hidden fees. All tool costs are displayed upfront, and there are no withdrawal fees (unless configured by the platform). The x402 facilitator covers gas costs.
+No hidden fees. All tool costs are displayed upfront, and there are no withdrawal fees (unless configured by the platform). Credit card payments are processed securely through Privy with transparent pricing.
 
 ### How do I track my spending?
 
@@ -333,7 +256,7 @@ Credit reservations expire after 10 minutes if the tool doesn't complete. The cr
 
 ### Is my payment information secure?
 
-Yes. Robonet uses industry-standard wallet authentication (Privy) and never handles your private keys. All payments are on-chain and transparent. The x402 protocol uses cryptographic signatures for gasless payments.
+Yes. Robonet uses [Privy](https://privy.io) for secure authentication and payment processing. We never handle or store your credit card information or private keys. Credit card payments are processed through Privy's PCI-compliant infrastructure, and USDC payments are on-chain and transparent.
 
 ### How can I optimize my costs?
 

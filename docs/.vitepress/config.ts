@@ -1,14 +1,14 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Robonet Documentation',
+  title: ' ',
   description: 'Build and deploy agentic trading bots',
 
   // Allow dead links for initial setup - these pages will be created in future stories
   ignoreDeadLinks: true,
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: 'https://robonet.finance/images/logo/logo.svg',
 
     nav: [
       { text: 'Guide', link: '/guide/' },
