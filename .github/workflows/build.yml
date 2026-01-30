@@ -20,6 +20,3 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    - name: Run MDX link check script
-      run: node ./scripts/fixRelativeLinks.js

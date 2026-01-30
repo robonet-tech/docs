@@ -1,35 +1,76 @@
-# docs
+# Robonet Documentation
 
-Source code for `docs.allora.network`
+This is the official documentation site for Robonet, built with VitePress.
 
-Built with `yarn` and NodeJS `v20.12.2`
+## Development
 
-## Instructions
+### Prerequisites
 
-**Development:**
-```
-yarn dev
-```
-then navigate to http://localhost:3000
+- Bun 1.3.6 or higher
+- Node.js 20 or higher
 
-**Production:**
-```
-yarn build && yarn start
+### Setup
+
+```bash
+bun install
 ```
 
-## Fix Links
+### Development Server
 
-To fix links in the markdown files, run the following command:
-```
-yarn fixlinks
+```bash
+bun run dev
 ```
 
-If duplicate filenames are desirable, one can run the command as:
-```
-yarn fixlinks | grep Broken
-```
-to only see the broken links, no logs of duplicate filenames.
+This will start the development server at `http://localhost:5173`.
 
-## License
+### Build
 
-[Apache 2.0](LICENSE)
+```bash
+bun run build
+```
+
+This generates static files in `docs/.vitepress/dist`.
+
+### Preview Production Build
+
+```bash
+bun run preview
+```
+
+### Quality Checks
+
+Before committing, ensure these pass:
+
+```bash
+# Type checking
+bun run typecheck
+
+# Linting
+bun run lint
+
+# Build
+bun run build
+```
+
+## Deployment
+
+The site is configured for automatic deployment to Netlify. Push to the main branch to trigger a deployment.
+
+## Project Structure
+
+```
+robonet-docs/
+├── docs/
+│   ├── .vitepress/
+│   │   ├── config.ts        # VitePress configuration
+│   │   └── theme/           # Custom theme
+│   ├── guide/               # User guides
+│   ├── reference/           # Reference documentation
+│   └── index.md             # Homepage
+├── netlify.toml             # Netlify configuration
+└── package.json
+```
+
+## Contributing
+
+Documentation is maintained internally. For questions or issues, please contact the Allora Network team.
