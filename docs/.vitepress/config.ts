@@ -35,7 +35,7 @@ export default defineConfig({
             { text: 'Strategy Creation', link: '/guide/strategies' },
             { text: 'Backtesting', link: '/guide/backtesting' },
             { text: 'Optimization', link: '/guide/optimization' },
-            { text: 'Allora Integration', link: '/guide/allora' },
+            { text: 'Allora AI Price Predictions', link: '/guide/allora' },
             { text: 'Deployment', link: '/guide/strategy-deployment' },
           ]
         },

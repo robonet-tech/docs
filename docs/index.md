@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Robonet
   text: Build and Deploy Agentic Trading Bots
-  tagline: Create powerful trading strategies with AI assistance, backtest them, and deploy them to Hyperliquid Perpetual
+  tagline: Create powerful trading strategies with AI assistance, backtest them, and deploy them to web3 exchanges
   actions:
     - theme: brand
       text: Quick Start

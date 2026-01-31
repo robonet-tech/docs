@@ -1,4 +1,4 @@
-# Allora Network Integration
+# Allora AI Price Predictions
 
 Allora Network provides machine learning-powered price predictions that can enhance your trading strategies. This guide explains how Allora predictions work and how to leverage them in your strategies.
 
