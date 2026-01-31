@@ -9,13 +9,12 @@ This reference lists all available MCP tools in Robonet's MCP server. Each tool 
 - [Backtesting & Analysis](#backtesting-analysis) - Test and optimize strategy performance
 - [Prediction Market Tools](#prediction-market-tools) - Build and test Polymarket strategies
 
----
 
 ## Data Access Tools
 
 Fast, low-cost tools for browsing and retrieving data. Execution time: <1s.
 
-### get_all_strategies
+### `get_all_strategies`
 
 **Description:** Returns list of all your trading strategies with metadata.
 
@@ -35,7 +34,7 @@ Use get_all_strategies with include_latest_backtest=true to see all my strategie
 
 ---
 
-### get_strategy_code
+### `get_strategy_code`
 
 **Description:** Returns Python source code for a specified trading strategy.
 
@@ -55,7 +54,7 @@ Use get_strategy_code with strategy_name="MomentumBreakout_h" to see the impleme
 
 ---
 
-### get_strategy_versions
+### `get_strategy_versions`
 
 **Description:** Returns version history and metadata for a strategy lineage.
 
@@ -75,7 +74,7 @@ Use get_strategy_versions with base_strategy_name="MomentumBreakout" to see all 
 
 ---
 
-### get_all_symbols
+### `get_all_symbols`
 
 **Description:** Returns list of tracked trading symbols from Hyperliquid Perpetual.
 
@@ -96,7 +95,7 @@ Use get_all_symbols with active_only=true to see which pairs I can trade
 
 ---
 
-### get_all_technical_indicators
+### `get_all_technical_indicators`
 
 **Description:** Returns list of 200+ technical indicators available in Jesse framework.
 
@@ -115,7 +114,7 @@ Use get_all_technical_indicators to see what indicators are available
 
 ---
 
-### get_allora_topics
+### `get_allora_topics`
 
 **Description:** Returns list of Allora Network price prediction topics with metadata.
 
@@ -134,7 +133,7 @@ Use get_allora_topics to see which assets have ML predictions available
 
 ---
 
-### get_latest_backtest_results
+### `get_latest_backtest_results`
 
 **Description:** Returns the most recent backtest results for a strategy.
 
@@ -158,7 +157,7 @@ Use get_latest_backtest_results with strategy_name="MomentumBreakout_h" to see r
 
 Tools that use AI agents to generate, optimize, and enhance trading strategies. Execution time: 20-60s.
 
-### create_strategy
+### `create_strategy`
 
 **Description:** Generate complete trading strategy code with AI based on your requirements.
 
@@ -185,7 +184,7 @@ Use create_strategy to build a momentum strategy that:
 
 ---
 
-### generate_ideas
+### `generate_ideas`
 
 **Description:** Creates innovative strategy concepts based on current Hyperliquid market data.
 
@@ -207,7 +206,7 @@ Use generate_ideas with strategy_count=3 to get three innovative strategy concep
 
 ---
 
-### optimize_strategy
+### `optimize_strategy`
 
 **Description:** Analyzes and improves strategy parameters using backtesting data and AI.
 
@@ -233,7 +232,7 @@ Use optimize_strategy on "MomentumBreakout_h" for BTC-USDT 1h from 2024-01-01 to
 
 ---
 
-### enhance_with_allora
+### `enhance_with_allora`
 
 **Description:** Adds machine learning price predictions from Allora Network to strategy logic.
 
@@ -259,7 +258,7 @@ Use enhance_with_allora on "MomentumBreakout_h" for ETH-USDT 4h from 2024-01-01 
 
 ---
 
-### refine_strategy
+### `refine_strategy`
 
 **Description:** Apply iterative refinements to existing strategies with AI code editing.
 
@@ -287,7 +286,7 @@ Use refine_strategy on "MomentumBreakout_h" to tighten stop loss from 3% to 2% a
 
 Compute-intensive tools for testing strategy performance on historical data. Execution time: 20-40s.
 
-### run_backtest
+### `run_backtest`
 
 **Description:** Test strategy performance on historical data with comprehensive metrics.
 
@@ -322,7 +321,7 @@ Use run_backtest on "MomentumBreakout_h" for BTC-USDT 1h from 2024-01-01 to 2024
 
 Specialized tools for building and testing Polymarket prediction market strategies. Execution time varies.
 
-### create_prediction_market_strategy
+### `create_prediction_market_strategy`
 
 **Description:** Generate Polymarket strategy code with YES/NO token trading logic.
 
@@ -348,7 +347,7 @@ Use create_prediction_market_strategy to build a "PriceThreshold" strategy that:
 
 ---
 
-### get_all_prediction_events
+### `get_all_prediction_events`
 
 **Description:** Returns list of available Polymarket prediction events with metadata.
 
@@ -369,7 +368,7 @@ Use get_all_prediction_events with market_status="PENDING" to see active markets
 
 ---
 
-### get_prediction_market_data
+### `get_prediction_market_data`
 
 **Description:** Returns detailed timeseries data for a specific prediction market.
 
@@ -391,7 +390,7 @@ Use get_prediction_market_data with event_id="0x123abc..." to analyze market his
 
 ---
 
-### run_prediction_market_backtest
+### `run_prediction_market_backtest`
 
 **Description:** Test prediction market strategy performance on historical market data.
 
