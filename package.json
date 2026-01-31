@@ -1,15 +1,26 @@
 {
-  "dependencies": {
-    "next": "^14.2.3",
-    "nextra": "^2.13.4",
-    "nextra-theme-docs": "^2.13.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
+  "name": "robonet-docs",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "fixlinks": "node scripts/fixRelativeLinks.js"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint docs --ext .js,.ts,.vue,.md"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-markdown": "^5.1.0",
+    "eslint-plugin-vue": "^10.7.0",
+    "vitepress": "^1.6.4",
+    "vue-tsc": "^3.2.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
