@@ -30,13 +30,13 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Workflows',
+          text: 'Strategy Workflows',
           items: [
-            { text: 'Strategy Creation', link: '/guide/strategies' },
+            { text: 'Develop Strategy', link: '/guide/strategies' },
             { text: 'Backtesting', link: '/guide/backtesting' },
             { text: 'Optimization', link: '/guide/optimization' },
             { text: 'Allora AI Price Predictions', link: '/guide/allora' },
-            { text: 'Deployment', link: '/guide/strategy-deployment' },
+            { text: 'Deploy Strategy', link: '/guide/strategy-deployment' },
           ]
         },
         {
