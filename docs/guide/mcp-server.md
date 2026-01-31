@@ -158,7 +158,7 @@ AI: [Calls deployment_create tool]
 
 For a complete reference of all 17 MCP tools with detailed parameters and examples, see:
 
-→ [MCP Tools Reference](/reference/mcp-tools)
+→ [MCP Tools Reference](/guide/mcp-tools)
 
 ## Troubleshooting
 
@@ -235,7 +235,7 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 
 ## Next Steps
 
-- **Learn more about MCP tools**: [MCP Tools Reference](/reference/mcp-tools)
+- **Learn more about MCP tools**: [MCP Tools Reference](/guide/mcp-tools)
 - **Understand backtesting**: [Backtesting Guide](/guide/backtesting)
 - **Deploy your strategy**: [Deployment Guide](/guide/deployment)
 - **Explore Allora integration**: [Allora Network Guide](/guide/allora)

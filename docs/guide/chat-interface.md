@@ -505,7 +505,7 @@ The AI can:
 
 **External Resources:**
 
-- [MCP Tools Reference](/reference/mcp-tools) - Full list of available tools
+- [MCP Tools Reference](/guide/mcp-tools) - Full list of available tools
 - [Backtesting Guide](/guide/backtesting) - Deep dive into backtest analysis
 - [Deployment Guide](/guide/deployment) - Detailed deployment documentation
 - [Discord Community](https://discord.gg/allora) - Ask questions and share strategies
@@ -518,7 +518,7 @@ The AI can:
 - [Learn About Backtesting](/guide/backtesting) in detail
 - [Understand Allora Integration](/guide/allora) for ML predictions
 - [Review Billing & Credits](/guide/billing) for cost management
-- [Read MCP Tools Reference](/reference/mcp-tools) for all available tools
+- [Read MCP Tools Reference](/guide/mcp-tools) for all available tools
 
 ---
 

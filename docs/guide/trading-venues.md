@@ -16,7 +16,7 @@ Robonet currently supports trading on **Hyperliquid Perpetual** only. Support fo
 - USDC-denominated positions
 
 **Supported Pairs:**
-Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_symbols`](/reference/mcp-tools#get_all_symbols) MCP tool to see the current list of available trading pairs.
+Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_symbols`](/guide/mcp-tools#get_all_symbols) MCP tool to see the current list of available trading pairs.
 
 **Deployment Types:**
 - **EOA (Externally Owned Account):** Trade directly with your wallet
@@ -130,7 +130,7 @@ Use the `get_all_symbols` MCP tool to retrieve the current list of supported tra
 
 ## Related Documentation
 
-- [MCP Tools Reference](/reference/mcp-tools) - See `get_all_symbols` tool for listing available pairs
+- [MCP Tools Reference](/guide/mcp-tools) - See `get_all_symbols` tool for listing available pairs
 - [Wallet Integration](/guide/wallet) - Setup wallet for Hyperliquid trading
 - [Deployment Guide](/guide/deployment) - Deploy strategies to Hyperliquid (EOA or Vault)
 - [Strategy Creation](/guide/strategies) - Build strategies for Hyperliquid

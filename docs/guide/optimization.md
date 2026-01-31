@@ -118,7 +118,7 @@ The MCP tool will:
 4. Create `{StrategyName}_optimized/` folder with improved code
 5. Return JSON summary with before/after comparison
 
-See the [MCP Tools Reference](/reference/mcp-tools#optimize-strategy) for detailed parameters.
+See the [MCP Tools Reference](/guide/mcp-tools#optimize-strategy) for detailed parameters.
 
 ## Available Parameters
 
@@ -526,7 +526,7 @@ The AI assistant will analyze your metrics and provide guidance.
 - **Backtest your optimized strategy**: See [Backtesting Guide](/guide/backtesting) to validate performance
 - **Enhance with ML predictions**: Learn about [Allora Integration](/guide/allora) for AI-powered signals
 - **Deploy to live trading**: Ready to go live? See [Deployment Guide](/guide/deployment)
-- **MCP Tools Reference**: Full technical details at [MCP Tools - optimize_strategy](/reference/mcp-tools#optimize-strategy)
+- **MCP Tools Reference**: Full technical details at [MCP Tools - optimize_strategy](/guide/mcp-tools#optimize-strategy)
 
 ## Learn More
 

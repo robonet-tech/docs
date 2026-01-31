@@ -150,7 +150,7 @@ Validation (2024): -8% return, 0.3 Sharpe, 42% win rate
 
 | Issue | Solution |
 |-------|----------|
-| **No data available** | Symbol/timeframe lacks sufficient history. Try shorter date range or check [Trading Venues](/reference/trading-venues). |
+| **No data available** | Symbol/timeframe lacks sufficient history. Try shorter date range or check [Trading Venues](/guide/trading-venues). |
 | **No trades generated** | Entry conditions too restrictive. Test longer periods or adjust thresholds. |
 | **Slow execution (>2 min)** | Long date ranges (>2 years) or high-frequency timeframes (1m). Use shorter ranges or lower frequency. |
 
@@ -159,5 +159,5 @@ Validation (2024): -8% return, 0.3 Sharpe, 42% win rate
 - [Strategy Optimization](/guide/optimization) - Parameter tuning and grid search
 - [Allora Integration](/guide/allora) - Enhance strategies with ML predictions
 - [Deployment Guide](/guide/deployment) - Deploy validated strategies to production
-- [MCP Tools Reference](/reference/mcp-tools#run-backtest) - Complete API documentation
+- [MCP Tools Reference](/guide/mcp-tools#run-backtest) - Complete API documentation
 - [Jesse Framework Docs](https://docs.jesse.trade/) - Underlying backtesting engine

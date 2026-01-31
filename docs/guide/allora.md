@@ -612,7 +612,7 @@ While Allora doesn't provide explicit confidence scores, you can derive confiden
 
 ## Related Documentation
 
-- [MCP Tools Reference](/reference/mcp-tools) - All available tools including `enhance_with_allora`
+- [MCP Tools Reference](/guide/mcp-tools) - All available tools including `enhance_with_allora`
 - [Chat Interface Guide](/guide/chat-interface) - Using Allora via chat
 - [Strategy Creation](/guide/strategies) - Building custom strategies
 - [Backtesting Guide](/guide/backtesting) - Testing Allora strategies
