@@ -8,7 +8,7 @@ Get started with Robonet MCP in under 5 minutes:
 
 ### 1. Get Your API Key
 
-1. Sign up at [app.robonet.ai](https://app.robonet.ai)
+1. Sign up at [robonet.finance](https://robonet.finance)
 2. Navigate to **Settings** → **API Keys** → **Generate New API Key**
 3. Copy your API key (store it securely - you won't see it again)
 
@@ -20,38 +20,29 @@ Choose your AI coding assistant and add the Robonet MCP server:
 
 ```json [Claude Desktop]
 // Add to: ~/Library/Application Support/Claude/claude_desktop_config.json (macOS)
-// Or: %APPDATA%/Claude/claude_desktop_config.json (Windows)
+// Or: %APPDATA%\Claude\claude_desktop_config.json (Windows)
 {
   "mcpServers": {
     "robonet": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-http-client",
-        "https://mcp.robonet.ai/mcp"
-      ],
-      "env": {
-        "AUTHORIZATION": "Bearer YOUR_API_KEY_HERE"
-      }
+      "type": "http",
+      "url": "https://mcp.robonet.finance/mcp?api_key=<API_KEY>"
     }
   }
 }
 ```
 
-```json [Claude Code]
-// Add to: ~/.config/claude-code/mcp_settings.json (macOS/Linux)
-// Or: %APPDATA%/claude-code/mcp_settings.json (Windows)
+```sh [Claude Code (CLI)]
+claude mcp add robonet --transport http https://mcp.robonet.finance/mcp?api_key=<API_KEY>
+```
+
+```json [Claude Code (JSON)]
+// Add to: ~/.claude.json (macOS/Linux)
+// Or: <project folder>\.mcp.json (Windows)
 {
   "mcpServers": {
     "robonet": {
-      "transport": {
-        "type": "http",
-        "url": "https://mcp.robonet.ai/mcp"
-      },
-      "auth": {
-        "type": "bearer",
-        "token": "YOUR_API_KEY_HERE"
-      }
+      "type": "http",
+      "url": "https://mcp.robonet.finance/mcp?api_key=<API_KEY>"
     }
   }
 }
@@ -60,34 +51,25 @@ Choose your AI coding assistant and add the Robonet MCP server:
 ```json [Cursor]
 // Open Cursor Settings → MCP → Add MCP Server
 {
-  "robonet": {
-    "url": "https://mcp.robonet.ai/mcp",
-    "headers": {
-      "Authorization": "Bearer YOUR_API_KEY_HERE"
+  "mcpServers": {
+    "robonet": {
+      "type": "http",
+      "url": "https://mcp.robonet.finance/mcp?api_key=<API_KEY>"
     }
   }
 }
 ```
 
-```json [Codex]
-// Add to your Codex MCP configuration file
-{
-  "mcpServers": {
-    "robonet": {
-      "url": "https://mcp.robonet.ai/mcp",
-      "auth": {
-        "type": "bearer",
-        "token": "YOUR_API_KEY_HERE"
-      }
-    }
-  }
-}
+```toml [Codex]
+# Add to your .codex/config.toml
+[mcp_servers.robonet]
+url = "https://mcp.robonet.finance/mcp?api_key=<API_KEY>"
 ```
 
 :::
 
 ::: warning
-Replace `YOUR_API_KEY_HERE` with your actual API key from Step 1. Never commit your API key to version control.
+Replace `<API_KEY>` with your actual API key from Step 1. Never commit your API key to version control.
 :::
 
 ### 3. Verify Setup
@@ -110,141 +92,6 @@ The MCP server provides 17 specialized tools for building, testing, and deployin
 - **AI-powered tools** (6): Generate ideas, create strategies, enhance with Allora predictions
 - **Backtesting** (2): Run backtests and optimize strategy parameters
 - **Prediction markets** (4): Create and backtest prediction market strategies
-
-## Prerequisites
-
-Before setting up the MCP server, you'll need:
-
-1. **Robonet account**: Sign up at [app.robonet.ai](https://app.robonet.ai)
-2. **API key**: Generate an API key from your Robonet dashboard (required for authentication)
-3. **MCP-compatible client**: Claude Code, Cursor, Windsurf, or another MCP client
-4. **Credits**: Purchase credits in your Robonet dashboard to use AI-powered tools
-
-## Installation
-
-### Step 1: Get Your API Key
-
-1. Log in to [app.robonet.ai](https://app.robonet.ai)
-2. Navigate to **Settings** → **API Keys**
-3. Click **Generate New API Key**
-4. Copy the API key (you won't be able to see it again)
-5. Store it securely - you'll need it for configuration
-
-::: warning Security Note
-Never commit your API key to version control or share it publicly. Treat it like a password.
-:::
-
-### Step 2: Install the MCP Server
-
-The Robonet MCP server is hosted and maintained by Robonet. You don't need to install it locally - you'll connect to it via the hosted endpoint.
-
-**MCP Server Endpoint**: `https://mcp.robonet.ai/mcp`
-
-## Configuration
-
-### Claude Code
-
-To configure the MCP server in Claude Code:
-
-1. Open your Claude Code settings
-2. Navigate to **MCP Servers**
-3. Click **Add Server**
-4. Configure with these settings:
-
-```json
-{
-  "name": "robonet",
-  "transport": {
-    "type": "http",
-    "url": "https://mcp.robonet.ai/mcp"
-  },
-  "auth": {
-    "type": "bearer",
-    "token": "YOUR_API_KEY_HERE"
-  }
-}
-```
-
-5. Replace `YOUR_API_KEY_HERE` with the API key from Step 1
-6. Save and restart Claude Code
-
-### Cursor
-
-To configure the MCP server in Cursor:
-
-1. Open Cursor Settings
-2. Go to **MCP** tab
-3. Click **Add MCP Server**
-4. Enter the following configuration:
-
-```json
-{
-  "robonet": {
-    "url": "https://mcp.robonet.ai/mcp",
-    "headers": {
-      "Authorization": "Bearer YOUR_API_KEY_HERE"
-    }
-  }
-}
-```
-
-5. Replace `YOUR_API_KEY_HERE` with your API key
-6. Click **Save** and restart Cursor
-
-### Windsurf
-
-To configure the MCP server in Windsurf:
-
-1. Open Windsurf settings (Cmd/Ctrl + ,)
-2. Search for "MCP"
-3. Click **Edit MCP Configuration**
-4. Add the Robonet server:
-
-```json
-{
-  "mcpServers": {
-    "robonet": {
-      "url": "https://mcp.robonet.ai/mcp",
-      "auth": {
-        "type": "bearer",
-        "token": "YOUR_API_KEY_HERE"
-      }
-    }
-  }
-}
-```
-
-5. Replace `YOUR_API_KEY_HERE` with your API key
-6. Save and restart Windsurf
-
-## Authentication
-
-The MCP server uses **JWT-based API key authentication**. Your API key:
-
-- Authenticates your identity to the MCP server
-- Links tool usage to your account for billing
-- Provides access to your strategies and deployments
-- Ensures security without requiring manual wallet signatures
-
-::: tip Credit System
-MCP tool calls are billed using Robonet's credit system:
-- **AI tools** (create_strategy, enhance_with_allora, etc.): Actual LLM cost + margin
-- **Compute tools** (run_backtest, get_strategy_code, etc.): Fixed cost per call
-- **Data tools** (list strategies, symbols, indicators): Free or minimal cost
-
-Purchase credits in your Robonet dashboard before using the MCP server.
-:::
-
-## Verifying Your Setup
-
-Once configured, test your connection:
-
-1. Open a new conversation in your AI client
-2. Ask: "Can you list available trading symbols on Robonet?"
-3. Your AI should call the `get_all_symbols` MCP tool
-4. You should see a list of supported trading pairs (ETH-USD, BTC-USD, etc.)
-
-If this works, your MCP server is configured correctly!
 
 ## Example Workflow
 
@@ -300,14 +147,12 @@ AI: [Calls enhance_with_allora tool]
 
 ### 6. Deploy to Production
 
-Once satisfied with backtest results, deploy via the chat interface at [app.robonet.ai](https://app.robonet.ai):
+```
+You: "Deploy the RSI mean reversion strategy"
 
-1. Strategies created via MCP are automatically saved to your account
-2. Log in to the web interface
-3. Navigate to **My Strategies**
-4. Find your strategy and click **Deploy**
-5. Choose EOA (direct wallet) or Vault deployment type
-6. Monitor performance from the dashboard
+AI: [Calls deployment_create tool]
+- Returns: Deployment status
+```
 
 ## Available MCP Tools
 
@@ -320,7 +165,7 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 ### "Insufficient Credits" Error
 
 **Solution**: Purchase credits in your Robonet dashboard:
-1. Log in to [app.robonet.ai](https://app.robonet.ai)
+1. Log in to [robonet.finance](https://robonet.finance)
 2. Navigate to **Settings** → **Billing**
 3. Click **Purchase Credits**
 4. Complete the payment
@@ -347,7 +192,7 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 
 **Solutions**:
 1. Check your internet connection
-2. Verify the MCP server endpoint URL is correct: `https://mcp.robonet.ai/mcp`
+2. Verify the MCP server endpoint URL is correct: `https://mcp.robonet.finance/mcp?api_key=<API_KEY>`
 3. Check if Robonet services are operational (status page or Discord)
 4. Try again in a few minutes (may be temporary network issue)
 
@@ -399,7 +244,5 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 
 Need help? We're here for you:
 
-- **Discord**: [Join our community](https://discord.gg/allora)
-- **Email**: [support@allora.network](mailto:support@allora.network)
-- **GitHub**: [Report issues](https://github.com/allora-network/robonet/issues)
-- **Documentation**: [View all guides](/guide/)
+- **Discord**: [Join our community](https://discord.gg/robonet)
+- **Email**: [support@robonet.finance](mailto:support@robonet.finance)
