@@ -51,7 +51,7 @@ If you prefer a guided, conversational experience, use the chat interface:
 2. Create an account or log in
 3. Start chatting with the AI to generate your first strategy
 
-**Best for**: Traders who want to focus on strategy ideas without coding
+Suited for non-technical users
 
 [Learn more about the Chat Interface →](/guide/chat-interface)
 
@@ -63,7 +63,7 @@ If you use AI coding assistants like Claude Code, Cursor, or Windsurf:
 2. Configure your coding assistant
 3. Use MCP tools directly in your development workflow
 
-**Best for**: Developers who want programmatic control and integration
+Suited for developers using AI coding assistants
 
 [Learn more about MCP Server Setup →](/guide/mcp-server)
 

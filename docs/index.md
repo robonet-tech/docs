@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Robonet
   text: Build and Deploy Agentic Trading Bots
-  tagline: Create powerful trading strategies with AI assistance, backtest them, and deploy them to web3 exchanges
+  tagline: Create trading strategies with AI assistance, backtest them, and deploy to web3 exchanges
   actions:
     - theme: brand
       text: Quick Start
@@ -15,33 +15,33 @@ hero:
 
 features:
   - icon: 💬
-    title: Chat Interface for Traders
-    details: Build strategies through natural conversation - no coding required. Perfect for traders who want to focus on ideas, not implementation.
+    title: Chat Interface
+    details: Build strategies through conversation. No coding required.
     link: /guide/chat-interface
     linkText: Learn about Chat
   - icon: 🔌
-    title: MCP Server for Developers
-    details: Integrate with Claude Code, Cursor, or Windsurf. Use 17 specialized tools to build, test, and deploy strategies programmatically.
+    title: MCP Server
+    details: Integrate with Claude Code, Cursor, or Windsurf. 17 tools for building, testing, and deploying strategies.
     link: /guide/mcp-server
     linkText: Learn about MCP
   - icon: 📊
-    title: Comprehensive Backtesting
-    details: Test strategies against historical data with 200+ technical indicators. Get detailed metrics including Sharpe ratio, drawdown, and win rate.
+    title: Backtesting
+    details: Test strategies against historical data. 200+ technical indicators. Returns Sharpe ratio, drawdown, win rate.
     link: /guide/backtesting
     linkText: View Metrics
   - icon: 🔮
-    title: Allora Network Integration
-    details: Enhance strategies with decentralized ML-powered price predictions. Compare performance before and after Allora integration.
+    title: Allora Network
+    details: Add ML-powered price predictions to strategies. Compare performance before and after integration.
     link: /guide/allora
     linkText: Learn More
   - icon: 🚀
-    title: Production Deployment
-    details: Deploy to Hyperliquid Perpetual with EOA (direct wallet) or Vault (200 USDC minimum). Kubernetes-managed execution with monitoring.
+    title: Deployment
+    details: Deploy to Hyperliquid Perpetual via EOA (direct wallet) or Vault (200 USDC minimum). Kubernetes-managed execution.
     link: /guide/deployment
     linkText: Deploy Now
   - icon: 💳
-    title: Credit-Based Billing
-    details: Pay only for what you use. AI tools billed at cost + margin, compute tools at fixed rates. No subscriptions required.
+    title: Billing
+    details: Pay for what you use. AI tools billed at cost + margin, compute tools at fixed rates. No subscriptions.
     link: /guide/billing
     linkText: View Pricing
 ---
@@ -52,7 +52,7 @@ features:
 <div class="box">
 
 ### For Traders: Chat Interface
-Perfect for non-technical users who want a guided experience. Describe your strategy in plain English and let the AI handle the implementation.
+For non-technical users who want a guided experience. Describe your strategy in plain English.
 
 [Get Started with Chat →](/guide/chat-interface)
 

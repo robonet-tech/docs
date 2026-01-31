@@ -78,7 +78,7 @@ Replace `<API_KEY>` with your actual API key from Step 1. Never commit your API 
 2. Ask: *"Can you list available trading symbols on Robonet?"*
 3. Your AI should call the `get_all_symbols` MCP tool and return symbols like ETH-USD, BTC-USD, etc.
 
-✅ If you see trading symbols, you're all set! Try creating your first strategy:
+If you see trading symbols, you're set. Try creating your first strategy:
 
 ```
 "Generate a simple RSI mean reversion strategy for ETH-USD and backtest it"
@@ -211,7 +211,7 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 
 1. **Start with ideas**: Use `generate_ideas` to explore market-driven concepts
 2. **Iterate quickly**: Create simple strategies first, then enhance
-3. **Always backtest**: Never deploy without comprehensive backtesting
+3. **Always backtest**: Never deploy without backtesting
 4. **Optimize wisely**: Only optimize parameters that impact strategy logic
 5. **Enhance selectively**: Allora predictions work best for trend-following strategies
 
@@ -243,8 +243,6 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 - **Explore Allora integration**: [Allora Network Guide](/guide/allora)
 
 ## Support
-
-Need help? We're here for you:
 
 - **Discord**: [Join our community](https://discord.gg/robonet)
 - **Email**: [support@robonet.finance](mailto:support@robonet.finance)

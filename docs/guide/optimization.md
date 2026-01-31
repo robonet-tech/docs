@@ -89,10 +89,10 @@ Where:
 1. **Create or select a strategy** you want to optimize
 2. **Request optimization**: "Optimize this strategy on BTC-USDC for the last 6 months"
 3. **Review the results**: The interface shows:
-   - 📈 **Performance comparison**: Before vs After metrics
-   - 📊 **Improved metrics**: New Sharpe ratio, max drawdown, win rate
-   - ⚙️ **Parameter changes**: Which values changed and why
-   - ✅ **New strategy created**: `{StrategyName}_optimized/` with improved code
+   - **Performance comparison**: Before vs After metrics
+   - **Improved metrics**: New Sharpe ratio, max drawdown, win rate
+   - **Parameter changes**: Which values changed and why
+   - **New strategy created**: `{StrategyName}_optimized/` with improved code
 
 **Example prompts:**
 ```
@@ -185,10 +185,10 @@ Key Changes:
 ```
 
 **What to look for:**
-- ✅ **Sharpe ratio improvement**: Most important metric (risk-adjusted returns)
-- ✅ **Reduced drawdown**: Lower peak-to-trough losses
-- ✅ **Maintained/increased trade count**: Still has statistical significance (30+ trades)
-- ✅ **Realistic win rate**: 45-65% typical (not >75% which indicates overfitting)
+- **Sharpe ratio improvement**: Most important metric (risk-adjusted returns)
+- **Reduced drawdown**: Lower peak-to-trough losses
+- **Maintained/increased trade count**: Still has statistical significance (30+ trades)
+- **Realistic win rate**: 45-65% typical (not >75% which indicates overfitting)
 
 ### Top Candidates Table
 
@@ -224,9 +224,9 @@ Expected pattern:
 ```
 
 **Red flags:**
-- 🚩 Testing curve far below training curve = overfitting
-- 🚩 No improvement after 500+ trials = poor strategy logic, optimization can't help
-- 🚩 Very high training scores (>3.0 Sharpe) with low testing = overfitted to training data
+- Testing curve far below training curve = overfitting
+- No improvement after 500+ trials = poor strategy logic, optimization can't help
+- Very high training scores (>3.0 Sharpe) with low testing = overfitted to training data
 
 ## Best Practices
 
@@ -234,8 +234,8 @@ Expected pattern:
 
 **Optimization amplifies existing logic, it doesn't fix broken strategies.**
 
-❌ **Bad:** Create random strategy → Optimize → Hope it works
-✅ **Good:** Design logical strategy → Backtest → Optimize parameters → Validate
+**Bad:** Create random strategy → Optimize → Hope it works
+**Good:** Design logical strategy → Backtest → Optimize parameters → Validate
 
 **Signs your strategy needs redesign (not optimization):**
 - Generates <5 trades in 6 months (too conservative)
@@ -264,8 +264,8 @@ Training on <3 months risks overfitting to specific market conditions. You might
 1. Optimize on Period A: 2023-01-01 to 2023-12-31
 2. Validate on Period B: 2024-01-01 to 2024-06-30 (don't re-optimize)
 3. Compare performance:
-   - Similar results = Robust optimization ✅
-   - Dramatically worse = Overfitted to Period A ❌
+   - Similar results = Robust optimization
+   - Dramatically worse = Overfitted to Period A
 ```
 
 **Example: Good validation**
@@ -290,19 +290,19 @@ Validation (2024): Sharpe 0.4, Return +3%, Win rate 43%
 Optimize on BTC-USDC → Test on ETH-USDC and SOL-USDC
 
 If performance is similar across symbols:
-→ Strategy logic is robust ✅
+→ Strategy logic is robust
 
 If performance collapses on other symbols:
-→ Overfit to BTC-specific patterns ❌
+→ Overfit to BTC-specific patterns
 ```
 
 ### 5. Keep Strategies Simple
 
 **Simple strategies optimize better and are more robust:**
 
-- ✅ **3-5 hyperparameters**: RSI threshold, stop loss, take profit, position size
-- ⚠️ **6-10 hyperparameters**: Getting complex, higher overfitting risk
-- ❌ **10+ hyperparameters**: Very high overfitting risk, difficult to interpret
+- **3-5 hyperparameters**: RSI threshold, stop loss, take profit, position size
+- **6-10 hyperparameters**: Getting complex, higher overfitting risk
+- **10+ hyperparameters**: Very high overfitting risk, difficult to interpret
 
 **Why complexity hurts:**
 - More parameters = larger search space = harder to find true optimum
@@ -317,7 +317,7 @@ If performance collapses on other symbols:
 Original:   Sharpe 1.2, Drawdown -22%, Win Rate 48%
 Optimized:  Sharpe 1.9, Drawdown -14%, Win Rate 54%
 
-Improvement: +58% Sharpe, 36% less risky ✅ → Good optimization
+Improvement: +58% Sharpe, 36% less risky → Good optimization
 ```
 
 **If improvement is minimal (<10% Sharpe gain):**
@@ -398,16 +398,16 @@ See [Billing & Credits](/guide/billing) for more details.
 ### When to Optimize
 
 **Optimize when:**
-- ✅ Strategy works but performance could be better
-- ✅ You're testing on new symbols/timeframes
-- ✅ Market conditions have changed (re-optimize quarterly)
-- ✅ After making logic changes to an existing strategy
+- Strategy works but performance could be better
+- You're testing on new symbols/timeframes
+- Market conditions have changed (re-optimize quarterly)
+- After making logic changes to an existing strategy
 
 **Don't optimize when:**
-- ❌ Strategy generates <5 trades (fix logic first)
-- ❌ Core strategy logic is broken (redesign instead)
-- ❌ You haven't backtested original version yet (validate first)
-- ❌ Chasing tiny improvements (1.8 → 1.85 Sharpe not worth effort)
+- Strategy generates <5 trades (fix logic first)
+- Core strategy logic is broken (redesign instead)
+- You haven't backtested original version yet (validate first)
+- Chasing tiny improvements (1.8 → 1.85 Sharpe not worth effort)
 
 ## Example Workflow
 
@@ -427,11 +427,11 @@ Step 3: Optimize Parameters
 
 Step 4: Out-of-Sample Validation
 → "Backtest MomentumStrategy_optimized on BTC-USDC from 2024-01-01 to now"
-→ Result: Sharpe 1.7 (consistent with training), safe to proceed ✅
+→ Result: Sharpe 1.7 (consistent with training), safe to proceed
 
 Step 5: Multi-Symbol Validation
 → "Backtest MomentumStrategy_optimized on ETH-USDC and SOL-USDC"
-→ Result: ETH Sharpe 1.6, SOL Sharpe 1.8 (robust across symbols) ✅
+→ Result: ETH Sharpe 1.6, SOL Sharpe 1.8 (robust across symbols)
 
 Step 6: Deploy with Safeguards
 → Deploy 10% capital, -15% stop-loss, monitor for 1 month

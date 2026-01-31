@@ -12,7 +12,7 @@ The chat interface provides a conversational way to:
 - Integrate Allora Network price predictions
 - Deploy strategies to live trading
 
-**Best for:** Traders who prefer natural language over code, and want guided assistance through the strategy development process.
+For traders who prefer natural language over code.
 
 ## Getting Started
 
@@ -328,13 +328,13 @@ Once you're satisfied with backtest results, deploy your strategy to live tradin
 - Trades directly with your connected wallet
 - Maximum 1 active deployment per user
 - Immediate setup, no minimum balance
-- Best for: Testing with small capital
+- Suited for: Testing with small capital
 
 **Vault:**
 - Creates a Hyperliquid vault for your strategy
 - Unlimited vaults per user
 - Requires 200 USDC minimum
-- Best for: Production trading with larger capital
+- Suited for: Production trading with larger capital
 
 ### Creating a Deployment
 

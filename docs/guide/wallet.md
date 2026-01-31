@@ -1,6 +1,6 @@
 # Wallet Integration
 
-Robonet uses a modern embedded wallet system powered by Privy that handles authentication, wallet creation, and signing operations. This guide explains how wallets work on Robonet and how to use them securely.
+Robonet uses Privy for wallet management, handling authentication, wallet creation, and signing operations. This guide explains how wallets work on Robonet and how to use them securely.
 
 ## Supported Authentication Methods
 
@@ -9,19 +9,19 @@ Robonet offers three convenient ways to sign in:
 ### 1. Email Authentication (Recommended for New Users)
 - **How it works:** Sign up with your email address
 - **Wallet creation:** Privy automatically creates an embedded Ethereum wallet for you
-- **Best for:** New users who don't have a crypto wallet yet
+- **Suited for:** New users who don't have a crypto wallet yet
 - **Security:** Wallet is secured by your email authentication and Privy's infrastructure
 
 ### 2. External Wallet Connection
 - **How it works:** Connect an existing Ethereum wallet (MetaMask, WalletConnect, etc.)
 - **Wallet creation:** Privy still creates an embedded wallet for server-side signing
-- **Best for:** Users who prefer to authenticate with their existing wallet
+- **Suited for:** Users who prefer to authenticate with their existing wallet
 - **Security:** You maintain control of your external wallet; embedded wallet is created separately
 
 ### 3. Social Authentication (Twitter)
 - **How it works:** Sign in with your Twitter account
 - **Wallet creation:** Privy automatically creates an embedded Ethereum wallet for you
-- **Best for:** Quick sign-up without email
+- **Suited for:** Quick sign-up without email
 - **Security:** Wallet is secured by your Twitter authentication and Privy's infrastructure
 
 ::: tip

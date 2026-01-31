@@ -6,7 +6,7 @@ Allora Network provides machine learning-powered price predictions that can enha
 
 [Allora Network](https://allora.network) is a decentralized AI network that generates price predictions for cryptocurrencies using machine learning models. These predictions are produced by a network of inference nodes and validated through blockchain consensus.
 
-**Key Features:**
+**Features:**
 - **Decentralized ML Predictions**: Multiple inference nodes contribute predictions, aggregated on-chain
 - **Multiple Horizons**: Predictions available for different timeframes (5m, 8h, 24h, 1 week)
 - **Two Prediction Types**:
@@ -546,22 +546,22 @@ def eth_prediction(self):
 ### Prediction Horizon Selection
 
 **5-Minute Predictions:**
-- Best for: High-frequency scalping, very short holds
+- Suited for: High-frequency scalping, very short holds
 - Considerations: Higher noise, requires tight stops
 - Typical hold: 5-15 minutes
 
 **8-Hour Predictions:**
-- Best for: Intraday swing trading, momentum strategies
+- Suited for: Intraday swing trading, momentum strategies
 - Considerations: Balanced noise/signal ratio
 - Typical hold: 4-12 hours
 
 **24-Hour Predictions:**
-- Best for: Daily swing trading, trend following
+- Suited for: Daily swing trading, trend following
 - Considerations: Smoother signals, lower frequency
 - Typical hold: 12-48 hours
 
 **1-Week Predictions:**
-- Best for: Position trading, long-term trends
+- Suited for: Position trading, long-term trends
 - Considerations: Very low noise, rare signals
 - Typical hold: 3-10 days
 

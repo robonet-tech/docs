@@ -1,6 +1,6 @@
 # Strategy Backtesting
 
-Robonet backtests run on the Jesse Framework with production-grade historical data from Hyperliquid. This guide covers execution, parameters, and result interpretation.
+Robonet backtests use the Jesse Framework with historical data from Hyperliquid. This guide covers execution, parameters, and result interpretation.
 
 ## Running Backtests
 

@@ -323,7 +323,7 @@ Compute-intensive tools for testing strategy performance on historical data. Exe
 
 ### `run_backtest`
 
-**Description:** Test strategy performance on historical data with comprehensive metrics.
+**Description:** Test strategy performance on historical data.
 
 **Primary Use Case:** Validate strategy logic and measure performance before live deployment.
 
@@ -335,7 +335,7 @@ Compute-intensive tools for testing strategy performance on historical data. Exe
 - `timeframe` (required, string): Timeframe (1m, 3m, 5m, 15m, 30m, 45m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, 1D, 3D, 1W, 1M)
 - `config` (optional, object): Backtest configuration (fee, slippage, leverage, etc.)
 
-**Returns:** Comprehensive metrics including:
+**Returns:** Metrics including:
 - Performance: net_profit, total_return, annual_return, Sharpe ratio, Sortino ratio
 - Risk: max_drawdown, Calmar ratio, win_rate, profit_factor
 - Trade stats: total/winning/losing trades, streaks, average win/loss

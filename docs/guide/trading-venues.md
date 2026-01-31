@@ -6,7 +6,7 @@ Robonet currently supports trading on **Hyperliquid Perpetual** only. Support fo
 
 ### Hyperliquid Perpetual
 
-**Status:** ✅ Fully Supported (Mainnet + Testnet)
+**Status:** Fully Supported (Mainnet + Testnet)
 
 **Type:** Decentralized perpetual futures exchange
 
@@ -36,8 +36,9 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 - Robonet credits for platform usage (purchased with USDC on Base network)
 - Wallet delegation for server-side signing (handled via Privy authentication)
 
-**Key Features:**
-- Low fees and fast execution
+**Features:**
+- Low fees
+- Fast execution
 - On-chain orderbook
 - No KYC required
 - Self-custodial (EOA mode) or vault-based trading
@@ -51,7 +52,7 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 
 ## Centralized Exchanges (CEXs)
 
-**Status:** ❌ Not Currently Supported
+**Status:** Not Currently Supported
 
 Robonet does not currently support centralized exchanges like Binance, Bybit, OKX, Coinbase, or others. All trading is done on Hyperliquid Perpetual.
 
@@ -80,13 +81,13 @@ If you'd like to see support for a specific exchange or DEX, please share your f
 
 | Venue | Type | Asset Types | Status | Deployment Types | Min Capital |
 |-------|------|-------------|--------|------------------|-------------|
-| **Hyperliquid Perpetual** | DEX | Perpetuals | ✅ Supported | EOA, Vault | 0 (EOA), 200 USDC (Vault) |
-| Binance | CEX | Spot, Futures | ❌ Not Supported | - | - |
-| Bybit | CEX | Spot, Futures | ❌ Not Supported | - | - |
-| OKX | CEX | Spot, Futures | ❌ Not Supported | - | - |
-| Uniswap | DEX | Spot | ❌ Not Supported | - | - |
-| GMX | DEX | Perpetuals | ❌ Not Supported | - | - |
-| dYdX | DEX | Perpetuals | ❌ Not Supported | - | - |
+| **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Vault | 0 (EOA), 200 USDC (Vault) |
+| Binance | CEX | Spot, Futures | Not Supported | - | - |
+| Bybit | CEX | Spot, Futures | Not Supported | - | - |
+| OKX | CEX | Spot, Futures | Not Supported | - | - |
+| Uniswap | DEX | Spot | Not Supported | - | - |
+| GMX | DEX | Perpetuals | Not Supported | - | - |
+| dYdX | DEX | Perpetuals | Not Supported | - | - |
 
 ---
 
