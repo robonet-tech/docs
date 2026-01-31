@@ -70,9 +70,8 @@ The Robonet team is evaluating additional trading venues for future support:
 
 ::: info Request Support for a Venue
 If you'd like to see support for a specific exchange or DEX, please share your feedback:
-- Join the [Discord community](https://discord.gg/allora)
-- [Open an issue on GitHub](https://github.com/allora-network/robonet/issues)
-- [Contact us directly](mailto:support@allora.network)
+- Join the [Discord community](https://discord.gg/robonet)
+- [Contact us directly](mailto:support@robonet.finance)
 :::
 
 ---
@@ -128,63 +127,6 @@ Use the `get_all_symbols` MCP tool to retrieve the current list of supported tra
 - Via chat: "Show me all available trading pairs"
 - Via MCP client: Call the `get_all_symbols` tool with optional `exchange` filter
 :::
-
----
-
-## Frequently Asked Questions
-
-### Why only Hyperliquid?
-
-Robonet's initial release focuses on Hyperliquid Perpetual because:
-1. **Decentralized and self-custodial**: Aligns with Robonet's security philosophy
-2. **No KYC required**: Easier onboarding for users
-3. **High-quality infrastructure**: Fast execution, low fees, good liquidity
-4. **Perpetuals-first**: Ideal for algorithmic trading strategies
-5. **API-friendly**: Excellent developer experience
-
-Additional venues will be added based on user demand and technical feasibility.
-
-### Can I use the same strategy across different exchanges?
-
-Not yet. Since Robonet currently only supports Hyperliquid, all strategies run on Hyperliquid Perpetual.
-
-When additional exchanges are added in the future, you'll need to:
-- Update the strategy configuration to specify the target exchange
-- Ensure the trading pair exists on that exchange
-- Re-backtest the strategy (different exchanges have different fee structures, liquidity, and execution characteristics)
-
-### What if the pair I want isn't available on Hyperliquid?
-
-Currently, Robonet only supports pairs available on Hyperliquid Perpetual. If your desired pair isn't listed:
-1. Check if Hyperliquid has added it recently using the `get_all_symbols` tool
-2. Consider trading a correlated asset (e.g., similar sector or market cap)
-3. Request the pair be added to Hyperliquid (contact Hyperliquid support)
-4. Wait for Robonet to add support for additional exchanges
-
-### Is spot trading supported?
-
-No. Robonet currently only supports perpetual futures trading on Hyperliquid. Spot trading is not available.
-
-Spot trading may be added in future releases based on user demand.
-
-### Can I trade on testnet before going live?
-
-Yes! Hyperliquid Perpetual Testnet is fully supported. Use testnet to:
-- Test strategies without risking real funds
-- Verify strategy logic and execution
-- Practice deployment workflows
-- Debug issues before mainnet deployment
-
-To use testnet, specify `"Hyperliquid Perpetual Testnet"` as the exchange in your strategy configuration or chat prompts.
-
-### How do I know if a venue is supported?
-
-The most reliable way to check supported venues is:
-1. Check this documentation page (updated with each release)
-2. Use the `get_all_symbols` tool with no `exchange` filter to see all available exchanges
-3. Review the [MCP Tools Reference](/reference/mcp-tools) for exchange-related tools
-
----
 
 ## Related Documentation
 
