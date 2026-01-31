@@ -52,7 +52,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/allora-network/robonet' }
+      { icon: 'github', link: 'https://github.com/robonet-tech' }
     ],
 
     search: {
@@ -60,8 +60,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Built with VitePress | <a href="https://discord.gg/allora">Discord</a> · <a href="https://twitter.com/AlloraNetwork">Twitter</a> · <a href="https://github.com/allora-network/robonet/issues">Report Issues</a> · <a href="mailto:support@allora.network">Contact Us</a>',
-      copyright: 'Copyright © 2026 Allora Network'
+      message: '<a href="https://discord.gg/robonet">Discord</a> · <a href="https://x.com/robonet">X.com</a> · <a href="https://github.com/robonet-tech">Github</a> · <a href="mailto:support@robonet.finance">Contact Us</a>',
+      copyright: 'Copyright © 2026 Robonet Finance'
     }
   },
 

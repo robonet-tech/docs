@@ -48,13 +48,23 @@ features:
 
 ## Two Ways to Build Trading Strategies
 
+<div class="flex">
+<div class="box">
+
 ### For Traders: Chat Interface
 Perfect for non-technical users who want a guided experience. Describe your strategy in plain English and let the AI handle the implementation.
 
 [Get Started with Chat →](/guide/chat-interface)
+
+</div>
+
+<div class="box">
 
 ### For Developers: MCP Integration
 Integrate Robonet directly into your AI coding assistant workflow. Access 17 specialized tools for strategy creation, backtesting, and deployment.
 
 [Set Up MCP Server →](/guide/mcp-server)
 
+</div>
+
+</div>

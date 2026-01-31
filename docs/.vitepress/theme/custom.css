@@ -43,3 +43,28 @@
     #8b5cf6
   );
 }
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+/*.flex .box {
+    border-right: 1px solid var(--vp-c-divider);
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.flex .box:first-child {
+    padding-left: 0;
+}
+
+.flex .box:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+*/
+.vp-doc h3 {
+    margin: 0;
+}
