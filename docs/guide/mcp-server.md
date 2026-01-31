@@ -86,12 +86,14 @@ Replace `<API_KEY>` with your actual API key from Step 1. Never commit your API 
 
 ## Overview
 
-The MCP server provides 17 specialized tools for building, testing, and deploying trading strategies:
+The MCP server provides 24 specialized tools for building, testing, and deploying trading strategies:
 
-- **Data tools** (7): Browse strategies, symbols, technical indicators, and Allora topics
-- **AI-powered tools** (6): Generate ideas, create strategies, enhance with Allora predictions
-- **Backtesting** (2): Run backtests and optimize strategy parameters
-- **Prediction markets** (4): Create and backtest prediction market strategies
+- **Data tools** (8): Browse strategies, symbols, indicators, Allora topics, and data availability
+- **AI-powered tools** (6): Generate ideas, create strategies, optimize, enhance, and refine
+- **Backtesting** (2): Run backtests on crypto and prediction markets
+- **Prediction markets** (3): Browse events and market data
+- **Deployment** (4): Create, list, start, and stop live trading agents
+- **Account** (2): Check credit balance and transaction history
 
 ## Example Workflow
 

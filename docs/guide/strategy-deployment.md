@@ -177,6 +177,27 @@ In the configuration modal, you'll choose your deployment type (EOA or Vault), s
 | **Timeframe** | Candle interval for strategy evaluation | 1m, 5m, 15m, 1h, 4h, 1d |
 | **Leverage** | Position size multiplier | 1x - 5x |
 
+### Deploying via MCP Tools
+
+If you're using the MCP server integration, you can deploy strategies directly via AI commands:
+
+```
+Deploy MomentumRSI_M to BTC-USDT on 4h timeframe with 2x leverage
+```
+
+**Available MCP deployment tools:**
+
+| Tool | Purpose |
+|------|---------|
+| `deployment_create` | Launch a new deployment with strategy, symbol, timeframe, and leverage |
+| `deployment_list` | View all your deployments with status and performance metrics |
+| `deployment_start` | Restart a stopped deployment |
+| `deployment_stop` | Stop a running deployment |
+
+These tools require wallet delegation to be set up first. EOA deployments are limited to one active deployment per wallet; vault deployments have no limit.
+
+See [MCP Tools Reference](/guide/mcp-tools#deployment-tools) for full documentation and parameter details.
+
 ---
 
 ## What Happens Under the Hood

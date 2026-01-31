@@ -26,26 +26,25 @@ The chat interface provides a conversational way to:
 4. If you have an invitation access code, enter it when prompted
 5. Complete authentication to access your account
 
-#### Wallet Connection
+#### Wallet Setup
 
-After authentication, you'll need to connect a NEAR wallet for trading:
+After authentication, Robonet uses Privy for secure wallet management:
 
-1. The platform will prompt you to connect a NEAR wallet
-2. Choose from supported wallets:
-   - MyNearWallet
-   - Meteor Wallet
-   - HERE Wallet
-   - Ethereum wallets (via bridge)
-3. Authorize wallet delegation for automated trading
-4. Your wallet address is now linked to your account
+1. **Embedded Wallet**: Privy automatically creates a secure embedded wallet for you
+2. **Wallet Delegation**: Authorize Robonet to sign trades on your behalf
+   - This is a one-time setup step
+   - Required for live trading deployments
+   - You can revoke delegation at any time
+3. **External Wallets**: You can also connect external Ethereum wallets if preferred
 
-**Important:** Wallet delegation is required for deployments. This allows Robonet to execute trades on your behalf according to your strategy parameters.
+**Important:** Wallet delegation only allows trading operations. Robonet cannot withdraw funds from your wallet.
 
-#### Network Selection
+#### Network Information
 
-- Switch between NEAR mainnet and testnet via the network selector
-- Testnet is recommended for initial testing with no real funds
-- Your chat sessions and strategies are wallet-scoped (separate per network)
+- **Trading**: All trades execute on Hyperliquid Perpetuals (Hyperliquid L1)
+- **Payments**: Credits are managed on Base network (USDC)
+- **Settlement**: All trades settle on-chain on Hyperliquid
+- Your chat sessions and strategies are linked to your wallet address
 
 ### 2. Starting a Chat Session
 
