@@ -51,40 +51,25 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Platform Features',
+          text: 'Workflows',
           items: [
-            { text: 'Wallet Integration', link: '/guide/wallet' },
             { text: 'Strategy Creation', link: '/guide/strategies' },
             { text: 'Backtesting', link: '/guide/backtesting' },
             { text: 'Optimization', link: '/guide/optimization' },
             { text: 'Allora Integration', link: '/guide/allora' },
             { text: 'Deployment', link: '/guide/strategy-deployment' },
-            { text: 'Billing & Credits', link: '/guide/billing' }
           ]
         },
         {
-          text: 'Reference',
+          text: 'Platform Features',
           items: [
-            { text: 'Overview', link: '/reference/' },
-            { text: 'Architecture', link: '/reference/architecture' },
-            { text: 'MCP Tools', link: '/reference/mcp-tools' },
-            { text: 'Trading Venues', link: '/reference/trading-venues' },
-            { text: 'API Reference', link: '/reference/api' }
-          ]
-        }
+            { text: 'Wallet Integration', link: '/guide/wallet' },
+            { text: 'Trading Venues', link: '/guide/trading-venues' },
+            { text: 'Billing & Credits', link: '/guide/billing' },
+            { text: 'MCP Tools Reference', link: '/guide/mcp-tools' },
+          ],
+        },
       ],
-      '/reference/': [
-        {
-          text: 'Reference',
-          items: [
-            { text: 'Overview', link: '/reference/' },
-            { text: 'Architecture', link: '/reference/architecture' },
-            { text: 'MCP Tools', link: '/reference/mcp-tools' },
-            { text: 'Trading Venues', link: '/reference/trading-venues' },
-            { text: 'API Reference', link: '/reference/api' }
-          ]
-        }
-      ]
     },
 
     socialLinks: [
