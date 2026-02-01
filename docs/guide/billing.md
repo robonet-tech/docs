@@ -276,7 +276,6 @@ If you have questions about billing or need assistance:
 
 - **Documentation**: Check other guides in this documentation
 - **Support**: Contact support through the web interface
-- **API Reference**: See the [API documentation](./api-reference.md) for programmatic access
 - **Transaction Issues**: Check your transaction history and on-chain confirmations
 
 ::: tip Getting Started
