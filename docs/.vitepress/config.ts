@@ -46,6 +46,7 @@ export default defineConfig({
             { text: 'Trading Venues', link: '/guide/trading-venues' },
             { text: 'Billing & Credits', link: '/guide/billing' },
             { text: 'MCP Tools Reference', link: '/guide/mcp-tools' },
+            { text: 'Agent Skills', link: '/guide/agent-skills' },
           ],
         },
       ],
