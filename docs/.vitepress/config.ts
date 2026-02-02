@@ -66,7 +66,21 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Robonet' }],
+    ['meta', { property: 'og:title', content: 'Robonet Docs' }],
+    ['meta', { property: 'og:description', content: 'Deploy Quants at Scale' }],
+    ['meta', { property: 'og:url', content: 'https://docs.robonet.finance' }],
+    ['meta', { property: 'og:image', content: 'https://docs.robonet.finance/og-image.jpg' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:image:alt', content: 'Robonet - Deploy Quants at Scale' }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Robonet Docs' }],
+    ['meta', { name: 'twitter:description', content: 'Deploy Quants at Scale' }],
+    ['meta', { name: 'twitter:image', content: 'https://docs.robonet.finance/og-image.jpg' }]
   ],
 
   markdown: {
