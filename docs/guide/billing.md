@@ -56,7 +56,7 @@ These tools charge based on actual LLM costs with the following maximums:
 AI tools show a maximum price, but typically cost much less. For example, "create strategy" has a max of $4.50 but simple strategies might only cost $0.50-$1.50. You're only charged for the actual LLM tokens used, not the maximum.
 :::
 
-#### Deployment Tools ($0.05)
+#### Deployment Tools ($1.00)
 - **Create deployment** - $1.00: Create new deployment (EOA or Hyperliquid Vault)
 - **List deployments** - Free: View your deployments
 - **Start live trading** - Free: Activate a deployed strategy
