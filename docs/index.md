@@ -52,7 +52,7 @@ features:
 <div class="box">
 
 ### For Traders: Chat Interface
-For non-technical users who want a guided experience. Describe your strategy in plain English.
+For non-technical users who want a guided experience. Describe your strategy in plain language.
 
 [Get Started with Chat →](/guide/chat-interface)
 
