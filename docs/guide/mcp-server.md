@@ -229,12 +229,6 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 3. **Test thoroughly**: Backtest across different market conditions (bull, bear, sideways)
 4. **Risk management**: Always include stop-loss and position sizing logic
 
-### Collaboration
-
-1. **Share strategy names**: Team members can reference strategies by name
-2. **Document decisions**: Ask your AI to explain strategy logic for team review
-3. **Export results**: Copy backtest metrics to share with stakeholders
-
 ## Next Steps
 
 - **Learn more about MCP tools**: [MCP Tools Reference](/guide/mcp-tools)

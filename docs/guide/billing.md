@@ -56,11 +56,11 @@ These tools charge based on actual LLM costs with the following maximums:
 AI tools show a maximum price, but typically cost much less. For example, "create strategy" has a max of $4.50 but simple strategies might only cost $0.50-$1.50. You're only charged for the actual LLM tokens used, not the maximum.
 :::
 
-#### Deployment Tools ($0.05)
-- **Create deployment** - $0.05: Create new deployment (EOA or Hyperliquid Vault)
-- **List deployments** - $0.05: View your deployments
-- **Start live trading** - $0.05: Activate a deployed strategy
-- **Stop live trading** - $0.05: Stop a running strategy
+#### Deployment Tools ($1.00)
+- **Create deployment** - $1.00: Create new deployment (EOA or Hyperliquid Vault)
+- **List deployments** - Free: View your deployments
+- **Start live trading** - Free: Activate a deployed strategy
+- **Stop live trading** - Free: Stop a running strategy
 
 ::: tip Cost Control
 Start with free data access tools (get all symbols, get all strategies) to explore. Use "generate ideas" (typically $0.20-0.50) to explore concepts before using "create strategy" (typically $0.50-2.00 but max $4.50). Test with "run backtest" ($0.001) before deploying.
@@ -94,6 +94,10 @@ Here are estimated costs for common workflows (using typical AI costs, not maxim
 - Get all symbols: $0.001
 - Run backtest: $0.001
 - **Total**: $0.002
+
+### Other Costs
+
+Hyperliquid vault creation incurs a $100 USDC fee. This fee is not refunded even if you close the vault. [Read more](https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/for-vault-leaders)
 
 ## Payment Methods
 
@@ -276,7 +280,6 @@ If you have questions about billing or need assistance:
 
 - **Documentation**: Check other guides in this documentation
 - **Support**: Contact support through the web interface
-- **API Reference**: See the [API documentation](./api-reference.md) for programmatic access
 - **Transaction Issues**: Check your transaction history and on-chain confirmations
 
 ::: tip Getting Started

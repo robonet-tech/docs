@@ -46,6 +46,7 @@ export default defineConfig({
             { text: 'Trading Venues', link: '/guide/trading-venues' },
             { text: 'Billing & Credits', link: '/guide/billing' },
             { text: 'MCP Tools Reference', link: '/guide/mcp-tools' },
+            { text: 'Agent Skills', link: '/guide/agent-skills' },
           ],
         },
       ],
@@ -60,7 +61,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '<a href="https://discord.gg/robonet">Discord</a> · <a href="https://x.com/robonet">X.com</a> · <a href="https://github.com/robonet-tech">Github</a> · <a href="mailto:support@robonet.finance">Contact Us</a>',
+      message: '<a href="https://discord.gg/robonet">Discord</a> · <a href="https://x.com/robonetHQ">X.com</a> · <a href="https://github.com/robonet-tech">GitHub</a> · <a href="mailto:support@robonet.finance">Contact Us</a>',
       copyright: 'Copyright © 2026 Robonet Finance'
     }
   },

@@ -41,6 +41,46 @@ Currently, all strategies execute on **Hyperliquid Perpetuals** — a high-perfo
 
 ---
 
+## Understanding Your Balances
+
+Before diving into deployments, it's helpful to understand that Robonet works with two separate balances, each on a different chain and serving a different purpose.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          YOUR BALANCES                                      │
+├───────────────────────────────────┬─────────────────────────────────────────┤
+│         HYPERCORE (USDC)          │             BASE (USDC)                 │
+├───────────────────────────────────┼─────────────────────────────────────────┤
+│                                   │                                         │
+│   ┌─────────────────────┐         │      ┌─────────────────────┐            │
+│   │   TRADING BALANCE   │         │      │   CREDIT BALANCE    │            │
+│   │                     │         │      │                     │            │
+│   │  • Fund strategies  │         │      │  • Pay for credits  │            │
+│   │  • Collateral for   │         │      │  • Platform usage   │            │
+│   │    open positions   │         │      │                     │            │
+│   │  • PnL settles here │         │      │                     │            │
+│   └─────────────────────┘         │      └─────────────────────┘            │
+│                                   │                                         │
+│   Used by your agents to          │   Used to fund your Robonet            │
+│   trade on Hyperliquid            │   credits on the Base network           │
+│                                   │                                         │
+└───────────────────────────────────┴─────────────────────────────────────────┘
+```
+
+### HyperCore Balance
+
+Your HyperCore balance is USDC held on Hyperliquid's trading layer. This is the balance your agents use when executing trades — it serves as collateral for open positions and is where your PnL settles. Whether you're trading via an EOA or a vault, the funds powering your strategies live here.
+
+### Base Balance
+
+Your Base balance is USDC on the Base network, and it's used for a different purpose entirely: funding your Robonet credits. Credits are what you use to pay for platform access and strategy deployments. Think of it as your operating account — separate from the capital your agents are actively trading with.
+
+### Why Two Balances?
+
+Keeping these balances separate means your trading capital and your platform credits never mix. You won't accidentally eat into your trading collateral to pay for credits, and vice versa. Each balance lives on the chain best suited to its purpose: HyperCore for high-performance trading, Base for efficient credit transactions.
+
+---
+
 ## Deployment Types
 
 When deploying a strategy, you'll choose between two models: trading directly from your wallet (EOA) or through a dedicated vault. Each approach has its own trade-offs depending on how you want to manage funds and risk.
