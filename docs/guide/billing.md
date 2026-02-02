@@ -57,7 +57,7 @@ AI tools show a maximum price, but typically cost much less. For example, "creat
 :::
 
 #### Deployment Tools ($0.05)
-- **Create deployment** - $0.05: Create new deployment (EOA or Vault)
+- **Create deployment** - $0.05: Create new deployment (EOA or Hyperliquid Vault)
 - **List deployments** - $0.05: View your deployments
 - **Start live trading** - $0.05: Activate a deployed strategy
 - **Stop live trading** - $0.05: Stop a running strategy

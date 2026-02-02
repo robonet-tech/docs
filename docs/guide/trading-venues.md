@@ -22,10 +22,10 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 - **EOA (Externally Owned Account):** Trade directly with your wallet
   - Limitation: Maximum 1 active deployment per user
   - No minimum capital requirement
-- **Vault:** Create a Hyperliquid vault for your strategy
+- **Hyperliquid Vault:** Create a vault for your strategy
   - Minimum: 200 USDC
   - Unlimited deployments per user
-  - Vault creation handled automatically via MCP or chat interface
+  - Hyperliquid Vault creation handled automatically via MCP or chat interface
 
 **Network Support:**
 - **Mainnet:** Production trading with real funds
@@ -81,7 +81,7 @@ If you'd like to see support for a specific exchange or DEX, please share your f
 
 | Venue | Type | Asset Types | Status | Deployment Types | Min Capital |
 |-------|------|-------------|--------|------------------|-------------|
-| **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Vault | 0 (EOA), 200 USDC (Vault) |
+| **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Hyperliquid Vault | 0 (EOA), 200 USDC (Hyperliquid Vault) |
 | Binance | CEX | Spot, Futures | Not Supported | - | - |
 | Bybit | CEX | Spot, Futures | Not Supported | - | - |
 | OKX | CEX | Spot, Futures | Not Supported | - | - |
@@ -133,6 +133,6 @@ Use the `get_all_symbols` MCP tool to retrieve the current list of supported tra
 
 - [MCP Tools Reference](/guide/mcp-tools) - See `get_all_symbols` tool for listing available pairs
 - [Wallet Integration](/guide/wallet) - Setup wallet for Hyperliquid trading
-- [Deployment Guide](/guide/deployment) - Deploy strategies to Hyperliquid (EOA or Vault)
+- [Deployment Guide](/guide/deployment) - Deploy strategies to Hyperliquid (EOA or Hyperliquid Vault)
 - [Strategy Creation](/guide/strategies) - Build strategies for Hyperliquid
 - [Backtesting](/guide/backtesting) - Test strategies with historical Hyperliquid data

@@ -498,7 +498,7 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 
 **Constraints:**
 - EOA: Maximum 1 active deployment per wallet
-- Vault: Requires 200+ USDC in wallet, unlimited deployments
+- Hyperliquid Vault: Requires 200+ USDC in wallet, unlimited deployments
 
 **Example Usage:**
 ```
@@ -519,7 +519,7 @@ Deploy MomentumRSI_M to BTC-USDT on 4h timeframe with 2x leverage
 - Deployment ID and strategy name
 - Symbol, timeframe, leverage settings
 - Status (pending, running, stopped, failed)
-- Deployment type (EOA or Vault)
+- Deployment type (EOA or Hyperliquid Vault)
 - Creation and stop timestamps
 - Hyperliquid stats (TVL, PnL, returns)
 

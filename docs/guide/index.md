@@ -15,7 +15,7 @@ Five abstractions define how Robonet works, each building on the last to take yo
 - **Intent** is your trading idea in plain language: "buy ETH when momentum is strong," "capture funding rates while staying delta-neutral."
 - **Strategy** is that trading idea compiled into structured logic – entry conditions, exit conditions, position sizing, risk parameters, indicator configuration – complete code you own.
 - **Agent** is a strategy deployed on-chain; once live, the strategy cannot be modified, so what you optimized is exactly what runs. Agents continuously evaluate present market conditions and make decisions guarded by immutable strategy code.
-- **Vault** is the onchain primitive holding capital allocated to an agent, either private (your capital only) or public (pooled capital where creators can charge performance fees).
+- **Hyperliquid Vault** is the onchain primitive holding capital allocated to an agent, either private (your capital only) or public (pooled capital where creators can charge performance fees).
 - **Capital** is non-custodial – you choose where to deposit, Robonet never holds your funds, and allocation follows verified onchain records.
 
 ## Capabilities

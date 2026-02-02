@@ -75,7 +75,7 @@ Regardless of which interface you choose, here's the typical flow:
 2. **Backtest**: Test the strategy against historical data (default: recent 6 months)
 3. **Review Results**: Analyze performance metrics (Sharpe ratio, max drawdown, win rate)
 4. **Optimize** (optional): Fine-tune parameters to improve performance
-5. **Deploy**: Launch your strategy on Hyperliquid (EOA or Vault deployment)
+5. **Deploy**: Launch your strategy on Hyperliquid (EOA or Hyperliquid Vault deployment)
 
 ## Next Steps
 

@@ -44,7 +44,7 @@ Robonet integrates with two blockchain networks:
 - **Supported assets:** Perpetual futures contracts
 - **Deployment types:**
   - **EOA (Externally Owned Account):** Direct trading with your wallet (limit 1 active deployment)
-  - **Vault:** Create a Hyperliquid vault (minimum 200 USDC, unlimited deployments)
+  - **Hyperliquid Vault:** Create a vault (minimum 200 USDC, unlimited deployments)
 
 ::: warning Network Selection
 When depositing USDC for credits, ensure you're using the **Base network** (Chain ID 8453). Sending USDC on other networks (Ethereum mainnet, Polygon, etc.) will result in lost funds that cannot be recovered.
@@ -248,7 +248,7 @@ Delegation does NOT allow Robonet to:
 **Problem:** EOA deployment limit reached
 - **Solution:**
   1. Stop your existing EOA deployment before creating a new one
-  2. Or switch to Vault deployment type (unlimited, 200 USDC minimum)
+  2. Or switch to Hyperliquid Vault deployment type (unlimited, 200 USDC minimum)
 - **Cause:** Database enforces unique constraint: 1 active EOA per user
 - **Reason:** Hyperliquid EOA limitation prevents multiple active deployments per wallet
 
