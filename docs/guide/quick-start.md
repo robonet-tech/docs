@@ -47,7 +47,7 @@ Robonet offers two different interfaces depending on your needs:
 
 If you prefer a guided, conversational experience, use the chat interface:
 
-1. Visit [robonet.allora.network](https://robonet.allora.network)
+1. Visit [robonet.finance](https://robonet.finance)
 2. Create an account or log in
 3. Start chatting with the AI to generate your first strategy
 
