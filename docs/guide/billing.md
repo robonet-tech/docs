@@ -6,10 +6,9 @@ This guide explains how Robonet's pricing and credit system works, how to purcha
 
 Robonet uses a **credit-based billing system** where you pay for what you use. There are no subscription tiers or monthly fees - you simply purchase credits in USDC (stablecoin) and they're deducted as you use the platform's tools and features.
 
-**Key Features:**
-- **Pay-as-you-go**: No subscriptions or recurring charges
-- **Transparent pricing**: Each tool has a fixed or predictable cost
-- **Welcome bonus**: $25 free credits for all new users
+- Pay-as-you-go pricing (no subscriptions)
+- Fixed or predictable cost per tool
+- $25 welcome bonus for new users
 
 ## Pricing Structure
 
@@ -58,7 +57,7 @@ AI tools show a maximum price, but typically cost much less. For example, "creat
 :::
 
 #### Deployment Tools ($0.05)
-- **Create deployment** - $0.05: Create new deployment (EOA or Vault)
+- **Create deployment** - $0.05: Create new deployment (EOA or Hyperliquid Vault)
 - **List deployments** - $0.05: View your deployments
 - **Start live trading** - $0.05: Activate a deployed strategy
 - **Stop live trading** - $0.05: Stop a running strategy

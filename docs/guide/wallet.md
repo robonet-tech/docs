@@ -1,6 +1,6 @@
 # Wallet Integration
 
-Robonet uses a modern embedded wallet system powered by Privy that handles authentication, wallet creation, and signing operations. This guide explains how wallets work on Robonet and how to use them securely.
+Robonet uses Privy for wallet management, handling authentication, wallet creation, and signing operations. This guide explains how wallets work on Robonet and how to use them securely.
 
 ## Supported Authentication Methods
 
@@ -9,19 +9,19 @@ Robonet offers three convenient ways to sign in:
 ### 1. Email Authentication (Recommended for New Users)
 - **How it works:** Sign up with your email address
 - **Wallet creation:** Privy automatically creates an embedded Ethereum wallet for you
-- **Best for:** New users who don't have a crypto wallet yet
+- **Suited for:** New users who don't have a crypto wallet yet
 - **Security:** Wallet is secured by your email authentication and Privy's infrastructure
 
 ### 2. External Wallet Connection
 - **How it works:** Connect an existing Ethereum wallet (MetaMask, WalletConnect, etc.)
 - **Wallet creation:** Privy still creates an embedded wallet for server-side signing
-- **Best for:** Users who prefer to authenticate with their existing wallet
+- **Suited for:** Users who prefer to authenticate with their existing wallet
 - **Security:** You maintain control of your external wallet; embedded wallet is created separately
 
 ### 3. Social Authentication (Twitter)
 - **How it works:** Sign in with your Twitter account
 - **Wallet creation:** Privy automatically creates an embedded Ethereum wallet for you
-- **Best for:** Quick sign-up without email
+- **Suited for:** Quick sign-up without email
 - **Security:** Wallet is secured by your Twitter authentication and Privy's infrastructure
 
 ::: tip
@@ -44,7 +44,7 @@ Robonet integrates with two blockchain networks:
 - **Supported assets:** Perpetual futures contracts
 - **Deployment types:**
   - **EOA (Externally Owned Account):** Direct trading with your wallet (limit 1 active deployment)
-  - **Vault:** Create a Hyperliquid vault (minimum 200 USDC, unlimited deployments)
+  - **Hyperliquid Vault:** Create a vault (minimum 200 USDC, unlimited deployments)
 
 ::: warning Network Selection
 When depositing USDC for credits, ensure you're using the **Base network** (Chain ID 8453). Sending USDC on other networks (Ethereum mainnet, Polygon, etc.) will result in lost funds that cannot be recovered.
@@ -248,7 +248,7 @@ Delegation does NOT allow Robonet to:
 **Problem:** EOA deployment limit reached
 - **Solution:**
   1. Stop your existing EOA deployment before creating a new one
-  2. Or switch to Vault deployment type (unlimited, 200 USDC minimum)
+  2. Or switch to Hyperliquid Vault deployment type (unlimited, 200 USDC minimum)
 - **Cause:** Database enforces unique constraint: 1 active EOA per user
 - **Reason:** Hyperliquid EOA limitation prevents multiple active deployments per wallet
 

@@ -81,9 +81,9 @@ With an EOA deployment, your agent trades directly from your connected wallet on
 | **Minimum** | USDC deposited on Hyperliquid |
 | **Best For** | Users who want direct wallet control |
 
-### Vault
+### Hyperliquid Vault
 
-Vault deployments create a separate Hyperliquid vault for each strategy. This isolates your trading capital — if one strategy performs poorly, it doesn't affect funds in other vaults or your main wallet. You can run as many vault strategies as you like, each with its own dedicated capital.
+Hyperliquid Vault deployments create a separate vault for each strategy. This isolates your trading capital — if one strategy performs poorly, it doesn't affect funds in other vaults or your main wallet. You can run as many vault strategies as you like, each with its own dedicated capital.
 
 Vaults also enable **capital formation**: other users can deposit funds into your vault, allowing you to manage external capital alongside your own. This makes vaults ideal for strategy creators who want to build a track record and attract investors.
 
@@ -119,7 +119,7 @@ Before you can deploy, make sure you've completed these steps:
 │                                                                             │
 │   ☐ 3. FUNDED ACCOUNT                                                       │
 │      ├── EOA: USDC on Hyperliquid (your wallet)                             │
-│      └── Vault: 200+ USDC on Hyperliquid (for vault creation)               │
+│      └── Hyperliquid Vault: 200+ USDC on Hyperliquid (for vault creation)   │
 │                                                                             │
 │   ☐ 4. SELECTED STRATEGY                                                    │
 │      └── Browse strategies in the Strategies tab                            │
@@ -165,14 +165,14 @@ Once you're ready, deploying a strategy takes just a few clicks:
 
 Start by browsing the Strategies tab to find one that fits your goals. You can review backtested performance metrics like return, Sharpe ratio, and max drawdown before committing. When you're ready, click the three-dot menu on a strategy and select "Deploy."
 
-In the configuration modal, you'll choose your deployment type (EOA or Vault), select a trading pair, set your timeframe, and pick a leverage level. Once you submit, the system takes over and handles the rest.
+In the configuration modal, you'll choose your deployment type (EOA or Hyperliquid Vault), select a trading pair, set your timeframe, and pick a leverage level. Once you submit, the system takes over and handles the rest.
 
 #### Configuration Options
 
 | Parameter | Description | Options |
 |-----------|-------------|---------|
-| **Deployment Type** | How funds are managed | EOA (Wallet) / Vault |
-| **Vault Name** | Name for your vault (vault only) | 3-50 characters |
+| **Deployment Type** | How funds are managed | EOA (Wallet) / Hyperliquid Vault |
+| **Vault Name** | Name for your Hyperliquid Vault (vault deployments only) | 3-50 characters |
 | **Trading Pair** | Asset to trade | BTC-USDC, ETH-USDC, etc. |
 | **Timeframe** | Candle interval for strategy evaluation | 1m, 5m, 15m, 1h, 4h, 1d |
 | **Leverage** | Position size multiplier | 1x - 5x |
@@ -527,7 +527,7 @@ We're working on adding Trusted Execution Environment (TEE) support, which will 
 | Term | Definition |
 |------|------------|
 | **EOA** | Externally Owned Account — a standard wallet address controlled by a private key |
-| **Vault** | A Hyperliquid smart contract that holds funds separately from your main wallet |
+| **Hyperliquid Vault** | A Hyperliquid smart contract that holds funds separately from your main wallet |
 | **Delegation** | One-time authorization allowing Robonet to sign transactions on your behalf |
 | **Privy** | Wallet infrastructure provider that enables secure, MPC-based key management |
 | **EIP-712** | Ethereum standard for typed, structured data signing (used for vault operations) |

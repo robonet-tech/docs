@@ -12,7 +12,7 @@ The chat interface provides a conversational way to:
 - Integrate Allora Network price predictions
 - Deploy strategies to live trading
 
-**Best for:** Traders who prefer natural language over code, and want guided assistance through the strategy development process.
+For traders who prefer natural language over code.
 
 ## Getting Started
 
@@ -328,13 +328,13 @@ Once you're satisfied with backtest results, deploy your strategy to live tradin
 - Trades directly with your connected wallet
 - Maximum 1 active deployment per user
 - Immediate setup, no minimum balance
-- Best for: Testing with small capital
+- Suited for: Testing with small capital
 
-**Vault:**
-- Creates a Hyperliquid vault for your strategy
+**Hyperliquid Vault:**
+- Creates a Hyperliquid Vault for your strategy
 - Unlimited vaults per user
 - Requires 200 USDC minimum
-- Best for: Production trading with larger capital
+- Suited for: Production trading with larger capital
 
 ### Creating a Deployment
 
@@ -348,12 +348,12 @@ Or navigate to your Profile → Strategies tab and click "Deploy" on a saved str
 
 **Deployment Configuration:**
 
-1. **Deployment Type**: EOA or Vault
+1. **Deployment Type**: EOA or Hyperliquid Vault
 2. **Symbol**: Trading pair (e.g., BTC-USDT)
 3. **Timeframe**: Candlestick interval (must match backtest)
 4. **Leverage**: 1x - 5x (higher leverage = higher risk)
-5. **Vault Details** (if Vault deployment):
-   - Vault Name (unique)
+5. **Vault Details** (if Hyperliquid Vault deployment):
+   - Vault Name (unique on Hyperliquid)
    - Description (minimum 10 characters)
 
 **Risk Warnings:**
@@ -412,7 +412,7 @@ You: Start the MomentumRSI deployment again
 **Deployment Constraints:**
 
 - **EOA Deployments**: Only 1 active at a time (must stop existing before starting a new one)
-- **Vault Deployments**: Unlimited active deployments
+- **Hyperliquid Vault Deployments**: Unlimited active deployments
 - **Wallet Delegation Required**: Must authorize delegation before deploying
 - **Insufficient Balance**: Deployment will fail if insufficient USDC in wallet
 

@@ -51,7 +51,7 @@ If you prefer a guided, conversational experience, use the chat interface:
 2. Create an account or log in
 3. Start chatting with the AI to generate your first strategy
 
-**Best for**: Traders who want to focus on strategy ideas without coding
+Suited for non-technical users
 
 [Learn more about the Chat Interface →](/guide/chat-interface)
 
@@ -63,7 +63,7 @@ If you use AI coding assistants like Claude Code, Cursor, or Windsurf:
 2. Configure your coding assistant
 3. Use MCP tools directly in your development workflow
 
-**Best for**: Developers who want programmatic control and integration
+Suited for developers using AI coding assistants
 
 [Learn more about MCP Server Setup →](/guide/mcp-server)
 
@@ -75,7 +75,7 @@ Regardless of which interface you choose, here's the typical flow:
 2. **Backtest**: Test the strategy against historical data (default: recent 6 months)
 3. **Review Results**: Analyze performance metrics (Sharpe ratio, max drawdown, win rate)
 4. **Optimize** (optional): Fine-tune parameters to improve performance
-5. **Deploy**: Launch your strategy on Hyperliquid (EOA or Vault deployment)
+5. **Deploy**: Launch your strategy on Hyperliquid (EOA or Hyperliquid Vault deployment)
 
 ## Next Steps
 

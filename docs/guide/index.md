@@ -15,13 +15,13 @@ Five abstractions define how Robonet works, each building on the last to take yo
 - **Intent** is your trading idea in plain language: "buy ETH when momentum is strong," "capture funding rates while staying delta-neutral."
 - **Strategy** is that trading idea compiled into structured logic – entry conditions, exit conditions, position sizing, risk parameters, indicator configuration – complete code you own.
 - **Agent** is a strategy deployed on-chain; once live, the strategy cannot be modified, so what you optimized is exactly what runs. Agents continuously evaluate present market conditions and make decisions guarded by immutable strategy code.
-- **Vault** is the onchain primitive holding capital allocated to an agent, either private (your capital only) or public (pooled capital where creators can charge performance fees).
+- **Hyperliquid Vault** is the onchain primitive holding capital allocated to an agent, either private (your capital only) or public (pooled capital where creators can charge performance fees).
 - **Capital** is non-custodial – you choose where to deposit, Robonet never holds your funds, and allocation follows verified onchain records.
 
-## Key Capabilities
+## Capabilities
 
 ### Strategy Generation
-Generate trading strategies using natural language. Simply describe your trading idea, and Robonet's AI will create a complete, executable strategy.
+Describe your trading idea in plain language. The AI generates executable strategy code.
 
 ### Backtesting
 Test your strategies against historical market data to understand how they would have performed. Get detailed performance metrics and visualizations.
@@ -40,15 +40,15 @@ Deploy your strategies to production with one click. Robonet handles hosting, ex
 There are two ways to use Robonet:
 
 ### Chat Interface
-Perfect for traders who want a simple, guided experience. Access the web interface and interact with the AI through natural conversation.
+For traders who want a guided experience. Access the web interface and interact with the AI through conversation.
 
-👉 [Learn about the Chat Interface](/guide/chat-interface)
+[Learn about the Chat Interface](/guide/chat-interface)
 
 ### MCP Server
 Ideal for developers using AI coding assistants like Claude Code, Cursor, or Windsurf. Integrate Robonet directly into your development workflow.
 
-👉 [Learn about MCP Server Integration](/guide/mcp-server)
+[Learn about MCP Server Integration](/guide/mcp-server)
 
 ## Getting Started
 
-Ready to build your first trading bot? Head to the [Quick Start guide](/guide/quick-start) to begin.
+See the [Quick Start guide](/guide/quick-start).
