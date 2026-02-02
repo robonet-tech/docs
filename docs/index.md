@@ -37,7 +37,7 @@ features:
   - icon: 🚀
     title: Deployment
     details: Deploy to Hyperliquid Perpetual via EOA (direct wallet) or Hyperliquid Vault (200 USDC minimum). Kubernetes-managed execution.
-    link: /guide/deployment
+    link: /guide/strategy-deployment
     linkText: Deploy Now
   - icon: 💳
     title: Billing
