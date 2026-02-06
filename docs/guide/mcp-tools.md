@@ -230,7 +230,7 @@ Use create_strategy to build a momentum strategy that:
 
 **Returns:** List of strategy concepts with descriptions of market conditions, logic, and rationale.
 
-**Pricing:** Tier 4 - AI Generation (Real LLM cost + margin, max $1.00)
+**Pricing:** Tier 4 - AI Generation (Real LLM cost + margin, max $3.00)
 
 **Execution Time:** ~20-40s
 
