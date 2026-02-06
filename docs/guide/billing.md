@@ -43,9 +43,9 @@ Robonet tools are organized into pricing tiers based on computational and AI res
 - **Run prediction market backtest** - $0.001: Test prediction market strategies
 - **Run Monte Carlo backtest** - $0.01: Advanced statistical backtesting
 
-#### AI-Powered Tools (Real pricing, max $1.00-$4.50)
+#### AI-Powered Tools (Real pricing, max $2.50-$4.50)
 These tools charge based on actual LLM costs with the following maximums:
-- **Generate ideas** - max $1.00: Get strategy suggestions based on market conditions
+- **Generate ideas** - max $3.00: Get strategy suggestions based on market conditions
 - **Enhance with Allora** - max $2.50: Integrate ML price predictions
 - **Refine strategy** - max $3.00: AI-powered strategy refinement
 - **Optimize strategy** - max $4.00: AI-powered parameter optimization
@@ -70,10 +70,10 @@ Start with free data access tools (get all symbols, get all strategies) to explo
 
 Here are estimated costs for common workflows (using typical AI costs, not maximums):
 
-**Exploring Strategy Ideas** (~$0.40-1.20):
-- Generate ideas: ~$0.20-0.50 (max $1.00)
+**Exploring Strategy Ideas** (~$1.30-3.20):
+- Generate ideas: ~$0.50-1.20 (max $3.00)
 - Create strategy: ~$0.80-2.00 (max $4.50)
-- **Typical Total**: ~$1.00-2.50
+- **Typical Total**: ~$1.30-3.20
 
 **Testing a Strategy** (~$1.00-3.50):
 - Create strategy: ~$0.80-2.00 (max $4.50)
