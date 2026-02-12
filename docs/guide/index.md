@@ -32,6 +32,9 @@ Fine-tune your strategy parameters using automated optimization. Find the best c
 ### Allora Network Integration
 Leverage decentralized price predictions from the Allora Network as signals in your strategies. Access crowd-sourced market intelligence.
 
+### Polymarket Strategies
+Build and deploy automated prediction market strategies on Polymarket. Trade YES/NO tokens on real-world events with ERC-4626 vault infrastructure on Polygon.
+
 ### Deployment
 Deploy your strategies to production with one click. Robonet handles hosting, execution, and monitoring.
 

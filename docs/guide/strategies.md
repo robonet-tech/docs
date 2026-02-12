@@ -6,6 +6,15 @@ This guide explains how to create, structure, and refine trading strategies on R
 
 Robonet strategies are Python classes that inherit from the Jesse trading framework. The platform generates strategy code based on your natural language descriptions, but understanding the structure helps you create better strategies and communicate your requirements more effectively.
 
+## Strategy Types
+
+Robonet supports two types of strategies:
+
+- **Perpetual Futures Strategies** — Trade long/short on Hyperliquid using the `Strategy` base class with `should_long()` / `should_short()` methods. Covered in this guide.
+- **Prediction Market Strategies** — Trade YES/NO tokens on Polymarket using the `PolymarketStrategy` base class with `should_buy_yes()` / `should_buy_no()` methods. See the [Polymarket Strategies guide](/guide/polymarket#building-strategies) for details.
+
+The rest of this page covers perpetual futures strategy development.
+
 ## Strategy Structure
 
 Every strategy must implement these core methods:
@@ -197,11 +206,15 @@ Strategies follow the pattern: `{Name}_{RiskLevel}[_suffix]`
 | Risk Level | H (high), M (medium), L (low) | M |
 | Suffix | Version or enhancement | _optimized, _allora, _v2 |
 
-**Examples:**
+**Perpetual Futures Examples:**
 - `RSIMeanReversion_M` - Base strategy, medium risk
 - `RSIMeanReversion_M_optimized` - After optimization
 - `RSIMeanReversion_M_allora` - With Allora ML enhancement
 - `RSIMeanReversion_M_v2` - Refined version
+
+**Prediction Market Examples** (use `_PM_` suffix):
+- `ValueBuyer_PM_M` - Polymarket strategy, medium risk
+- `MomentumTrader_PM_H` - Polymarket strategy, high risk
 
 ## Creating Strategies via Chat
 
@@ -329,5 +342,6 @@ Current coverage:
 - [Backtesting Guide](/guide/backtesting) - Test your strategies on historical data
 - [Optimization Guide](/guide/optimization) - Improve strategy parameters
 - [Allora Integration](/guide/allora) - Add ML predictions
+- [Polymarket Strategies](/guide/polymarket) - Build prediction market strategies
 - [Deployment Guide](/guide/strategy-deployment) - Deploy to live trading
 - [MCP Tools Reference](/guide/mcp-tools) - Complete tool documentation
