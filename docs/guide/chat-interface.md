@@ -10,6 +10,7 @@ The chat interface provides a conversational way to:
 - Run backtests and analyze results
 - Optimize strategy parameters
 - Integrate Allora Network price predictions
+- Build and test Polymarket prediction market strategies
 - Deploy strategies to live trading
 
 For traders who prefer natural language over code.
@@ -41,9 +42,10 @@ After authentication, Robonet uses Privy for secure wallet management:
 
 #### Network Information
 
-- **Trading**: All trades execute on Hyperliquid Perpetuals (Hyperliquid L1)
+- **Hyperliquid Trading**: Perpetual futures execute on Hyperliquid L1
+- **Polymarket**: Prediction market strategies execute on Polygon via Gnosis Safe
 - **Payments**: Credits are managed on Base network (USDC)
-- **Settlement**: All trades settle on-chain on Hyperliquid
+- **Settlement**: All trades settle on-chain (Hyperliquid L1 or Polygon)
 - Your chat sessions and strategies are linked to your wallet address
 
 ### 2. Starting a Chat Session
@@ -303,8 +305,15 @@ You: Create a prediction market strategy for BTC price in February 2026
 The AI will:
 1. Call `get_prediction_market_data` to fetch market timeseries
 2. Analyze YES/NO token pricing trends
-3. Generate a strategy to trade prediction markets
+3. Generate a `PolymarketStrategy` with `should_buy_yes()`, `should_buy_no()`, `go_yes()`, and `go_no()` methods
 4. Backtest on historical prediction market data
+
+You can also explore and backtest on existing markets:
+
+```
+You: What prediction markets are available for crypto?
+You: Backtest my ValueBuyer strategy on BTC 15m rolling markets from Jan to March
+```
 
 **Prediction Market Card:**
 
@@ -313,6 +322,8 @@ View prediction market data directly in chat:
 - Market resolution status
 - High/low/current prices
 - Interactive dual-token chart
+
+For comprehensive details on Polymarket strategy development and deployment, see the [Polymarket Strategies guide](/guide/polymarket).
 
 **Screenshot placeholder:** Prediction market card with YES/NO token timeseries
 
@@ -325,7 +336,7 @@ Once you're satisfied with backtest results, deploy your strategy to live tradin
 ### Deployment Types
 
 **EOA (Externally Owned Account):**
-- Trades directly with your connected wallet
+- Trades directly with your connected wallet on Hyperliquid
 - Maximum 1 active deployment per user
 - Immediate setup, no minimum balance
 - Suited for: Testing with small capital
@@ -335,6 +346,14 @@ Once you're satisfied with backtest results, deploy your strategy to live tradin
 - Unlimited vaults per user
 - Requires 200 USDC minimum
 - Suited for: Production trading with larger capital
+
+**Polymarket Vault:**
+- Deploys an ERC-4626 vault on Polygon with a Gnosis Safe
+- Maximum 1 active Polymarket deployment per user
+- Requires ~10 POL for gas + 10 USDC.e for trading
+- Other users can deposit into your vault
+- Suited for: Prediction market strategies
+- See [Polymarket Strategies guide](/guide/polymarket#deploying-a-polymarket-strategy) for details
 
 ### Creating a Deployment
 
@@ -413,8 +432,9 @@ You: Start the MomentumRSI deployment again
 
 - **EOA Deployments**: Only 1 active at a time (must stop existing before starting a new one)
 - **Hyperliquid Vault Deployments**: Unlimited active deployments
+- **Polymarket Deployments**: 1 active at a time, requires POL on Polygon for gas
 - **Wallet Delegation Required**: Must authorize delegation before deploying
-- **Insufficient Balance**: Deployment will fail if insufficient USDC in wallet
+- **Insufficient Balance**: Deployment will fail if insufficient funds in wallet
 
 **Error Handling:**
 

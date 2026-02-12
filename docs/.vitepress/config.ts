@@ -36,6 +36,7 @@ export default defineConfig({
             { text: 'Backtesting', link: '/guide/backtesting' },
             { text: 'Optimization', link: '/guide/optimization' },
             { text: 'Allora AI Price Predictions', link: '/guide/allora' },
+            { text: 'Polymarket Strategies', link: '/guide/polymarket' },
             { text: 'Deployment', link: '/guide/strategy-deployment' },
           ]
         },

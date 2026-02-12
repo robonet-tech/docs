@@ -1,6 +1,6 @@
 # Supported Trading Venues
 
-Robonet currently supports trading on **Hyperliquid Perpetual** only. Support for additional exchanges and DEXs is planned for future releases.
+Robonet supports trading on **Hyperliquid Perpetual** and **Polymarket** prediction markets.
 
 ## Decentralized Exchanges (DEXs)
 
@@ -50,6 +50,56 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 
 ---
 
+## Prediction Markets
+
+### Polymarket
+
+**Status:** Fully Supported (Polygon Mainnet)
+
+**Type:** Decentralized prediction market (CLOB-based)
+
+**Asset Types:**
+- Binary outcome tokens (YES/NO)
+- USDC.e denominated positions on Polygon
+
+**Market Types:**
+- **Rolling series** — Recurring crypto markets (e.g., "BTC up or down in 15m") that auto-transition between rounds
+- **Single markets** — One-time event markets with a fixed resolution date
+
+**Deployment Type:**
+- **Polymarket Vault** — ERC-4626 tokenized vault with Gnosis Safe
+  - Minimum: 10 POL for gas + 10 USDC.e for trading
+  - Maximum 1 active Polymarket deployment per user
+  - Other users can deposit into your vault
+  - Performance fees configurable (1–20%)
+
+**Network:**
+- **Polygon Mainnet** — All trading and vault contracts deployed on Polygon
+
+**Special Requirements:**
+- POL on Polygon for vault contract deployment gas (~10 POL)
+- USDC.e on Polygon for trading capital
+- Robonet credits for platform usage
+- Wallet delegation for server-side signing (via Privy)
+
+**Features:**
+- Automated rolling market transitions
+- On-chain vault accounting (ERC-4626)
+- Keeper-managed position reporting and withdrawals
+- Gasless Gnosis Safe deployment via Polymarket relayer
+- Full backtesting support (single market and rolling series)
+
+**Data Availability:**
+- Historical YES/NO token price data for backtesting
+- Multiple timeframes: 1m, 5m, 15m, 30m, 1h, 4h
+- Rolling and single market data
+
+::: tip Learn More
+See the [Polymarket Strategies guide](/guide/polymarket) for comprehensive documentation on building, backtesting, and deploying prediction market strategies.
+:::
+
+---
+
 ## Centralized Exchanges (CEXs)
 
 **Status:** Not Currently Supported
@@ -82,6 +132,7 @@ If you'd like to see support for a specific exchange or DEX, please share your f
 | Venue | Type | Asset Types | Status | Deployment Types | Min Capital |
 |-------|------|-------------|--------|------------------|-------------|
 | **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Hyperliquid Vault | 0 (EOA), 200 USDC (Hyperliquid Vault) |
+| **Polymarket** | Prediction Market | YES/NO Tokens | Supported | Polymarket Vault | 10 POL + 10 USDC.e |
 | Binance | CEX | Spot, Futures | Not Supported | - | - |
 | Bybit | CEX | Spot, Futures | Not Supported | - | - |
 | OKX | CEX | Spot, Futures | Not Supported | - | - |
