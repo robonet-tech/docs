@@ -26,13 +26,17 @@ Before deploying a Polymarket agent, ensure you have:
 
 | Requirement | Details |
 |-------------|---------|
-| **Privy wallet delegation** | Grant delegation in the Robonet app (same as Hyperliquid) |
+| **Privy wallet delegation** | Grant delegation in the Robonet app (see security warning below) |
 | **10 POL minimum** | In your Privy wallet on Polygon — covers vault contract deployment gas (~0.3 POL) plus post-deployment config calls |
 | **USDC.e on Polygon** | Trading capital deposited into the vault after deployment |
 | **Robonet credits** | For platform usage (purchased with USDC on Base, same as always) |
 
+::: warning Security — Wallet Delegation
+Granting Privy wallet delegation allows the Robonet platform to sign transactions on your behalf — including deploying contracts, approving token spending, and executing trades. **Risks:** delegated access persists until explicitly revoked. To revoke, go to the Robonet app → Settings → Wallet → Revoke Delegation. Only delegate wallets you use exclusively for Robonet trading, and avoid holding large balances outside of vault deposits.
+:::
+
 ::: warning POL Gas Requirement
-Safe deployment and token approvals are gasless (handled by a relayer), but the vault contract deployment itself requires POL. Make sure you have at least 10 POL in your wallet on the Polygon network (Chain ID 137).
+**Safe deployment** and initial vault token approvals (deployment step 4) are gasless — handled by the Robonet relayer. However, the **vault contract deployment** itself requires POL. User-initiated deposits may also require POL for on-chain USDC.e approval transactions. Make sure you have at least 10 POL in your wallet on the Polygon network (Chain ID 137).
 :::
 
 ---
@@ -227,7 +231,7 @@ Polymarket vaults support a configurable **performance fee** set at deployment t
 
 | Fee | Description |
 |-----|-------------|
-| **Performance fee** | Percentage of profits taken as fee, configured in basis points (BPS). E.g., 500 BPS = 5% of profits. Set via `performance_fee_pct` parameter (5-50%, default 10%). Applied during `report()`. |
+| **Performance fee** | Percentage of profits taken as fee. Set via `performance_fee_pct` parameter as a **percentage** (5-50%, default 10%). The value is stored on-chain in basis points (e.g., 10% → 1000 BPS). Applied during `report()`. |
 
 ::: info Fee Range Note
 The MCP tool (`deployment_create`) accepts performance fees from **5-50%** with a default of **10%**. The backend API historically accepted 1-20%. When deploying via MCP tools, the 5-50% range applies.
@@ -294,6 +298,12 @@ There is no management fee or deposit/withdrawal fee at the vault level. Polymar
 - If `tend()` fails (e.g., position data unavailable), the cycle is skipped
 - Check back after the next hour. If it persists, the agent logs will show the vault manager errors
 
+**Repeated `tend()` failures**
+- If `tend()` fails for multiple consecutive cycles, positions may be stale and withdrawals blocked
+- **Emergency withdrawal:** Stop the deployment via `deployment_stop`, which deactivates the vault. Once deactivated, use `agent_withdraw` with `withdraw_all=true` to redeem shares directly
+- **View logs:** Agent logs are available in the Robonet web UI under Deployment → Logs, or via the platform API
+- **Contact support:** If the vault is stuck (e.g., cannot stop deployment or redeem shares), contact support with your vault address and agent ID
+
 ---
 
 ## Polymarket vs Hyperliquid Comparison
@@ -309,7 +319,7 @@ There is no management fee or deposit/withdrawal fee at the vault level. Polymar
 | **Strategy base class** | `Strategy` | `PolymarketStrategy` (YES/NO methods) |
 | **Market lifecycle** | Continuous | Rolling with resolution events |
 | **Gas token** | N/A | POL (min 10 for deployment) |
-| **Stats sync** | Real-time via HL API | Hourly vault cycle reads Polygon |
+| **Stats sync** | Real-time via HL API | Hourly vault cycle (Data API → Polygon) |
 | **Deployment flow** | Create/delegate wallet | Safe → approvals → vault → CLOB creds at runtime |
 | **Deployments per user** | Multiple (EOA: 1, Vault: unlimited) | One active |
 | **Leverage** | Configurable (1-5x) | Fixed at 1.0x |

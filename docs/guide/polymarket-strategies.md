@@ -21,7 +21,7 @@ Polymarket uses **YES/NO binary tokens**, not long/short positions. Prices are p
 ```python
 from jesse.strategies import PolymarketStrategy
 
-class MyStrategy_PM_15m_M(PolymarketStrategy):
+class MyStrategy_PM_M(PolymarketStrategy):
     """My prediction market strategy"""
 
     # Required methods (must implement all four)
@@ -246,6 +246,8 @@ class ValueBuyer_PM_M(PolymarketStrategy):
     Buy YES when price is low (undervalued), buy NO when YES price
     is high (overvalued). Sell when price moves toward fair value.
     Medium risk: 50% margin per trade, moderate thresholds.
+    Note: Uses 0.40 threshold (more conservative than the 0.45 guideline
+    in the naming convention table — adjust to taste).
     """
 
     # --- Required: Entry signals ---
@@ -255,7 +257,7 @@ class ValueBuyer_PM_M(PolymarketStrategy):
         return not self.yes_position.is_open and self.yes_price < 0.40
 
     def should_buy_no(self) -> bool:
-        """Buy NO when YES is expensive (> 0.60) and we don't already hold"""
+        """Buy NO when it's cheap (< 0.40) and we don't already hold"""
         return not self.no_position.is_open and self.no_price < 0.40
 
     # --- Required: Entry execution ---

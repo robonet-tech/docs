@@ -394,9 +394,9 @@ Use create_prediction_market_strategy to build a "PriceThreshold" strategy that:
 
 **Returns:** List of prediction events with:
 - Event name and category
-- Associated markets with condition IDs
-- Market questions and outcomes (YES/NO)
-- Resolution status
+- `slug_pattern` and `event_slug` — use these to identify valid market slugs for `deployment_create`
+- Associated markets with condition IDs and questions
+- Discovery config and active/backfilled status
 
 **Pricing:** Tier 1 - Data Access ($0.001)
 
@@ -491,8 +491,11 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 - `deployment_type` (optional, string): "eoa" (wallet), "vault" (Hyperliquid), or "polymarket" (Polymarket vault)
 - `vault_name` (required for vault, string): Unique name for the Hyperliquid vault
 - `vault_description` (optional, string): Description for the vault
+- `performance_fee_pct` (optional, number, 5-50, default: 10): Performance fee percentage — **Polymarket only**. Stored on-chain in basis points (10% = 1000 BPS).
+- `total_assets_limit` (optional, number): Maximum vault TVL in USDC.e — **Polymarket only**
+- `max_deposit_per_wallet` (optional, number): Per-wallet deposit cap in USDC.e — **Polymarket only**
 
-**Returns:** Deployment ID, status, wallet address, and configuration details.
+**Returns:** Deployment ID, status, wallet address, agent ID (vault contract address), and configuration details.
 
 **Pricing:** $0.50
 
@@ -502,7 +505,7 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 - Polymarket: Maximum 1 active deployment per user, requires 10 POL on Polygon
 
 ::: tip Polymarket Deployments
-For Polymarket, the `symbol` parameter is a **market slug** (e.g., `btc-up-or-down-15m`), not a trading pair. Timeframe is fixed to `1m` and leverage is fixed to `1.0`. Use `get_all_prediction_events` to find available market slugs. See [Polymarket Deployments](/guide/polymarket-deployments) for full details.
+For Polymarket, the `symbol` parameter is a **market slug** (e.g., `btc-up-or-down-15m`), not a trading pair. Timeframe is fixed to `1m` and leverage is fixed to `1.0`. Use `get_all_prediction_events` to discover slugs — look for `slug_pattern` (rolling markets) or `event_slug` (single events) in the response. See [Polymarket Deployments](/guide/polymarket-deployments) for full details.
 :::
 
 **Example Usage:**
@@ -583,6 +586,10 @@ Stop my BTC-USDT deployment
 
 ---
 
+::: tip Finding Your agent_id
+The `agent_id` (vault contract address) is returned by `deployment_create` when you first deploy. You can also find it in the `deployment_list` output or in the Robonet web UI under your deployment details. All four tools below (`agent_details`, `agent_deposit`, `agent_withdraw`, `user_position`) require it.
+:::
+
 ### `agent_details`
 
 **Description:** Get agent stats for a Polymarket or Hyperliquid agent.
@@ -603,9 +610,9 @@ Stop my BTC-USDT deployment
 
 ### `agent_deposit`
 
-**Description:** Deposit USDC into a Polymarket or Hyperliquid agent.
+**Description:** Deposit USDC (Hyperliquid) or USDC.e (Polymarket) into a live trading agent.
 
-**Primary Use Case:** Fund a live trading agent after deployment.
+**Primary Use Case:** Fund a live trading agent after deployment. An "agent" is a deployed strategy instance; the `agent_id` is the vault contract address.
 
 **Parameters:**
 - `agent_id` (required, string): Agent vault contract address
@@ -624,7 +631,7 @@ For Polymarket agents, deposits go through an ERC-20 approval flow on Polygon. E
 
 ### `agent_withdraw`
 
-**Description:** Withdraw from a Polymarket or Hyperliquid agent.
+**Description:** Withdraw USDC (Hyperliquid) or USDC.e (Polymarket) from a live trading agent.
 
 **Primary Use Case:** Retrieve funds from a live trading agent.
 

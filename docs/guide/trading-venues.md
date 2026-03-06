@@ -1,6 +1,6 @@
 # Supported Trading Venues
 
-Robonet currently supports trading on **Hyperliquid Perpetual** only. Support for additional exchanges and DEXs is planned for future releases.
+Robonet currently supports trading on **Hyperliquid** (perpetual futures) and **Polymarket** (prediction markets). Support for additional exchanges and DEXs is planned for future releases.
 
 ## Decentralized Exchanges (DEXs)
 
