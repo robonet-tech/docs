@@ -227,7 +227,11 @@ Polymarket vaults support a configurable **performance fee** set at deployment t
 
 | Fee | Description |
 |-----|-------------|
-| **Performance fee** | Percentage of profits taken as fee, configured in basis points (BPS). E.g., 500 BPS = 5% of profits. Set via `performance_fee_pct` parameter (1-20%). Applied during `report()`. |
+| **Performance fee** | Percentage of profits taken as fee, configured in basis points (BPS). E.g., 500 BPS = 5% of profits. Set via `performance_fee_pct` parameter (5-50%, default 10%). Applied during `report()`. |
+
+::: info Fee Range Note
+The MCP tool (`deployment_create`) accepts performance fees from **5-50%** with a default of **10%**. The backend API historically accepted 1-20%. When deploying via MCP tools, the 5-50% range applies.
+:::
 
 There is no management fee or deposit/withdrawal fee at the vault level. Polymarket's CLOB charges a **2% taker fee** on trades.
 

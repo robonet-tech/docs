@@ -160,7 +160,7 @@ Rolling markets are sequential, time-bounded prediction markets on the same unde
 - Your strategy auto-transitions to the next market when the current one resolves
 - Resolution settlement happens automatically — winning tokens pay out $1.00, losing tokens expire
 - Balance carries forward between markets
-- The agent exits positions **60 seconds before resolution** to avoid holding through settlement
+- The live engine automatically exits positions **60 seconds before resolution** (`PRE_RESOLUTION_EXIT_SECONDS`) to avoid holding through settlement — this is handled at the engine level, not in your strategy code
 - Rolling markets have an `asset` (e.g., "BTC") and `interval` (e.g., "15m")
 
 ### Market Slugs
@@ -192,6 +192,8 @@ Polymarket strategies follow this naming pattern:
 | `Risk` | Risk level suffix | `L` (low), `M` (medium), `H` (high) |
 
 **Risk levels for prediction markets:**
+
+> These are recommended guidelines for strategy design, not platform-enforced constraints. You can use any margin percentage or entry threshold — these conventions help communicate intent through the strategy name suffix.
 
 | Level | Margin per Trade | Entry Threshold |
 |-------|-----------------|-----------------|

@@ -583,6 +583,84 @@ Stop my BTC-USDT deployment
 
 ---
 
+### `agent_details`
+
+**Description:** Get agent stats for a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** View vault status, TVL, performance metrics, and configuration for a deployed agent.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address (e.g., `0x...`)
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Agent name, status, and type-specific details:
+- **Polymarket:** Vault TVL, price per share, performance fee, active/shutdown status, pending withdrawals
+- **Hyperliquid:** Account value, open positions, follower count
+
+**Pricing:** Free
+
+---
+
+### `agent_deposit`
+
+**Description:** Deposit USDC into a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** Fund a live trading agent after deployment.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `amount` (required, number): Amount of USDC to deposit
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Deposit confirmation with transaction details.
+
+::: tip Polymarket Deposits
+For Polymarket agents, deposits go through an ERC-20 approval flow on Polygon. Ensure you have USDC.e and POL for gas on the Polygon network. Use `user_position` to check balances before depositing.
+:::
+
+**Pricing:** Free
+
+---
+
+### `agent_withdraw`
+
+**Description:** Withdraw from a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** Retrieve funds from a live trading agent.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+- `shares_amount` (optional, number): Number of vault shares to withdraw (**Polymarket only**)
+- `amount_usdc` (optional, number): USDC amount to withdraw (**Hyperliquid only**)
+- `withdraw_all` (optional, boolean): Withdraw entire position (both types)
+
+::: tip Polymarket Withdrawals
+Polymarket withdrawals are share-based, not USDC-based. Use `user_position` to check your share balance first. You can specify `shares_amount` or set `withdraw_all=true`.
+:::
+
+**Pricing:** Free
+
+---
+
+### `user_position`
+
+**Description:** Get your current position in a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** Check balances, share holdings, and pending withdrawals before depositing or withdrawing.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Position details including:
+- **Polymarket:** Wallet USDC.e and POL balances, vault share balance, available deposit/withdraw limits, pending withdrawal status, price per share, vault active status, on-chain performance fee
+- **Hyperliquid:** Wallet balance, vault equity, PnL
+
+**Pricing:** Free
+
+---
+
 ## Account Tools
 
 Tools for managing credits and viewing account information.
