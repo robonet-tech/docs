@@ -46,6 +46,16 @@ Robonet integrates with two blockchain networks:
   - **EOA (Externally Owned Account):** Direct trading with your wallet (limit 1 active deployment)
   - **Hyperliquid Vault:** Create a vault (minimum 200 USDC, unlimited deployments)
 
+### Polygon Network
+- **Purpose:** Trading venue for Polymarket prediction market deployments
+- **Currency:** USDC.e stablecoin (6 decimals), POL for gas
+- **Chain ID:** 137 (mainnet)
+- **Wallet:** A **Safe wallet** is automatically derived and deployed from your Privy embedded wallet during Polymarket deployment setup. The Safe wallet holds trading positions and USDC.e on Polygon.
+- **Gas token:** POL — minimum **10 POL** required in your Privy wallet for vault contract deployment. Safe deployment and token approvals are gasless (handled by a relayer).
+- **Vault:** ERC4626 vault contract deployed on Polygon for share-based deposit/withdrawal accounting
+- **Deployment types:**
+  - **Polymarket Vault:** One active deployment per user. See [Polymarket Deployments](/guide/polymarket-deployments) for details.
+
 ::: warning Network Selection
 When depositing USDC for credits, ensure you're using the **Base network** (Chain ID 8453). Sending USDC on other networks (Ethereum mainnet, Polygon, etc.) will result in lost funds that cannot be recovered.
 :::

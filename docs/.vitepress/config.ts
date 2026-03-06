@@ -37,6 +37,8 @@ export default defineConfig({
             { text: 'Optimization', link: '/guide/optimization' },
             { text: 'Allora AI Price Predictions', link: '/guide/allora' },
             { text: 'Deployment', link: '/guide/strategy-deployment' },
+            { text: 'Polymarket Deployments', link: '/guide/polymarket-deployments' },
+            { text: 'Polymarket Strategies', link: '/guide/polymarket-strategies' },
           ]
         },
         {

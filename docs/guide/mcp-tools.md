@@ -479,16 +479,16 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 
 ### `deployment_create`
 
-**Description:** Deploy a strategy to live trading on Hyperliquid.
+**Description:** Deploy a strategy to live trading on Hyperliquid or Polymarket.
 
 **Primary Use Case:** Launch automated trading with your backtested strategy.
 
 **Parameters:**
 - `strategy_name` (required, string): Name of strategy to deploy
-- `symbol` (required, string): Trading pair (e.g., "BTC-USDT")
-- `timeframe` (required, string): Candle interval (1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d)
-- `leverage` (optional, number, 1-5): Position multiplier (default: 1)
-- `deployment_type` (optional, string): "eoa" (wallet) or "vault" (default: eoa)
+- `symbol` (required, string): Trading pair (e.g., "BTC-USDT") or **market slug** for Polymarket (e.g., "btc-up-or-down-15m")
+- `timeframe` (required, string): Candle interval (1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d). **Polymarket: fixed to 1m**
+- `leverage` (optional, number, 1-5): Position multiplier (default: 1). **Polymarket: fixed to 1.0**
+- `deployment_type` (optional, string): "eoa" (wallet), "vault" (Hyperliquid), or "polymarket" (Polymarket vault)
 - `vault_name` (required for vault, string): Unique name for the Hyperliquid vault
 - `vault_description` (optional, string): Description for the vault
 
@@ -499,10 +499,19 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 **Constraints:**
 - EOA: Maximum 1 active deployment per wallet
 - Hyperliquid Vault: Requires 200+ USDC in wallet, unlimited deployments
+- Polymarket: Maximum 1 active deployment per user, requires 10 POL on Polygon
+
+::: tip Polymarket Deployments
+For Polymarket, the `symbol` parameter is a **market slug** (e.g., `btc-up-or-down-15m`), not a trading pair. Timeframe is fixed to `1m` and leverage is fixed to `1.0`. Use `get_all_prediction_events` to find available market slugs. See [Polymarket Deployments](/guide/polymarket-deployments) for full details.
+:::
 
 **Example Usage:**
 ```
+# Hyperliquid
 Deploy MomentumRSI_M to BTC-USDT on 4h timeframe with 2x leverage
+
+# Polymarket
+Deploy ValueBuyer_PM_M to btc-up-or-down-15m on 1m timeframe
 ```
 
 ---
