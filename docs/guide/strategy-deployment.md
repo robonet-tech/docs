@@ -37,9 +37,9 @@ Robonet lets you deploy automated trading strategies that run around the clock o
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Strategies can execute on **Hyperliquid Perpetuals** — a high-performance perpetual futures DEX — or on **Polymarket** — a prediction market where agents trade YES/NO binary outcome tokens on Polygon.
+Strategies can execute on **Hyperliquid Perpetuals** — a high-performance perpetual futures DEX — or on **Polymarket** — a prediction market where agents trade YES/NO binary outcome tokens on Polygon. This page covers the general deployment flow and Hyperliquid-specific details.
 
-For Polymarket-specific deployment details, see the dedicated [Polymarket Deployments](/guide/polymarket-deployments) guide.
+For Polymarket-specific deployment details, see the dedicated [Polymarket Deployments](/guide/polymarket-deployments) guide. For Polymarket strategy development, see [Polymarket Strategies](/guide/polymarket-strategies). For a comprehensive overview, see the [Polymarket guide](/guide/polymarket).
 
 ---
 

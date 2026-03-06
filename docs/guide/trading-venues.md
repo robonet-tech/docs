@@ -50,25 +50,30 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 
 ---
 
+## Prediction Markets
+
 ### Polymarket
 
-**Status:** Fully Supported (Mainnet)
+**Status:** Fully Supported (Polygon Mainnet)
 
-**Type:** Decentralized prediction market
+**Type:** Decentralized prediction market (CLOB-based)
 
 **Asset Types:**
 - YES/NO binary outcome tokens
-- Rolling time-bounded markets (e.g., "BTC price in next 15m")
-- One-time event markets (e.g., "Will X happen by date Y?")
+- USDC.e denominated positions on Polygon (6 decimals)
+
+**Market Types:**
+- **Rolling series** — Recurring crypto markets (e.g., "BTC up or down in 15m") that auto-transition between rounds
+- **Single markets** — One-time event markets with a fixed resolution date
 
 **Network:** Polygon (Chain ID 137)
 
-**Currency:** USDC.e (6 decimals)
-
 **Deployment Type:**
-- **Polymarket Vault:** ERC4626 vault on Polygon with Safe wallet
+- **Polymarket Vault:** ERC-4626 tokenized vault on Polygon with Gnosis Safe
   - One active deployment per user
-  - Configurable performance fee (BPS)
+  - Minimum: 10 POL for gas + 10 USDC.e for trading
+  - Other users can deposit into your vault
+  - Performance fees configurable (1–20%)
   - Configurable capacity limits
 
 **Special Requirements:**
@@ -77,16 +82,25 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 - USDC.e on Polygon for trading capital
 - Robonet credits for platform usage
 
+**Features:**
+- Automated rolling market transitions
+- On-chain vault accounting (ERC-4626)
+- Keeper-managed position reporting and withdrawals
+- Gasless Gnosis Safe deployment via Polymarket relayer
+- Full backtesting support (single market and rolling series)
+
 **Strategy Base Class:** [`PolymarketStrategy`](/guide/polymarket-strategies) — uses `should_buy_yes()`, `should_buy_no()`, `go_yes()`, `go_no()` instead of long/short methods.
 
 **Data Availability:**
 - Historical YES/NO token price data for backtesting
-- Default timeframe: 1m (fixed for live trading)
+- Multiple timeframes: 1m, 5m, 15m, 30m, 1h, 4h
+- Rolling and single market data
 - Use `get_data_availability` with `data_type="polymarket"` to check available markets
 
 **Further Reading:**
 - [Polymarket Deployments](/guide/polymarket-deployments) — Full deployment guide
 - [Polymarket Strategies](/guide/polymarket-strategies) — Strategy development
+- [Polymarket Overview](/guide/polymarket) — Comprehensive guide
 
 ---
 
@@ -122,7 +136,7 @@ If you'd like to see support for a specific exchange or DEX, please share your f
 | Venue | Type | Asset Types | Status | Deployment Types | Min Capital |
 |-------|------|-------------|--------|------------------|-------------|
 | **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Hyperliquid Vault | 0 (EOA), 200 USDC (Hyperliquid Vault) |
-| **Polymarket** | DEX | YES/NO Tokens | Supported | Polymarket Vault (ERC4626) | 10 POL + USDC.e |
+| **Polymarket** | Prediction Market | YES/NO Tokens | Supported | Polymarket Vault (ERC4626) | 10 POL + 10 USDC.e |
 | Binance | CEX | Spot, Futures | Not Supported | - | - |
 | Bybit | CEX | Spot, Futures | Not Supported | - | - |
 | OKX | CEX | Spot, Futures | Not Supported | - | - |
