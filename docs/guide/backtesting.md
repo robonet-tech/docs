@@ -1,6 +1,6 @@
 # Strategy Backtesting
 
-Robonet backtests use the Jesse Framework with historical data from Hyperliquid. This guide covers execution, parameters, and result interpretation.
+Robonet backtests use the Jesse Framework with historical data from Hyperliquid. This guide covers execution, parameters, and result interpretation for perpetual futures strategies. For prediction market backtesting, see [Polymarket Strategies — Backtesting](/guide/polymarket#backtesting).
 
 ## Running Backtests
 
@@ -158,6 +158,7 @@ Validation (2024): -8% return, 0.3 Sharpe, 42% win rate
 
 - [Strategy Optimization](/guide/optimization) - Parameter tuning and grid search
 - [Allora Integration](/guide/allora) - Enhance strategies with ML predictions
-- [Deployment Guide](/guide/deployment) - Deploy validated strategies to production
+- [Polymarket Strategies](/guide/polymarket) - Prediction market strategy backtesting
+- [Deployment Guide](/guide/strategy-deployment) - Deploy validated strategies to production
 - [MCP Tools Reference](/guide/mcp-tools#run-backtest) - Complete API documentation
 - [Jesse Framework Docs](https://docs.jesse.trade/) - Underlying backtesting engine

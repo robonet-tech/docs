@@ -37,7 +37,9 @@ Robonet lets you deploy automated trading strategies that run around the clock o
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Currently, all strategies execute on **Hyperliquid Perpetuals** — a high-performance perpetual futures DEX with on-chain settlement.
+Strategies can execute on **Hyperliquid Perpetuals** — a high-performance perpetual futures DEX — or on **Polymarket** — a prediction market where agents trade YES/NO binary outcome tokens on Polygon. This page covers the general deployment flow and Hyperliquid-specific details.
+
+For Polymarket-specific deployment details, see the dedicated [Polymarket Deployments](/guide/polymarket-deployments) guide. For Polymarket strategy development, see [Polymarket Strategies](/guide/polymarket-strategies). For a comprehensive overview, see the [Polymarket guide](/guide/polymarket).
 
 ---
 
@@ -136,6 +138,22 @@ Vaults also enable **capital formation**: other users can deposit funds into you
 | **Minimum** | 200 USDC |
 | **Capital Formation** | Other users can deposit into your vault |
 | **Best For** | Multiple strategies, risk isolation, attracting investors |
+
+### Polymarket Vault
+
+Polymarket deployments use a completely different architecture from Hyperliquid — running on the **Polygon** network with an ERC4626 vault, a Safe wallet, and the Polymarket CLOB orderbook. Your agent trades YES/NO binary outcome tokens on prediction markets instead of perpetual futures.
+
+| Aspect | Details |
+|--------|---------|
+| **Network** | Polygon (Chain ID 137) |
+| **Limit** | 1 active deployment per user |
+| **Funds** | USDC.e deposited into ERC4626 vault on Polygon |
+| **Gas** | 10 POL minimum for vault deployment |
+| **Strategy class** | `PolymarketStrategy` (not `Strategy`) |
+| **Leverage** | Fixed at 1.0x |
+| **Best For** | Prediction market trading, binary outcomes |
+
+For full details on setup, vault mechanics, deposits, withdrawals, and the hourly lifecycle, see the dedicated [Polymarket Deployments](/guide/polymarket-deployments) guide. For strategy development, see [Polymarket Strategies](/guide/polymarket-strategies).
 
 ---
 

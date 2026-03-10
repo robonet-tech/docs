@@ -394,9 +394,9 @@ Use create_prediction_market_strategy to build a "PriceThreshold" strategy that:
 
 **Returns:** List of prediction events with:
 - Event name and category
-- Associated markets with condition IDs
-- Market questions and outcomes (YES/NO)
-- Resolution status
+- `slug_pattern` and `event_slug` — use these to identify valid market slugs for `deployment_create`
+- Associated markets with condition IDs and questions
+- Discovery config and active/backfilled status
 
 **Pricing:** Tier 1 - Data Access ($0.001)
 
@@ -479,30 +479,42 @@ Tools for deploying and managing live trading agents on Hyperliquid.
 
 ### `deployment_create`
 
-**Description:** Deploy a strategy to live trading on Hyperliquid.
+**Description:** Deploy a strategy to live trading on Hyperliquid or Polymarket.
 
 **Primary Use Case:** Launch automated trading with your backtested strategy.
 
 **Parameters:**
 - `strategy_name` (required, string): Name of strategy to deploy
-- `symbol` (required, string): Trading pair (e.g., "BTC-USDT")
-- `timeframe` (required, string): Candle interval (1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d)
-- `leverage` (optional, number, 1-5): Position multiplier (default: 1)
-- `deployment_type` (optional, string): "eoa" (wallet) or "vault" (default: eoa)
+- `symbol` (required, string): Trading pair (e.g., "BTC-USDT") or **market slug** for Polymarket (e.g., "btc-up-or-down-15m")
+- `timeframe` (required, string): Candle interval (1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d). **Polymarket: fixed to 1m**
+- `leverage` (optional, number, 1-5): Position multiplier (default: 1). **Polymarket: fixed to 1.0**
+- `deployment_type` (optional, string): "eoa" (wallet), "vault" (Hyperliquid), or "polymarket" (Polymarket vault)
 - `vault_name` (required for vault, string): Unique name for the Hyperliquid vault
 - `vault_description` (optional, string): Description for the vault
+- `performance_fee_pct` (optional, number, 5-50, default: 10): Performance fee percentage — **Polymarket only**. Stored on-chain in basis points (10% = 1000 BPS).
+- `total_assets_limit` (optional, number): Maximum vault TVL in USDC.e — **Polymarket only**
+- `max_deposit_per_wallet` (optional, number): Per-wallet deposit cap in USDC.e — **Polymarket only**
 
-**Returns:** Deployment ID, status, wallet address, and configuration details.
+**Returns:** Deployment ID, status, wallet address, agent ID (vault contract address), and configuration details.
 
 **Pricing:** $0.50
 
 **Constraints:**
 - EOA: Maximum 1 active deployment per wallet
 - Hyperliquid Vault: Requires 200+ USDC in wallet, unlimited deployments
+- Polymarket: Maximum 1 active deployment per user, requires 10 POL on Polygon
+
+::: tip Polymarket Deployments
+For Polymarket, the `symbol` parameter is a **market slug** (e.g., `btc-up-or-down-15m`), not a trading pair. Timeframe is fixed to `1m` and leverage is fixed to `1.0`. Use `get_all_prediction_events` to discover slugs — look for `slug_pattern` (rolling markets) or `event_slug` (single events) in the response. See [Polymarket Deployments](/guide/polymarket-deployments) for full details.
+:::
 
 **Example Usage:**
 ```
+# Hyperliquid
 Deploy MomentumRSI_M to BTC-USDT on 4h timeframe with 2x leverage
+
+# Polymarket
+Deploy ValueBuyer_PM_M to btc-up-or-down-15m on 1m timeframe
 ```
 
 ---
@@ -571,6 +583,88 @@ Start deployment 72130940-4136-497e-a92f-29bab22d73b2
 ```
 Stop my BTC-USDT deployment
 ```
+
+---
+
+::: tip Finding Your agent_id
+The `agent_id` (vault contract address) is returned by `deployment_create` when you first deploy. You can also find it in the `deployment_list` output or in the Robonet web UI under your deployment details. All four tools below (`agent_details`, `agent_deposit`, `agent_withdraw`, `user_position`) require it.
+:::
+
+### `agent_details`
+
+**Description:** Get agent stats for a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** View vault status, TVL, performance metrics, and configuration for a deployed agent.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address (e.g., `0x...`)
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Agent name, status, and type-specific details:
+- **Polymarket:** Vault TVL, price per share, performance fee, active/shutdown status, pending withdrawals
+- **Hyperliquid:** Account value, open positions, follower count
+
+**Pricing:** Free
+
+---
+
+### `agent_deposit`
+
+**Description:** Deposit USDC (Hyperliquid) or USDC.e (Polymarket) into a live trading agent.
+
+**Primary Use Case:** Fund a live trading agent after deployment. An "agent" is a deployed strategy instance; the `agent_id` is the vault contract address.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `amount` (required, number): Amount of USDC to deposit
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Deposit confirmation with transaction details.
+
+::: tip Polymarket Deposits
+For Polymarket agents, deposits go through an ERC-20 approval flow on Polygon. Ensure you have USDC.e and POL for gas on the Polygon network. Use `user_position` to check balances before depositing.
+:::
+
+**Pricing:** Free
+
+---
+
+### `agent_withdraw`
+
+**Description:** Withdraw USDC (Hyperliquid) or USDC.e (Polymarket) from a live trading agent.
+
+**Primary Use Case:** Retrieve funds from a live trading agent.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+- `shares_amount` (optional, number): Number of vault shares to withdraw (**Polymarket only**)
+- `amount_usdc` (optional, number): USDC amount to withdraw (**Hyperliquid only**)
+- `withdraw_all` (optional, boolean): Withdraw entire position (both types)
+
+::: tip Polymarket Withdrawals
+Polymarket withdrawals are share-based, not USDC-based. Use `user_position` to check your share balance first. You can specify `shares_amount` or set `withdraw_all=true`.
+:::
+
+**Pricing:** Free
+
+---
+
+### `user_position`
+
+**Description:** Get your current position in a Polymarket or Hyperliquid agent.
+
+**Primary Use Case:** Check balances, share holdings, and pending withdrawals before depositing or withdrawing.
+
+**Parameters:**
+- `agent_id` (required, string): Agent vault contract address
+- `agent_type` (required, string): `polymarket` or `hyperliquid`
+
+**Returns:** Position details including:
+- **Polymarket:** Wallet USDC.e and POL balances, vault share balance, available deposit/withdraw limits, pending withdrawal status, price per share, vault active status, on-chain performance fee
+- **Hyperliquid:** Wallet balance, vault equity, PnL
+
+**Pricing:** Free
 
 ---
 

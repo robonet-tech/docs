@@ -1,6 +1,6 @@
 # Supported Trading Venues
 
-Robonet currently supports trading on **Hyperliquid Perpetual** only. Support for additional exchanges and DEXs is planned for future releases.
+Robonet currently supports trading on **Hyperliquid** (perpetual futures) and **Polymarket** (prediction markets). Support for additional exchanges and DEXs is planned for future releases.
 
 ## Decentralized Exchanges (DEXs)
 
@@ -50,6 +50,60 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 
 ---
 
+## Prediction Markets
+
+### Polymarket
+
+**Status:** Fully Supported (Polygon Mainnet)
+
+**Type:** Decentralized prediction market (CLOB-based)
+
+**Asset Types:**
+- YES/NO binary outcome tokens
+- USDC.e denominated positions on Polygon (6 decimals)
+
+**Market Types:**
+- **Rolling series** — Recurring crypto markets (e.g., "BTC up or down in 15m") that auto-transition between rounds
+- **Single markets** — One-time event markets with a fixed resolution date
+
+**Network:** Polygon (Chain ID 137)
+
+**Deployment Type:**
+- **Polymarket Vault:** ERC-4626 tokenized vault on Polygon with Gnosis Safe
+  - One active deployment per user
+  - Minimum: 10 POL for gas + 10 USDC.e for trading
+  - Other users can deposit into your vault
+  - Performance fees configurable (1–20%)
+  - Configurable capacity limits
+
+**Special Requirements:**
+- Privy wallet delegation (same as Hyperliquid)
+- 10 POL minimum in wallet for vault contract deployment gas
+- USDC.e on Polygon for trading capital
+- Robonet credits for platform usage
+
+**Features:**
+- Automated rolling market transitions
+- On-chain vault accounting (ERC-4626)
+- Keeper-managed position reporting and withdrawals
+- Gasless Gnosis Safe deployment via Polymarket relayer
+- Full backtesting support (single market and rolling series)
+
+**Strategy Base Class:** [`PolymarketStrategy`](/guide/polymarket-strategies) — uses `should_buy_yes()`, `should_buy_no()`, `go_yes()`, `go_no()` instead of long/short methods.
+
+**Data Availability:**
+- Historical YES/NO token price data for backtesting
+- Multiple timeframes: 1m, 5m, 15m, 30m, 1h, 4h
+- Rolling and single market data
+- Use `get_data_availability` with `data_type="polymarket"` to check available markets
+
+**Further Reading:**
+- [Polymarket Deployments](/guide/polymarket-deployments) — Full deployment guide
+- [Polymarket Strategies](/guide/polymarket-strategies) — Strategy development
+- [Polymarket Overview](/guide/polymarket) — Comprehensive guide
+
+---
+
 ## Centralized Exchanges (CEXs)
 
 **Status:** Not Currently Supported
@@ -82,6 +136,7 @@ If you'd like to see support for a specific exchange or DEX, please share your f
 | Venue | Type | Asset Types | Status | Deployment Types | Min Capital |
 |-------|------|-------------|--------|------------------|-------------|
 | **Hyperliquid Perpetual** | DEX | Perpetuals | Supported | EOA, Hyperliquid Vault | 0 (EOA), 200 USDC (Hyperliquid Vault) |
+| **Polymarket** | Prediction Market | YES/NO Tokens | Supported | Polymarket Vault (ERC4626) | 10 POL + 10 USDC.e |
 | Binance | CEX | Spot, Futures | Not Supported | - | - |
 | Bybit | CEX | Spot, Futures | Not Supported | - | - |
 | OKX | CEX | Spot, Futures | Not Supported | - | - |
@@ -132,7 +187,9 @@ Use the `get_all_symbols` MCP tool to retrieve the current list of supported tra
 ## Related Documentation
 
 - [MCP Tools Reference](/guide/mcp-tools) - See `get_all_symbols` tool for listing available pairs
-- [Wallet Integration](/guide/wallet) - Setup wallet for Hyperliquid trading
-- [Deployment Guide](/guide/deployment) - Deploy strategies to Hyperliquid (EOA or Hyperliquid Vault)
+- [Wallet Integration](/guide/wallet) - Setup wallet for Hyperliquid and Polygon trading
+- [Deployment Guide](/guide/strategy-deployment) - Deploy strategies to Hyperliquid (EOA or Hyperliquid Vault)
+- [Polymarket Deployments](/guide/polymarket-deployments) - Deploy strategies to Polymarket
+- [Polymarket Strategies](/guide/polymarket-strategies) - Build strategies for prediction markets
 - [Strategy Creation](/guide/strategies) - Build strategies for Hyperliquid
-- [Backtesting](/guide/backtesting) - Test strategies with historical Hyperliquid data
+- [Backtesting](/guide/backtesting) - Test strategies with historical data
