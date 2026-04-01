@@ -8,7 +8,6 @@ Robonet uses a **credit-based billing system** where you pay for what you use. T
 
 - Pay-as-you-go pricing (no subscriptions)
 - Fixed or predictable cost per tool
-- $25 welcome bonus for new users
 
 ## Pricing Structure
 
@@ -164,19 +163,9 @@ GET /api/v1/credits/balance
 **Balance Details:**
 - **Available balance**: Credits you can spend right now
 - **Reserved credits**: Credits held during active tool execution
-- **Total deposited**: Lifetime deposits (excluding welcome bonus)
+- **Total deposited**: Lifetime deposits
 - **Total spent**: Lifetime spending across all tools
 - **Total withdrawn**: Lifetime withdrawals back to your wallet
-
-### Welcome Bonus
-
-All new users receive a **$25 welcome bonus** to explore the platform.
-
-**Important notes:**
-- One-time bonus per account
-- Cannot be withdrawn (only used for tools)
-- Tracked separately from deposited credits
-- Spent before deposited credits
 
 ### Rate Limits
 
@@ -261,6 +250,10 @@ Credit reservations expire after 10 minutes if the tool doesn't complete. The cr
 
 Yes. Robonet uses [Privy](https://privy.io) for secure authentication and payment processing. We never handle or store your credit card information or private keys. Credit card payments are processed through Privy's PCI-compliant infrastructure, and USDC payments are on-chain and transparent.
 
+### Are there any other ways to get credits?
+
+Yes, through referrals. If another person signs up via your referral and deposits $100+ into a strategy, your account will get 25 credits. Find your referral code and usage stats on the [referral tab](https://robonet.finance/profile?tab=invites).
+
 ### How can I optimize my costs?
 
 **Cost-saving tips:**
@@ -270,7 +263,6 @@ Yes. Robonet uses [Privy](https://privy.io) for secure authentication and paymen
 - Use "run backtest" ($0.001) multiple times before optimization
 - Review backtest results carefully before running optimization (~$0.60-1.50)
 - Test strategies on shorter time periods first (same cost, faster results)
-- Use the welcome bonus ($25) to experiment with different workflows
 
 ---
 
@@ -282,13 +274,3 @@ If you have questions about billing or need assistance:
 - **Support**: Contact support through the web interface
 - **Transaction Issues**: Check your transaction history and on-chain confirmations
 
-::: tip Getting Started
-New users receive a $25 welcome bonus. This is enough to:
-- Generate 25-125 strategy ideas (depending on complexity)
-- Create 5-30 strategies (depending on complexity)
-- Run 25,000 backtests
-- Optimize 6-40 strategies (depending on complexity)
-- Run 250,000 data access queries
-
-Remember: AI tools show maximum prices but typically cost 20-50% of the maximum. Your $25 will go further than you think!
-:::
