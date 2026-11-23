@@ -4,13 +4,13 @@ Robonet backtests use the Jesse Framework with historical data from Hyperliquid.
 
 ## Running Backtests
 
-Request backtests conversationally:
+Ask your AI coding agent, with the Robonet MCP server connected:
 ```
 "Backtest Momentum Strategy on ETH-USDC from 2024-01-01 to 2024-06-30 using 4h timeframe"
 "Run a backtest on BTC-USDC for the last 6 months"
 ```
 
-Results display as equity curve charts and performance metrics. See [Chat Interface Guide](/guide/chat-interface) for details.
+Results come back as performance metrics and an equity curve. See [MCP Tools Reference](/guide/mcp-tools) for the full output.
 
 ## Parameters
 

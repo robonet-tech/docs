@@ -216,9 +216,9 @@ Strategies follow the pattern: `{Name}_{RiskLevel}[_suffix]`
 - `ValueBuyer_PM_M` - Polymarket strategy, medium risk
 - `MomentumTrader_PM_H` - Polymarket strategy, high risk
 
-## Creating Strategies via Chat
+## Creating Strategies from a Description
 
-The easiest way to create strategies is through natural language:
+The easiest way to create strategies is to describe them to your AI coding agent, with the Robonet MCP server connected:
 
 ```
 Create a momentum strategy that:

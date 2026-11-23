@@ -233,7 +233,7 @@ For a complete reference of all 17 MCP tools with detailed parameters and exampl
 
 - **Learn more about MCP tools**: [MCP Tools Reference](/guide/mcp-tools)
 - **Understand backtesting**: [Backtesting Guide](/guide/backtesting)
-- **Deploy your strategy**: [Deployment Guide](/guide/deployment)
+- **Deploy your strategy**: [Deployment Guide](/guide/strategy-deployment)
 - **Explore Allora integration**: [Allora Network Guide](/guide/allora)
 
 ## Support

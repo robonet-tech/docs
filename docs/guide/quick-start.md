@@ -25,51 +25,21 @@ A strategy that trades against short-term price extremes, enhanced with Allora N
 
 This demonstrates how Allora Network integration can add a predictive layer to traditional technical analysis.
 
-## Choose Your Path
+## Set Up
 
-Robonet offers two different interfaces depending on your needs:
+You use the quant engine from an AI coding agent such as Claude Code, Cursor or Windsurf:
 
-### Should I use Chat or MCP?
+1. Get your Robonet API key
+2. Add the Robonet MCP server to your coding agent
+3. Ask your agent to create, backtest and optimize strategies
 
-**Use the Chat Interface if you:**
-- Want a conversational, guided experience
-- Prefer to describe strategies in natural language
-- Don't need to version control your strategy code
-- Want to quickly iterate on ideas without switching tools
+[Set up the MCP server →](/guide/mcp-server)
 
-**Use the MCP Server if you:**
-- Already use AI coding assistants (Claude Code, Cursor, Windsurf)
-- Want programmatic control over strategy development
-- Need to integrate trading strategy generation into your dev workflow
-- Prefer to work in your own code editor with version control
-
-### For Traders: Chat Interface
-
-If you prefer a guided, conversational experience, use the chat interface:
-
-1. Visit [robonet.finance](https://robonet.finance)
-2. Create an account or log in
-3. Start chatting with the AI to generate your first strategy
-
-Suited for non-technical users
-
-[Learn more about the Chat Interface →](/guide/chat-interface)
-
-### For Developers: MCP Server
-
-If you use AI coding assistants like Claude Code, Cursor, or Windsurf:
-
-1. Install the Robonet MCP server
-2. Configure your coding assistant
-3. Use MCP tools directly in your development workflow
-
-Suited for developers using AI coding assistants
-
-[Learn more about MCP Server Setup →](/guide/mcp-server)
+Optionally, install the [Agent Skills](/guide/agent-skills). They teach your agent how to use Robonet and how to work as a quant trader.
 
 ## Typical Workflow
 
-Regardless of which interface you choose, here's the typical flow:
+Here's the typical flow:
 
 1. **Generate Strategy**: Describe your trading idea or ask for suggestions
 2. **Backtest**: Test the strategy against historical data (default: recent 6 months)
@@ -79,10 +49,11 @@ Regardless of which interface you choose, here's the typical flow:
 
 ## Next Steps
 
-Once you've chosen your interface:
+Once your agent is connected:
 
 - Learn about [Strategy Creation](/guide/strategies)
 - Understand [Backtesting](/guide/backtesting)
 - Explore [Allora Network Integration](/guide/allora)
 - Try [Polymarket Strategies](/guide/polymarket)
 - Read about [Deployment Options](/guide/strategy-deployment)
+- Run a strategy for investors in a [Robonet Vault](/vaults/)

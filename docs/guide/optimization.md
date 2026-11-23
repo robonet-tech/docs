@@ -17,8 +17,8 @@ Manual testing: Try 5 combinations → Takes hours
 Optimizer: Tests 1,200+ combinations → Takes 30-60 seconds
 ```
 
-::: tip For Non-Technical Users
-You don't need to configure optimization yourself. Simply say in the chat: "Optimize this strategy on BTC-USDC for the last 6 months" and Robonet will automatically find better parameter values, create an improved version, and show you the performance difference.
+::: tip You don't need to configure anything
+You don't need to configure optimization yourself. Ask your agent: "Optimize this strategy on BTC-USDC for the last 6 months" and Robonet will automatically find better parameter values, create an improved version, and show you the performance difference.
 :::
 
 ## What Gets Optimized?
@@ -84,25 +84,6 @@ Where:
 
 ## Running an Optimization
 
-### Via Chat Interface
-
-1. **Create or select a strategy** you want to optimize
-2. **Request optimization**: "Optimize this strategy on BTC-USDC for the last 6 months"
-3. **Review the results**: The interface shows:
-   - **Performance comparison**: Before vs After metrics
-   - **Improved metrics**: New Sharpe ratio, max drawdown, win rate
-   - **Parameter changes**: Which values changed and why
-   - **New strategy created**: `{StrategyName}_optimized/` with improved code
-
-**Example prompts:**
-```
-"Optimize MomentumStrategy for ETH-USDC from 2024-01-01 to 2024-06-30"
-"Find better parameters for this strategy on SOL-USDC"
-"Improve the Sharpe ratio for my breakout strategy"
-```
-
-**Screenshot placeholder:** Chat interface showing optimization request with results card comparing original vs optimized performance metrics.
-
 ### Via MCP Server
 
 Use the `optimize_strategy` tool from your coding agent:
@@ -152,7 +133,7 @@ Hyperparameters:
 - **Categorical**: Discrete choices (e.g., ["SMA", "EMA", "WMA"])
 
 ::: tip Viewing Strategy Hyperparameters
-To see which parameters your strategy can optimize, ask in chat: "What parameters can I optimize for this strategy?" The response will list all tunable hyperparameters with their ranges.
+To see which parameters your strategy can optimize, ask your agent: "What parameters can I optimize for this strategy?" The response will list all tunable hyperparameters with their ranges.
 :::
 
 ## Reviewing Optimization Results
@@ -510,7 +491,7 @@ Strategies access optimized values via `self.hp['param_name']` in their code.
 
 ### Requesting Help
 
-If you're unsure about optimization results, ask in the chat:
+If you're unsure about optimization results, ask your agent:
 
 ```
 "Is this optimization overfitted?"
@@ -525,7 +506,7 @@ The AI assistant will analyze your metrics and provide guidance.
 
 - **Backtest your optimized strategy**: See [Backtesting Guide](/guide/backtesting) to validate performance
 - **Enhance with ML predictions**: Learn about [Allora Integration](/guide/allora) for AI-powered signals
-- **Deploy to live trading**: Ready to go live? See [Deployment Guide](/guide/deployment)
+- **Deploy to live trading**: Ready to go live? See [Deployment Guide](/guide/strategy-deployment)
 - **MCP Tools Reference**: Full technical details at [MCP Tools - optimize_strategy](/guide/mcp-tools#optimize-strategy)
 
 ## Learn More
@@ -533,5 +514,4 @@ The AI assistant will analyze your metrics and provide guidance.
 - [Jesse Framework Optimization](https://docs.jesse.trade/docs/optimize.html) - The engine powering Robonet optimization
 - [Optuna Documentation](https://optuna.readthedocs.io/) - Hyperparameter optimization framework
 - [Backtesting Guide](/guide/backtesting) - Validate before and after optimization
-- [Chat Interface Guide](/guide/chat-interface) - Run optimizations conversationally
 - [MCP Server Setup](/guide/mcp-server) - Programmatic optimization via MCP tools

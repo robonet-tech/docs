@@ -1,57 +1,66 @@
 # What is Robonet?
 
-Robonet is a platform that enables you to build and deploy agentic trading bots without writing code. Whether you're a trader looking to automate your strategies or a developer integrating with your preferred AI coding assistant, Robonet provides the tools you need.
+Robonet has two parts:
 
-## Why Robonet Exists
+- **Robonet Vaults** let strategy teams accept capital from investors under rules written into the contract. Investors deposit USDC, the team trades, and the vault enforces how shares are valued and how investors get their money back. See [Robonet Vaults](/vaults/).
+- **The quant engine** turns a trading idea into a tested strategy. It creates strategy code, backtests it, optimizes it and can add Allora Network predictions. You use it from your AI coding agent through the Robonet MCP server.
 
-Existing DeFi trading tools force a tradeoff: either you're technical enough to code, deploy, and monitor your own strategies 24/7, or you hand custody to an asset manager and hope their interests align with yours. Copy-trading makes you reactive – always following, never owning. Strategy marketplaces give you ideas but leave execution as your problem. 
+This section covers the quant engine.
 
-Robonet exists because capital deserves infrastructure that lets anyone with an idea express it, test it, own it, and deploy it – without writing code, surrendering custody, or trusting black boxes.
+```
+  TRADING IDEA ──▶ QUANT ENGINE ──────────────────────────▶ STRATEGY ──▶ DEPLOYMENT
+                   create · backtest · optimize · Allora               or a Robonet Vault
+                   (from your AI coding agent, over MCP)
+```
 
-## The Robonet Mental Model
+## Why Robonet exists
 
-Five abstractions define how Robonet works, each building on the last to take you from idea to autonomous execution:
+Existing DeFi trading tools force a tradeoff. Either you are technical enough to code, deploy and monitor your own strategies around the clock, or you hand custody to an asset manager and trust that their interests match yours. Strategy marketplaces give you ideas but leave execution as your problem.
 
-- **Intent** is your trading idea in plain language: "buy ETH when momentum is strong," "capture funding rates while staying delta-neutral."
-- **Strategy** is that trading idea compiled into structured logic – entry conditions, exit conditions, position sizing, risk parameters, indicator configuration – complete code you own.
-- **Agent** is a strategy deployed on-chain; once live, the strategy cannot be modified, so what you optimized is exactly what runs. Agents continuously evaluate present market conditions and make decisions guarded by immutable strategy code.
-- **Hyperliquid Vault** is the onchain primitive holding capital allocated to an agent, either private (your capital only) or public (pooled capital where creators can charge performance fees).
-- **Capital** is non-custodial – you choose where to deposit, Robonet never holds your funds, and allocation follows verified onchain records.
+Robonet gives you the tools to express an idea, test it and run it, and gives investors vaults whose rules they can check before they invest.
+
+## The quant engine mental model
+
+- **Intent** is your trading idea in plain language: "buy ETH when momentum is strong", "capture funding rates while staying delta-neutral".
+- **Strategy** is that idea compiled into structured logic: entry and exit conditions, position sizing, risk parameters and indicator settings. It is complete code that you own.
+- **Agent** is a strategy deployed to run. Once it is live, the strategy cannot be modified, so what you optimized is exactly what runs.
+- **Vault** is the on-chain container that holds the capital an agent trades.
+- **Capital** stays non-custodial. You choose where to deposit, and allocation follows on-chain records.
 
 ## Capabilities
 
-### Strategy Generation
-Describe your trading idea in plain language. The AI generates executable strategy code.
+### Strategy generation
+
+Describe your trading idea in plain language. The engine generates executable strategy code. See [Strategy Creation](/guide/strategies).
 
 ### Backtesting
-Test your strategies against historical market data to understand how they would have performed. Get detailed performance metrics and visualizations.
+
+Test your strategies against historical market data, with detailed performance metrics. See [Backtesting](/guide/backtesting).
 
 ### Optimization
-Fine-tune your strategy parameters using automated optimization. Find the best configuration for your trading goals.
 
-### Allora Network Integration
-Leverage decentralized price predictions from the Allora Network as signals in your strategies. Access crowd-sourced market intelligence.
+Tune your strategy's parameters automatically to find a better configuration for your goals. See [Optimization](/guide/optimization).
 
-### Polymarket Strategies
-Build and deploy automated prediction market strategies on Polymarket. Trade YES/NO tokens on real-world events with ERC-4626 vault infrastructure on Polygon.
+### Allora Network predictions
+
+Use decentralized price predictions from the Allora Network as signals in your strategies. See [Allora AI Price Predictions](/guide/allora).
+
+### Polymarket strategies
+
+Build and deploy automated strategies on Polymarket prediction markets. See [Polymarket Overview](/guide/polymarket).
 
 ### Deployment
-Deploy your strategies to production with one click. Robonet handles hosting, execution, and monitoring.
 
-## How to Use Robonet
+Deploy a strategy to run on Hyperliquid or Polymarket. See [Deployment](/guide/strategy-deployment).
 
-There are two ways to use Robonet:
+## How to use the quant engine
 
-### Chat Interface
-For traders who want a guided experience. Access the web interface and interact with the AI through conversation.
+Connect the Robonet MCP server to an AI coding agent such as Claude Code, Cursor or Windsurf. Then ask your agent to create, backtest and optimize strategies. Agent skills teach the agent how to use Robonet well.
 
-[Learn about the Chat Interface](/guide/chat-interface)
+- [MCP Server Setup](/guide/mcp-server)
+- [MCP Tools Reference](/guide/mcp-tools)
+- [Agent Skills](/guide/agent-skills)
 
-### MCP Server
-Ideal for developers using AI coding assistants like Claude Code, Cursor, or Windsurf. Integrate Robonet directly into your development workflow.
-
-[Learn about MCP Server Integration](/guide/mcp-server)
-
-## Getting Started
+## Getting started
 
 See the [Quick Start guide](/guide/quick-start).

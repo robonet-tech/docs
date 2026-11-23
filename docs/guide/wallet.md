@@ -333,7 +333,6 @@ No. Each Robonet account is tied to a single embedded wallet address. The wallet
 
 Now that you understand wallet integration:
 
-- **Chat users:** Continue to [Chat Interface Guide](/guide/chat-interface.md) to start building strategies
 - **MCP users:** Set up [MCP Server Integration](/guide/mcp-server.md) for AI agent access
 - **Learn about billing:** Read [Billing & Credits](/guide/billing.md) to understand costs
 

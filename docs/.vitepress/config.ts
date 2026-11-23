@@ -1,19 +1,55 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: ' ',
-  description: 'Build and deploy agentic trading bots',
+  title: 'Robonet Docs',
+  description: 'Vault infrastructure and a quant engine',
 
   // Allow dead links for initial setup - these pages will be created in future stories
   ignoreDeadLinks: true,
 
   themeConfig: {
     logo: 'https://robonet.finance/images/logo/logo.svg',
+    // The logo carries the name; the title above is for the browser tab and search engines.
+    siteTitle: false,
 
     nav: [
+      { text: 'Vaults', link: '/vaults/', activeMatch: '^/vaults/' },
+      { text: 'Quant engine', link: '/guide/', activeMatch: '^/guide/' },
     ],
 
     sidebar: {
+      '/vaults/': [
+        {
+          text: 'Robonet Vaults',
+          items: [
+            { text: 'Overview', link: '/vaults/' },
+            { text: 'Alpha Vaults', link: '/vaults/alpha' },
+            { text: 'Omega Vaults', link: '/vaults/omega' },
+          ]
+        },
+        {
+          text: 'Investors',
+          items: [
+            { text: 'Invest in a vault', link: '/vaults/investing' },
+            { text: 'Withdrawals', link: '/vaults/withdrawals' },
+          ]
+        },
+        {
+          text: 'Operators',
+          items: [
+            { text: 'Launch a vault', link: '/vaults/launch' },
+            { text: 'Run a vault', link: '/vaults/operate' },
+          ]
+        },
+        {
+          text: 'Reference',
+          items: [
+            { text: 'Security and trust model', link: '/vaults/trust' },
+            { text: 'Glossary', link: '/vaults/glossary' },
+            { text: 'FAQ', link: '/vaults/faq' },
+          ]
+        },
+      ],
       '/guide/': [
         {
           text: 'Getting Started',
@@ -23,10 +59,11 @@ export default defineConfig({
           ]
         },
         {
-          text: 'User Guides',
+          text: 'Connect Your Agent',
           items: [
-            { text: 'Chat Interface', link: '/guide/chat-interface' },
-            { text: 'MCP Server Setup', link: '/guide/mcp-server' }
+            { text: 'MCP Server Setup', link: '/guide/mcp-server' },
+            { text: 'MCP Tools Reference', link: '/guide/mcp-tools' },
+            { text: 'Agent Skills', link: '/guide/agent-skills' },
           ]
         },
         {
@@ -45,11 +82,9 @@ export default defineConfig({
         {
           text: 'Platform Features',
           items: [
-            { text: 'Wallet Integration', link: '/guide/wallet' },
             { text: 'Trading Venues', link: '/guide/trading-venues' },
+            { text: 'Wallet Integration', link: '/guide/wallet' },
             { text: 'Billing & Credits', link: '/guide/billing' },
-            { text: 'MCP Tools Reference', link: '/guide/mcp-tools' },
-            { text: 'Agent Skills', link: '/guide/agent-skills' },
           ],
         },
       ],
@@ -74,7 +109,7 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Robonet' }],
     ['meta', { property: 'og:title', content: 'Robonet Docs' }],
-    ['meta', { property: 'og:description', content: 'Deploy Quants at Scale' }],
+    ['meta', { property: 'og:description', content: 'Vault infrastructure and a quant engine' }],
     ['meta', { property: 'og:url', content: 'https://docs.robonet.finance' }],
     ['meta', { property: 'og:image', content: 'https://docs.robonet.finance/og-image.jpg' }],
     ['meta', { property: 'og:image:width', content: '1200' }],
@@ -83,7 +118,7 @@ export default defineConfig({
     ['meta', { property: 'og:locale', content: 'en_US' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'Robonet Docs' }],
-    ['meta', { name: 'twitter:description', content: 'Deploy Quants at Scale' }],
+    ['meta', { name: 'twitter:description', content: 'Vault infrastructure and a quant engine' }],
     ['meta', { name: 'twitter:image', content: 'https://docs.robonet.finance/og-image.jpg' }]
   ],
 

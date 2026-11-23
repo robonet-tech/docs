@@ -3,67 +3,63 @@ layout: home
 
 hero:
   name: Robonet
-  text: Build and Deploy Agentic Trading Bots
-  tagline: Create trading strategies with AI assistance, backtest them, and deploy to web3 exchanges
+  text: Vault infrastructure and a quant engine
+  tagline: Launch vaults with rules written into the contract. Build, backtest and optimize the strategies that run in them.
   actions:
     - theme: brand
-      text: Quick Start
-      link: /guide/quick-start
+      text: Robonet Vaults
+      link: /vaults/
     - theme: alt
-      text: What is Robonet?
+      text: Quant engine
       link: /guide/
 
 features:
-  - icon: 💬
-    title: Chat Interface
-    details: Build strategies through conversation. No coding required.
-    link: /guide/chat-interface
-    linkText: Learn about Chat
-  - icon: 🔌
-    title: MCP Server
-    details: Integrate with Claude Code, Cursor, or Windsurf. 17 tools for building, testing, and deploying strategies.
+  - title: Alpha Vaults
+    details: On-chain trading on Hyperliquid. The trading key can place and cancel orders, and cannot move funds out. Share value comes from on-chain state.
+    link: /vaults/alpha
+    linkText: Learn about Alpha
+  - title: Omega Vaults
+    details: Strategies held at an exchange or custodian, brought on chain. Registered reporters verify the share value. Deposits pause on stale data.
+    link: /vaults/omega
+    linkText: Learn about Omega
+  - title: Invest
+    details: Browse vaults without a wallet, read what the operator can and cannot do, and see one total fee before you invest.
+    link: /vaults/investing
+    linkText: Invest in a vault
+  - title: Launch a vault
+    details: Apply, set your launch terms, pass review and open your vault to investors. Every step runs from the app.
+    link: /vaults/launch
+    linkText: Launch a vault
+  - title: Quant engine
+    details: Build, backtest and optimize strategies from your AI coding agent with the Robonet MCP server and agent skills.
     link: /guide/mcp-server
-    linkText: Learn about MCP
-  - icon: 📊
-    title: Backtesting
-    details: Test strategies against historical data. 200+ technical indicators. Returns Sharpe ratio, drawdown, win rate.
-    link: /guide/backtesting
-    linkText: View Metrics
-  - icon: 🔮
-    title: Allora Network
-    details: Add ML-powered price predictions to strategies. Compare performance before and after integration.
+    linkText: Set up MCP
+  - title: Allora predictions
+    details: Add Allora Network price predictions to a strategy, and compare its performance before and after.
     link: /guide/allora
-    linkText: Learn More
-  - icon: 🚀
-    title: Deployment
-    details: Deploy to Hyperliquid Perpetual via EOA (direct wallet) or Hyperliquid Vault (200 USDC minimum). Kubernetes-managed execution.
-    link: /guide/strategy-deployment
-    linkText: Deploy Now
-  - icon: 💳
-    title: Billing
-    details: Pay for what you use. AI tools billed at cost + margin, compute tools at fixed rates. No subscriptions.
-    link: /guide/billing
-    linkText: View Pricing
+    linkText: Learn more
 ---
 
-## Two Ways to Build Trading Strategies
+## Two parts of Robonet
 
 <div class="flex">
 <div class="box">
 
-### For Traders: Chat Interface
-For non-technical users who want a guided experience. Describe your strategy in plain language.
+### Robonet Vaults
 
-[Get Started with Chat →](/guide/chat-interface)
+Vault infrastructure for strategy operators and the investors who back them. Two models, Alpha and Omega, in one app with withdrawal rules that every investor can check.
+
+[Read about Robonet Vaults →](/vaults/)
 
 </div>
 
 <div class="box">
 
-### For Developers: MCP Integration
-Integrate Robonet directly into your AI coding assistant workflow. Access 17 specialized tools for strategy creation, backtesting, and deployment.
+### Quant engine
 
-[Set Up MCP Server →](/guide/mcp-server)
+The tools that turn a trading idea into a tested strategy: strategy creation, backtesting, optimization and Allora predictions. Use them from Claude Code, Cursor or any MCP client.
+
+[Read about the quant engine →](/guide/)
 
 </div>
 

@@ -16,7 +16,7 @@ Robonet currently supports trading on **Hyperliquid** (perpetual futures) and **
 - USDC-denominated positions
 
 **Supported Pairs:**
-Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_symbols`](/guide/mcp-tools#get_all_symbols) MCP tool to see the current list of available trading pairs.
+Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_symbols`](/guide/mcp-tools#get-all-symbols) MCP tool to see the current list of available trading pairs.
 
 **Deployment Types:**
 - **EOA (Externally Owned Account):** Trade directly with your wallet
@@ -25,7 +25,7 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 - **Hyperliquid Vault:** Create a vault for your strategy
   - Minimum: 200 USDC
   - Unlimited deployments per user
-  - Hyperliquid Vault creation handled automatically via MCP or chat interface
+  - Hyperliquid Vault creation handled automatically via MCP
 
 **Network Support:**
 - **Mainnet:** Production trading with real funds
@@ -108,9 +108,11 @@ Hyperliquid offers a wide range of perpetual futures pairs. Use the [`get_all_sy
 
 **Status:** Not Currently Supported
 
-Robonet does not currently support centralized exchanges like Binance, Bybit, OKX, Coinbase, or others. All trading is done on Hyperliquid Perpetual.
+The quant engine does not deploy strategies to centralized exchanges like Binance, Bybit, OKX or Coinbase. All quant engine trading runs on Hyperliquid and Polymarket.
 
-Support for CEXs may be added in future releases based on user demand.
+::: tip Running a strategy at an exchange?
+[Omega Vaults](/vaults/omega) let managers whose strategies run at a centralized exchange or custodian accept on-chain deposits, with independently verified valuation.
+:::
 
 ---
 
@@ -180,7 +182,6 @@ Hyperliquid uses the format: `BASE-QUOTE`
 
 ::: tip Get Available Symbols
 Use the `get_all_symbols` MCP tool to retrieve the current list of supported trading pairs:
-- Via chat: "Show me all available trading pairs"
 - Via MCP client: Call the `get_all_symbols` tool with optional `exchange` filter
 :::
 

@@ -92,7 +92,7 @@ Robonet provides 4 dedicated MCP tools for Polymarket. For full parameter detail
 2. get_prediction_market_data       → Analyze price history
 3. create_prediction_market_strategy → Build your strategy
 4. run_prediction_market_backtest   → Validate performance
-5. Deploy via chat or MCP           → Go live
+5. Deploy via MCP                   → Go live
 ```
 
 ## Building Strategies
@@ -243,15 +243,6 @@ class MeanReversion_PM_M(PolymarketStrategy):
 ### Creating via AI
 
 The fastest way to build a strategy is through AI generation:
-
-**Via Chat Interface:**
-```
-Create a prediction market strategy called "PriceThreshold" that:
-- Buys YES when price < 0.40 (undervalued)
-- Buys NO when price > 0.60 (overvalued)
-- Uses 50% of available margin per trade
-- Exits positions when price returns to 0.45-0.55 range
-```
 
 **Via MCP Server:**
 ```

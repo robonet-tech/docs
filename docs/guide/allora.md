@@ -105,20 +105,6 @@ Allora Network → PostgreSQL → Strategy.get_predictions() → Trading Decisio
 
 The easiest way to add Allora predictions to an existing strategy is through AI enhancement.
 
-#### Via Chat Interface
-
-Simply ask:
-```
-"Enhance my strategy 'MyTrendFollower' with Allora predictions for BTC-USDT on the 8h timeframe"
-```
-
-The AI will:
-1. Analyze your existing strategy logic
-2. Identify optimal integration points
-3. Add Allora prediction signals
-4. Preserve your risk management rules
-5. Run before/after backtests for comparison
-
 #### Via MCP Server
 
 ```python
@@ -365,12 +351,6 @@ def safe_allora_signal(self):
 
 To see all available prediction topics:
 
-### Via Chat Interface
-
-```
-"What Allora prediction topics are available?"
-```
-
 ### Via MCP Server
 
 ```python
@@ -613,7 +593,6 @@ While Allora doesn't provide explicit confidence scores, you can derive confiden
 ## Related Documentation
 
 - [MCP Tools Reference](/guide/mcp-tools) - All available tools including `enhance_with_allora`
-- [Chat Interface Guide](/guide/chat-interface) - Using Allora via chat
 - [Strategy Creation](/guide/strategies) - Building custom strategies
 - [Backtesting Guide](/guide/backtesting) - Testing Allora strategies
 
