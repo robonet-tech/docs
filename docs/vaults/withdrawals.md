@@ -72,6 +72,8 @@ On an Alpha Vault, a late request does not depend on the operator.
 
 Recovery is not a claim. It closes the vault to deposits and unwinds the strategy. It settles at market prices and depends on the liquidity available in the market.
 
+Robonet has tested recovery on mainnet with real funds. A wallet with no role in the vault ran it.
+
 ### Late requests on an Omega Vault
 
 On an Omega Vault, a late request is paid from the vault's cash when there is cash. The operator must return capital from the exchange or custodian. The request page shows that the claim is overdue and offers **Get help**, with the request attached.

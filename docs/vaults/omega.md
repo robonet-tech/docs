@@ -19,7 +19,7 @@ Funds, trading firms and managers whose strategies run on centralized exchanges 
 
 ### Disclosed custody
 
-Each vault names who holds the assets: the operator, the exchange or a custodian. Investors know where their capital sits before they invest.
+Each vault names the asset holder: the operator, an exchange or a custodian. Investors know where their assets are held before they invest.
 
 ### Independently verified valuation
 

@@ -2,7 +2,7 @@
 
 Robonet Vaults let a strategy team accept capital from investors under rules that the team cannot change on its own. Investors deposit USDC and receive vault shares. The team trades. The vault records who owns what, how the shares are valued and how investors get their money back.
 
-There are two vault models. Each vault uses one of them.
+There are two vault models. Each vault uses one of them. Alpha removes operator custody. Omega makes it explicit.
 
 | | Alpha Vault | Omega Vault |
 |---|---|---|
@@ -13,7 +13,7 @@ There are two vault models. Each vault uses one of them.
 | **Share value comes from** | On-chain balances and the vault's Hyperliquid account | Valuation reports from registered reporters, accepted after a challenge window |
 | **Operator can move funds out** | No. The trading key can only place and cancel orders | Capital moves to the venue named in the vault |
 | **If a withdrawal is overdue** | Anyone can start recovery | Claims are paid from the vault's cash; the operator must return capital |
-| **Operator access** | Approved operators | Approved operators after KYB |
+| **Operator access** | Approved operators. No KYC | Approved operators after KYB |
 
 [Alpha Vaults →](/vaults/alpha) · [Omega Vaults →](/vaults/omega)
 
@@ -94,6 +94,12 @@ Apply, set your launch terms and open your vault to investors.
 
 ## For chains and trading venues
 
-Robonet works with chains and venues that want vaults on their ecosystem. This can include a branded vault app, adapters for your venues, and support for the apps that build on you. Robonet can host it, embed it in your product, or give you the parts to run it yourself.
+Robonet works with chains and trading venues that want vaults in their ecosystem. The apps in your ecosystem get a shared foundation for launching and running vaults:
+
+- A Vault Studio with your chain's branding, plus adapters for your venues
+- Sponsored vaults for your top apps
+- Co-marketing, and a shared ecosystem dashboard for deposits and volume
+
+Robonet can host it (in days), embed it in your product (in days to weeks) or give you the parts to run it headless (in weeks).
 
 Contact the team at [support@robonet.finance](mailto:support@robonet.finance).

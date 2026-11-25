@@ -58,7 +58,7 @@ One line under the header says which withdrawal paths are open now. If Robonet p
 |---|---|
 | **Overview** | The strategy (venues, leverage cap, maximum drawdown target, withdrawal paths), a performance summary, the total fee, the deposit policies and any approved term change with the date it applies |
 | **Performance** | Share value, net profit and loss and return over 1D, 1W, 1M, 3M, YTD and All, plus drawdown. Each chart states its basis, for example "after fees, since inception". You can download the series as CSV |
-| **Transparency** | What the operator can and cannot do. Alpha: the permission map and the recovery rule. Omega: who holds custody, the reporters and the report timeline. Also the fees, the risks, the contract release and its audit status |
+| **Transparency** | What the operator can and cannot do. Alpha: the permission map and the recovery rule. Omega: who holds custody, the reporters and the report timeline. Also the fees, the risks, the contract release and its [audit status](/vaults/audits) |
 | **Withdrawals** | Your requests on this vault, with their stage |
 | **Activity** | Your transactions on this vault, each linked to the block explorer |
 

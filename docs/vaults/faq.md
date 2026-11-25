@@ -42,7 +42,11 @@ Only if the vault's policy requires it. The vault page tells you before you star
 
 ### Who can launch a vault?
 
-Approved operators. You apply for a workspace, and Robonet reviews it. Omega operators also complete KYB. See [Launch a vault](/vaults/launch).
+Approved operators. You apply for a workspace, and Robonet reviews it. Alpha operators do not need KYC. Omega operators complete KYB. See [Launch a vault](/vaults/launch).
+
+### Are the contracts audited?
+
+The Alpha engine was audited by Hashlock, with no critical findings. Each vault's Transparency tab shows the audit status of its own release. See [Audits](/vaults/audits).
 
 ### Which model should I choose?
 

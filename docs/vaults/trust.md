@@ -1,6 +1,6 @@
 # Security and trust model
 
-This page explains who can do what in a Robonet Vault, which rules the contract enforces, and which risks remain.
+This page explains the roles and permissions in a Robonet Vault, which rules the contract enforces, and which risks remain.
 
 ## Principles
 
@@ -63,7 +63,9 @@ The region check runs on the server before any wallet step. If the check cannot 
 
 ## Audits
 
-The Alpha engine was audited by Hashlock. Every vault's **Transparency** tab shows the audit status of its deployed release, with links to the contracts on the block explorer. If no audit applies to a vault's release, the tab says "no audit on file".
+Hashlock audited the Alpha engine, the contracts that every Alpha Vault runs, and found no critical issues. Every vault's **Transparency** tab shows the audit status of its deployed release, with links to the contracts on the block explorer. If no audit applies to a vault's release, the tab says "no audit on file".
+
+Read what the audit covers in [Audits](/vaults/audits).
 
 ## Risks
 

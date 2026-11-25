@@ -9,7 +9,9 @@ An Alpha Vault holds investor capital in a smart contract on HyperEVM and trades
 | **Network fees** | Paid in HYPE |
 | **Markets** | Hyperliquid perpetuals and spot markets on the vault's market whitelist |
 | **Shares** | ERC-4626 |
-| **Audit** | The Alpha engine was audited by Hashlock. Each vault's Transparency tab shows the audit status of its deployed release |
+| **Cost to deploy** | About $1 in network fees |
+| **Operator access** | Approved operators. No KYC |
+| **Audit** | The Alpha engine was audited by Hashlock, with no critical findings. See [Audits](/vaults/audits) |
 
 ## Three guarantees
 
@@ -33,14 +35,14 @@ Every order passes the contract before it reaches the market.
  1. STRATEGY          2. TRADING KEY         3. VAULT CHECKS          4. HYPERLIQUID
  ┌──────────┐        ┌──────────────┐       ┌──────────────────┐      ┌──────────────┐
  │ signals  │ ─────▶ │ place order  │ ────▶ │ market whitelist │ ───▶ │ order rests  │
- │ decide   │        │ cancel order │       │ price band       │      │ under the    │
- │ the trade│        │ (no withdraw)│       │ leverage cap     │      │ vault's own  │
+ │ determine│        │ cancel order │       │ price band       │      │ under the    │
+ │ trades   │        │ (no withdraw)│       │ leverage cap     │      │ vault's own  │
  └──────────┘        └──────────────┘       │ destination lock │      │ account      │
                                             └──────────────────┘      └──────────────┘
                                               a failed check reverts
 ```
 
-1. **Your strategy** decides what to trade.
+1. **Your strategy** produces signals. Your signals determine the trades.
 2. **The trading key** sends the order to the vault contract.
 3. **The vault checks the order** against the rules set at launch. If a check fails, the transaction reverts and nothing reaches the market.
 4. **Hyperliquid executes** the order under the vault's own account. The vault reads its value from that same account, so the share value always reflects the actual positions.
@@ -58,7 +60,16 @@ The operator sets these rules at launch. The contract applies them to every orde
 
 The vault's Overview and Transparency tabs show these rules. The operator's workspace also lists every order the contract refused, with the time and the rule that refused it.
 
-## Permission map
+## Markets
+
+| Market | What the vault can do |
+|---|---|
+| **Spot** | Place limit orders on Hyperliquid's order book, under the vault's own account |
+| **Perpetuals** | Go long or short on whitelisted markets, within the leverage cap |
+
+Earn, Liquidity and Hybrid vaults are in development. Each one will ship as a separate contract, so the audited Alpha engine does not change.
+
+## Roles and permissions
 
 | Who | Can | Cannot |
 |---|---|---|

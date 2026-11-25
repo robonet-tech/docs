@@ -45,6 +45,7 @@ export default defineConfig({
           text: 'Reference',
           items: [
             { text: 'Security and trust model', link: '/vaults/trust' },
+            { text: 'Audits', link: '/vaults/audits' },
             { text: 'Glossary', link: '/vaults/glossary' },
             { text: 'FAQ', link: '/vaults/faq' },
           ]

@@ -15,7 +15,7 @@ hero:
 
 features:
   - title: Alpha Vaults
-    details: On-chain trading on Hyperliquid. The trading key can place and cancel orders, and cannot move funds out. Share value comes from on-chain state.
+    details: On-chain trading on Hyperliquid. The trading key can place and cancel orders, and cannot move funds out. Share value comes from on-chain state. The engine is audited by Hashlock.
     link: /vaults/alpha
     linkText: Learn about Alpha
   - title: Omega Vaults
